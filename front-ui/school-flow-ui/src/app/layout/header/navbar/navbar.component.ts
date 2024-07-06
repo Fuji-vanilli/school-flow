@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,9 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  kcService= inject(KeycloakService);
+
   logout() {
-    
+    this.kcService.logout(window.location.origin);
   }
 }

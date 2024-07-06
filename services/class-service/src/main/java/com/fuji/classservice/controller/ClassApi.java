@@ -2,7 +2,6 @@ package com.fuji.classservice.controller;
 
 import com.fuji.classservice.DTO.ClassRequest;
 import com.fuji.classservice.DTO.ClassResponse;
-import com.fuji.classservice.entities.Level;
 import com.fuji.classservice.models.Professor.Professor;
 import com.fuji.classservice.models.Student.Student;
 import com.fuji.classservice.services.ClassService;
@@ -42,7 +41,7 @@ public class ClassApi implements ClassController {
     }
 
     @Override
-    public ResponseEntity<ClassResponse> get(Level level) {
+    public ResponseEntity<ClassResponse> get(String level) {
         return ResponseEntity.ok(classService.getByLevel(level));
     }
 

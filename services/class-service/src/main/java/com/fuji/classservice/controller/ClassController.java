@@ -2,7 +2,6 @@ package com.fuji.classservice.controller;
 
 import com.fuji.classservice.DTO.ClassRequest;
 import com.fuji.classservice.DTO.ClassResponse;
-import com.fuji.classservice.entities.Level;
 import com.fuji.classservice.models.Professor.Professor;
 import com.fuji.classservice.models.Student.Student;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +19,7 @@ public interface ClassController {
     @PatchMapping("add-professor")
     ResponseEntity<ClassResponse> addProfessor(@RequestBody Professor professor);
     @GetMapping("get/{level}")
-    ResponseEntity<ClassResponse> get(@PathVariable Level level);
+    ResponseEntity<ClassResponse> get(@PathVariable String level);
     @GetMapping("all")
     ResponseEntity<List<ClassResponse>> getAll();
     @DeleteMapping("delete/{id}")

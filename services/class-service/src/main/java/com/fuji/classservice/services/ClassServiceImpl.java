@@ -3,7 +3,6 @@ package com.fuji.classservice.services;
 import com.fuji.classservice.DTO.ClassRequest;
 import com.fuji.classservice.DTO.ClassResponse;
 import com.fuji.classservice.entities.Class;
-import com.fuji.classservice.entities.Level;
 import com.fuji.classservice.mapper.ClassMapper;
 import com.fuji.classservice.models.Professor.Professor;
 import com.fuji.classservice.models.Student.Student;
@@ -12,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.Instant;
 import java.util.List;
@@ -60,7 +58,7 @@ public class ClassServiceImpl implements ClassService{
     }
 
     @Override
-    public ClassResponse getByLevel(Level level) {
+    public ClassResponse getByLevel(String level) {
         return null;
     }
 

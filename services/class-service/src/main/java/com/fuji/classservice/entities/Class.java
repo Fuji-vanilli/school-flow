@@ -18,7 +18,7 @@ import java.util.List;
 public class Class {
     @Id
     private String id;
-    private Level level;
+    private String level;
     private Section section;
     private BigDecimal numberOfStudents;
     private BigDecimal ecolage;

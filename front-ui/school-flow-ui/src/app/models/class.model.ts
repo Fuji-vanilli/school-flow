@@ -4,7 +4,7 @@ import { Student } from "./student.model";
 
 export interface Class {
     id?: string,
-    level: Level,
+    level: string,
     section?: Section,
     numberOfStudents?: number,
     maximumCapacity?: number,
@@ -13,24 +13,6 @@ export interface Class {
     professors?: Array<Professor>,
     cretedDate?: Date,
     lastModifiedDate?: Date
-}
-
-export enum Level {
-    PS,
-    MS,
-    GS,
-    CP,
-    CE1,
-    CE2,
-    CM1,
-    CM2,
-    SIXIEME,
-    CINQUIEME,
-    QUATRIEME,
-    TROISIEME,
-    SECOND,
-    PREMIERE,
-    TERMINALE
 }
 
 export enum Section {

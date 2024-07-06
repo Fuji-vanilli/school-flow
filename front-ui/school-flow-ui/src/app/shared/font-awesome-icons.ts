@@ -1,4 +1,4 @@
-import { faBell, faCircleCheck, faCommentDots } from "@fortawesome/free-regular-svg-icons";
+import { faBell, faCircleCheck, faCommentDots, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import {
   faBook,
   faBookOpenReader,
@@ -16,6 +16,7 @@ import {
   faPlus,
   faRightFromBracket,
   faSchoolFlag,
+  faTrashCan,
   faUser,
   faWallet,
   IconDefinition
@@ -44,6 +45,8 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faBell,
   faCommentDots,
   faCircleCheck,
-  faPlus
+  faPlus,
+  faPenToSquare,
+  faTrashCan
 
 ]

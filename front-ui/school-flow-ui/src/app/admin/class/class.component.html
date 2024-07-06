@@ -1,7 +1,7 @@
 <div class="contain">
     <div class="row">
         <div class="col-md-9 left">
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                   <tr>
                     <th scope="col"></th>
@@ -11,25 +11,32 @@
                     <th scope="col">Nb d'Etudiants</th>
                     <th scope="col">Nb de Professeurs</th>
                     <th scope="col">Ecolage</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let aClass of classes">
-                  <tr>
+                <tbody>
+                  <tr *ngFor="let aClass of classes">
                     <td>
                         <fa-icon [icon]="['far', 'circle-check']"></fa-icon>
                     </td>
-                    <td>{{aClass.level.toString().toLowerCase()}}</td>
+                    <td>{{aClass.level.charAt(0).toUpperCase()+aClass.level.slice(1)}}</td>
                     <td>{{aClass.section}}</td>
                     <td>{{aClass.maximumCapacity}}</td>
                     <td>{{aClass.students?.length}}</td>
                     <td>{{aClass.professors?.length}}</td>
                     <td>{{aClass.ecolage}}</td>
+                    <td>
+                        <div class="action">
+                            <fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon>
+                            <fa-icon [icon]="['fas', 'trash-can']" class="delete"></fa-icon>
+                        </div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
         </div>
         <div class="col-md-3 right">
-            <button class="add-class">
+            <button class="add-class" routerLink="/admin/add-class">
                 <fa-icon [icon]="['fas', 'plus']"></fa-icon>
                 <span>Ajouter une classe</span>
             </button>

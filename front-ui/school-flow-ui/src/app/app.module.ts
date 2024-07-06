@@ -19,6 +19,8 @@ import { EcolageComponent } from './admin/ecolage/ecolage.component';
 import { SalaryComponent } from './admin/salary/salary.component';
 import { NoteComponent } from './admin/note/note.component';
 import { ClassConcilComponent } from './admin/class-concil/class-concil.component';
+import { AddClassComponent } from './admin/add-class/add-class.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -51,14 +53,17 @@ function initializeKeycloak(keycloak: KeycloakService) {
     EcolageComponent,
     SalaryComponent,
     NoteComponent,
-    ClassConcilComponent
+    ClassConcilComponent,
+    AddClassComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     KeycloakAngularModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),
