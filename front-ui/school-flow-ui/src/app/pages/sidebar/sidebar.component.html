@@ -23,25 +23,25 @@
                         </a>
                     </li>
                     <li>
-                        <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLinkActive="active" routerLink="/admin/class" [routerLinkActiveOptions]="{exact: true}">
                             <fa-icon [icon]="['fas', 'school-flag']"></fa-icon>
                             <span class="text">Classe</span>
                         </a>
                     </li>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/categories" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLinkActive="active" routerLink="/admin/student" [routerLinkActiveOptions]="{exact: true}">
                             <fa-icon [icon]="['fas', 'book-open-reader']"></fa-icon>
                             <span class="text">Etudiants</span>
                         </a>
                     </li>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLinkActive="active" routerLink="/admin/professor" [routerLinkActiveOptions]="{exact: true}">
                             <fa-icon [icon]="['fas', 'graduation-cap']"></fa-icon>
                             <span class="text">Professeurs</span>
                         </a>
                     </li>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLinkActive="active" routerLink="/admin/time-table" [routerLinkActiveOptions]="{exact: true}">
                             <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
                             <span class="text">Emploi du temps</span>
                         </a>
@@ -52,13 +52,13 @@
                 <p class="title">Paiement</p>
                 <ul>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLinkActive="active" routerLink="/admin/ecolage" [routerLinkActiveOptions]="{exact: true}">
                             <fa-icon [icon]="['fas', 'money-check-dollar']"></fa-icon>
                             <span class="text">Ecolage</span>
                         </a>
                     </li>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLinkActive="active" routerLink="/admin/salary" [routerLinkActiveOptions]="{exact: true}">
                             <fa-icon [icon]="['fas', 'wallet']"></fa-icon>
                             <span class="text">Salaire</span>
                         </a>
@@ -69,13 +69,13 @@
                 <p class="title">Etudes</p>
                 <ul>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLinkActive="active" routerLink="/admin/note" [routerLinkActiveOptions]="{exact: true}">
                             <fa-icon [icon]="['fas', 'book']"></fa-icon>
                             <span class="text">Bulletin</span>
                         </a>
                     </li>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLinkActive="active" routerLink="/admin/class-concil" [routerLinkActiveOptions]="{exact: true}">
                             <fa-icon [icon]="['fas', 'gavel']"></fa-icon>
                             <span class="text">Conseil de classe</span>
                         </a>
@@ -89,6 +89,7 @@
     </div>
     
     <section class="home">
+        <app-navbar class="nav-bar"></app-navbar>
         <router-outlet></router-outlet>
     </section>
 </div>
