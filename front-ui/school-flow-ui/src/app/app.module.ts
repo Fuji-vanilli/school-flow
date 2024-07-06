@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { ClassComponent } from './admin/class/class.component';
+import { StudentComponent } from './admin/student/student.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -37,7 +38,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HomeComponent,
     DashboardComponent,
     SidebarComponent,
-    ClassComponent
+    ClassComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,

@@ -6,13 +6,15 @@ import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import path from 'path';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ClassComponent } from './admin/class/class.component';
+import { StudentComponent } from './admin/student/student.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'admin', component: SidebarComponent, canActivate: [AuthGuard], data: {roles:'ADMIN'}, 
     children: [
       { path: '', component: DashboardComponent },
-      { path: 'class', component: ClassComponent }
+      { path: 'class', component: ClassComponent },
+      { path: 'student', component: StudentComponent }
     ]
   }
 ];
