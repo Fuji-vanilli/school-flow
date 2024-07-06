@@ -35,7 +35,6 @@ services:
     networks:
       - school-flow-networks
 
-
   mongodb-student:
     image: mongo
     container_name: mongodb-student
@@ -66,8 +65,8 @@ services:
     networks:
       - school-flow-networks
 
-  mongo-expres-student:
-    image: mongo-express-student
+  mongo-express-student:
+    image: mongo-express
     ports:
       - "8081:8081"
     environment:
@@ -79,7 +78,7 @@ services:
     networks:
       - school-flow-networks
 
-  mongo-expres-professor:
+  mongo-express-professor:
     image: mongo-express
     ports:
       - "8082:8081"
