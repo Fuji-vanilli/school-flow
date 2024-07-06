@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/school-flow.iml" filepath="$PROJECT_DIR$/school-flow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../school-flow-config-repo/school-flow-config-repo.iml" filepath="$PROJECT_DIR$/../school-flow-config-repo/school-flow-config-repo.iml" />
     </modules>
   </component>
 </project>
