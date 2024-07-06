@@ -36,9 +36,9 @@ services:
       - school-flow-networks
 
 
-  mongodb-user:
+  mongodb-student:
     image: mongo
-    container_name: mongodb-user
+    container_name: mongodb-student
     ports:
       - "27017:27017"
     environment:
@@ -49,9 +49,9 @@ services:
     networks:
       - school-flow-networks
 
-  mongodb-property:
+  mongodb-professor:
     image: mongo
-    container_name: mongodb-property
+    container_name: mongodb-professor
     ports:
       - "27018:27017"
     expose:
