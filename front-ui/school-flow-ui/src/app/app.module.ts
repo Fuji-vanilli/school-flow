@@ -13,6 +13,7 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { ClassComponent } from './admin/class/class.component';
 import { StudentComponent } from './admin/student/student.component';
+import { ProfessorComponent } from './admin/professor/professor.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -39,7 +40,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     DashboardComponent,
     SidebarComponent,
     ClassComponent,
-    StudentComponent
+    StudentComponent,
+    ProfessorComponent
   ],
   imports: [
     BrowserModule,
