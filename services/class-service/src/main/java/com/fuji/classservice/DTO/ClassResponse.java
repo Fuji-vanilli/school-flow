@@ -7,16 +7,16 @@ import com.fuji.classservice.models.Student.Student;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
+import java.util.List;
 
-public record ClassRequest(
-        @NotNull(message = "level required:")
+public record ClassResponse(
+        String id,
         Level level,
-        @NotNull(message = "section required!")
         Section section,
-        @NotNull(message = "maximum capacity required!")
         BigDecimal maximumCapacity,
-        @NotNull(message = "ecolage amount required!")
-        BigDecimal ecolage
+        BigDecimal numberOfStudents,
+        BigDecimal ecolage,
+        List<Student> students,
+        List<Professor> professors
 ) {
-
 }

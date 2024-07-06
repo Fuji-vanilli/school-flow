@@ -17,9 +17,11 @@ import java.util.List;
 public class Class {
     @Id
     private String id;
-    private String level;
-    private String section;
+    private Level level;
+    private Section section;
     private BigDecimal numberOfStudents;
+    private BigDecimal ecolage;
+    private BigDecimal maximumCapacity;
     private List<Student> students= new ArrayList<>();
     private List<Professor> professors= new ArrayList<>();
 }
