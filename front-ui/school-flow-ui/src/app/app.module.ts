@@ -17,6 +17,7 @@ import { ProfessorComponent } from './admin/professor/professor.component';
 import { TimeTableComponent } from './admin/time-table/time-table.component';
 import { EcolageComponent } from './admin/ecolage/ecolage.component';
 import { SalaryComponent } from './admin/salary/salary.component';
+import { NoteComponent } from './admin/note/note.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -47,7 +48,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     ProfessorComponent,
     TimeTableComponent,
     EcolageComponent,
-    SalaryComponent
+    SalaryComponent,
+    NoteComponent
   ],
   imports: [
     BrowserModule,
