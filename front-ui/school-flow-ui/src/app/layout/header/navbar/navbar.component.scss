@@ -1,6 +1,8 @@
 .navbar {
     padding-left: 100px;
-    padding-top: 24px;
+    padding-top: 6px;
+    //border-bottom: 1px solid var(--text-300);
+    background: var(--text-100);
 
     .box-search {
         //border: 1px solid var(--primary-100);
@@ -35,11 +37,11 @@
         justify-content: center;
 
         li {
-            margin-left: 14px;
+            margin-left: 6px;
             
             .notification, .message {
                 border: 0;
-                background: var(--green-50); 
+                background: var(--green-100); 
                 border-radius: 50%;
                 width: 35px;
                 height: 35px;
@@ -70,27 +72,6 @@ a {
     margin-left: 14px;
   }
 
-
-.make-online {
-  cursor: pointer;
-  fa-icon {
-    font-size: 20px;
-    color: var(--bg-100);
-  }
-
-  span {
-    margin-left: 12px;
-  }
-}
-
-.make-online:hover {
-  color: var(--primary-100);
-
-  fa-icon {
-    color: var(--primary-100);
-  }
-}
-
 ul {
   margin: 0;
   padding: 0;
@@ -110,7 +91,7 @@ li ul {
   position: absolute;
   background-color: var(--bg-100);
   align-items: flex-start;
-  padding: 1rem 1rem;
+  padding: 1rem 2rem 1rem 0;
   width: 15rem;
   right: -2rem;
   top: 3.3rem;
@@ -137,24 +118,24 @@ li ul {
     fa-icon:hover {
       transform: scale(1.25) translateY(-4px);
       cursor: pointer;
-      color: var(--bg-100);
+      color: var(-primary-100);
     }
   
     span {
-      color: var(--bg-100)
+      color: var(--text-100)
     }
 
   }
 
   .sub-item:hover {
-    background: #ffffff;
+    background: var(--bg-200);
     cursor: pointer;
     border-radius: 0.5rem;
 
   }
 
   .sub-item:hover fa-icon {
-    color: var(--bg-100);
+    color: var(--primary-100);
     transform: scale(1.08) translateY(-2px); 
   }
 }

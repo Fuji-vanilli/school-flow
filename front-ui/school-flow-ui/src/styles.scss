@@ -64,12 +64,6 @@ $my-theme-dark: mat.define-dark-theme((
 
 html, body { height: 100%; }
 
-body {
-    font-family: 'Poppins','Roboto','Ubuntu';
-    overflow-x: hidden;
-    background: #27272a;
-}
-
 body::-webkit-scrollbar-thumb {
   background: #dc2626;
   border-radius: 12px;

@@ -22,7 +22,7 @@ const routes: Routes = [
       { path: 'class', component: ClassComponent },
       { path: 'student', component: StudentComponent },
       { path: 'professor', component: ProfessorComponent },
-      { path: 'time-tale', component: TimeTableComponent },
+      { path: 'time-table', component: TimeTableComponent },
       { path: 'ecolage', component: EcolageComponent },
       { path: 'salary', component: SalaryComponent },
       { path: 'note', component: NoteComponent },

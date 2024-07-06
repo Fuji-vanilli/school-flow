@@ -7,6 +7,7 @@ export interface Class {
     level: Level,
     section?: Section,
     numberOfStudents?: number,
+    maximumCapacity?: number,
     ecolage?: number,
     students?: Array<Student>,
     professors?: Array<Professor>,

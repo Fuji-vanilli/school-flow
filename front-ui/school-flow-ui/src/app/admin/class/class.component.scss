@@ -1,0 +1,42 @@
+.contain{
+    .left {
+        padding-left: 30px;
+
+        .table {
+            border-radius: 12px;
+
+            thead {
+                border-radius: 12px;
+                th {
+                    background: var(--bg-100);
+                    color: var(--primary-100);
+                    font-size: 14px;
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        fa-icon {
+                            color: var(--primary-100);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .right {
+        .add-class {
+            border: none;
+            padding: 8px 14px;
+            border-radius: 24px;
+            background: var(--primary-100);
+            color: var(--text-100);
+
+            span {
+                margin-left: 10px;
+                font-weight: 500;
+            }
+        }
+    }
+}

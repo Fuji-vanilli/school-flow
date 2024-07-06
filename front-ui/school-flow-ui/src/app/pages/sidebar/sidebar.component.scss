@@ -213,9 +213,7 @@
 .home {
     position: relative;
     padding: 0;
-    
-
-    margin: 0;
+    //margin-left: 18px;
     left: 256px;
     width: calc(100% - 256px);
     transition: all .5s ease;

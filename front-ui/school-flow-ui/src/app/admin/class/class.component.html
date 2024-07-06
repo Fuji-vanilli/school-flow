@@ -1,1 +1,38 @@
-<p>class works!</p>
+<div class="contain">
+    <div class="row">
+        <div class="col-md-9 left">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Niveau</th>
+                    <th scope="col">Section</th>
+                    <th scope="col">Max capacité</th>
+                    <th scope="col">Nb d'Etudiants</th>
+                    <th scope="col">Nb de Professeurs</th>
+                    <th scope="col">Ecolage</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let aClass of classes">
+                  <tr>
+                    <td>
+                        <fa-icon [icon]="['far', 'circle-check']"></fa-icon>
+                    </td>
+                    <td>{{aClass.level.toString().toLowerCase()}}</td>
+                    <td>{{aClass.section}}</td>
+                    <td>{{aClass.maximumCapacity}}</td>
+                    <td>{{aClass.students?.length}}</td>
+                    <td>{{aClass.professors?.length}}</td>
+                    <td>{{aClass.ecolage}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="col-md-3 right">
+            <button class="add-class">
+                <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                <span>Ajouter une classe</span>
+            </button>
+        </div>
+    </div>
+</div>
