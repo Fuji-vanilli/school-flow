@@ -68,6 +68,7 @@
         p {
             color: var(--primary-300);
             font-size: 12px;
+            margin-bottom: 14px;
         }
 
         ul {
@@ -78,6 +79,7 @@
                 a {
                     display: flex;
                     align-items: center;
+                    justify-content: center;
                     gap: 10px;
                     font-size: 14px;
                     font-weight: 500;
@@ -88,8 +90,8 @@
                     transition: all 0.3s ;
                 }
 
-                i {
-                    font-size: 20px;
+                fa-icon {
+                    font-size: 16px;
                 }
 
                 .text {
@@ -128,7 +130,6 @@
     right: -13px;
     top: 3.5%; 
     background-color: var(--primary-100);
-    //border: 3px solid var(--bg-100);
     color: var(--text-100);
     width: 24px;
     height: 24px;
@@ -138,7 +139,7 @@
     align-items: center;
     cursor: pointer;
 
-    i {
+    fa-icon {
         font-size: 10px;
         transition: all 0.3s;
     }
@@ -146,7 +147,7 @@
 }
 
 .menu-btn:hover {
-    opacity: .5;
+    opacity: .7;
 }
 
 #sidebar.expand {
@@ -178,6 +179,7 @@
     transform: translateY(-50%);
     padding: 10px;
     border-radius: 4px;
+    width: 100px;
     color: var(--text-100);
     background: var(--primary-100);
     opacity: 0;
@@ -188,7 +190,7 @@
     content: "";
     position: absolute;
     left: -5px;
-    top: 20%;
+    top: 25%;
     width: 20px;
     height: 20px;
     border-radius: 2px;
@@ -198,7 +200,7 @@
 }
 
 #sidebar:not(.expand) .menu a:hover .text {
-    left: 50px;
+    left: 55px;
     opacity: 1;
     visibility: visible;
 }

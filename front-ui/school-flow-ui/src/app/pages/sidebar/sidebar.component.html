@@ -14,7 +14,7 @@
         </div>
         <div class="nav">
             <div class="menu">
-                <p class="title">Main</p>
+                <p class="title">Principal</p>
                 <ul>
                     <li>
                         <a routerLinkActive="active" routerLink="/admin" [routerLinkActiveOptions]="{exact: true}">
@@ -30,48 +30,54 @@
                     </li>
                     <li>
                         <a routerLinkActive="active" routerLink="/admin/categories" [routerLinkActiveOptions]="{exact: true}">
-                            <fa-icon [icon]="['fas', 'graduation-cap']"></fa-icon>
+                            <fa-icon [icon]="['fas', 'book-open-reader']"></fa-icon>
                             <span class="text">Etudiants</span>
                         </a>
                     </li>
                     <li>
                         <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
-                            <i class="bi bi-chat-dots"></i>
-                            <span class="text">Quizzes</span>
+                            <fa-icon [icon]="['fas', 'graduation-cap']"></fa-icon>
+                            <span class="text">Professeurs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                            <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
+                            <span class="text">Emploi du temps</span>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="menu">
-                <p class="title">Add</p>
+                <p class="title">Paiement</p>
                 <ul>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/add-category" [routerLinkActiveOptions]="{exact: true}">
-                            <i class="bi bi-bag-plus"></i>
-                            <span class="text">Add Category</span>
+                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                            <fa-icon [icon]="['fas', 'money-check-dollar']"></fa-icon>
+                            <span class="text">Ecolage</span>
                         </a>
                     </li>
                     <li>
-                        <a routerLinkActive="active" routerLink="/admin/add-quiz" [routerLinkActiveOptions]="{exact: true}">
-                            <i class="bi bi-file-earmark-plus"></i>
-                            <span class="text">Add Quiz</span>
+                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                            <fa-icon [icon]="['fas', 'wallet']"></fa-icon>
+                            <span class="text">Salaire</span>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="menu">
-                <p class="title">Other</p>
+                <p class="title">Etudes</p>
                 <ul>
                     <li>
-                        <a routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{exact: true}">
-                            <i class="bi bi-info-circle"></i>
-                            <span class="text">Help</span>
+                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                            <fa-icon [icon]="['fas', 'book']"></fa-icon>
+                            <span class="text">Bulletin</span>
                         </a>
                     </li>
                     <li>
-                        <a (click)="logout()">
-                            <i class="bi bi-box-arrow-in-right"></i>
-                            <span class="text">Logout</span>
+                        <a routerLinkActive="active" routerLink="/admin/quizzes" [routerLinkActiveOptions]="{exact: true}">
+                            <fa-icon [icon]="['fas', 'gavel']"></fa-icon>
+                            <span class="text">Conseil de classe</span>
                         </a>
                     </li>
                 </ul>

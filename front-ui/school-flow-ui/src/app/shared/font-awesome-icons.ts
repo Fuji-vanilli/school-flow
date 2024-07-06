@@ -1,14 +1,21 @@
 import {
+  faBook,
+  faBookOpenReader,
+  faCalendarDays,
   faCartPlus,
   faCartShopping,
+  faChalkboardTeacher,
   faChevronRight,
   faCircleQuestion,
   faCircleUser,
   faGauge,
+  faGavel,
   faGear, faGraduationCap, faMagnifyingGlass,
+  faMoneyCheckDollar,
   faRightFromBracket,
   faSchoolFlag,
   faUser,
+  faWallet,
   IconDefinition
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -24,5 +31,13 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faGauge,
   faUser,
   faSchoolFlag,
-  faGraduationCap
+  faGraduationCap,
+  faChalkboardTeacher,
+  faCalendarDays,
+  faMoneyCheckDollar,
+  faBookOpenReader,
+  faWallet,
+  faBook,
+  faGavel
+
 ]
