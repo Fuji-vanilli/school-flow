@@ -66,7 +66,10 @@ public class ClassServiceImpl implements ClassService{
 
     @Override
     public List<ClassResponse> getAll() {
-        return List.of();
+        log.info("all class getted successfully");
+        return classRepository.findAll().stream()
+                .map(classMapper::mapToClassResponse)
+                .toList();
     }
 
     @Override
