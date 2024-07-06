@@ -7,6 +7,7 @@ import com.fuji.classservice.models.Student.Student;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.util.List;
 
 public record ClassResponse(
@@ -17,6 +18,8 @@ public record ClassResponse(
         BigDecimal numberOfStudents,
         BigDecimal ecolage,
         List<Student> students,
-        List<Professor> professors
+        List<Professor> professors,
+        Instant createdDate,
+        Instant lastModifiedDate
 ) {
 }

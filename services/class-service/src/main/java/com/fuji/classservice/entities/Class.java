@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,5 +25,7 @@ public class Class {
     private BigDecimal maximumCapacity;
     private List<Student> students= new ArrayList<>();
     private List<Professor> professors= new ArrayList<>();
+    private Instant createdDate;
+    private Instant lastModifiedDate;
 }
 

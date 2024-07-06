@@ -2,6 +2,7 @@ package com.fuji.classservice.services;
 
 import com.fuji.classservice.DTO.ClassRequest;
 import com.fuji.classservice.DTO.ClassResponse;
+import com.fuji.classservice.entities.Class;
 import com.fuji.classservice.entities.Level;
 import com.fuji.classservice.mapper.ClassMapper;
 import com.fuji.classservice.models.Professor.Professor;
@@ -13,7 +14,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -25,7 +28,20 @@ public class ClassServiceImpl implements ClassService{
 
     @Override
     public ClassResponse create(ClassRequest request) {
-        return null;
+        if (classRepository.existsByLevel(request.level())) {
+            log.error("sorry, class already exist into the database");
+            throw new IllegalArgumentException("sorry, class already exist into the database");
+        }
+
+        Class aClass = classMapper.mapToClass(request);
+        aClass.setId(UUID.randomUUID().toString());
+        aClass.setCreatedDate(Instant.now());
+        aClass.setLastModifiedDate(Instant.now());
+
+        classRepository.save(aClass);
+        log.info("new class created successfully");
+
+        return classMapper.mapToClassResponse(aClass);
     }
 
     @Override

@@ -25,7 +25,7 @@ public class GatewaySecurityConfig {
 
     @Bean
     public ReactiveJwtDecoder jwtDecoder() {
-        return NimbusReactiveJwtDecoder.withJwkSetUri("http://localhost:8080/realms/utopis-realm/protocol/openid-connect/certs").build();
+        return NimbusReactiveJwtDecoder.withJwkSetUri("http://localhost:8080/realms/school-flowit -realm/protocol/openid-connect/certs").build();
     }
 
 }
