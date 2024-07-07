@@ -22,19 +22,37 @@
                     
                     td {
                         color: var(--text-100);
+
+                        fa-icon {
+                            color: var(--primary-100);
+                        }
                     }
                 }
 
                 tr {
                     border-radius: 18px; 
 
-
                     td {
                         background: none;
                         font-size: 14px;
-                        padding: 16px;
+                        padding: 14px;
+
+                        .student, .professor {
+                            display: flex;
+                            justify-content: space-between;
+
+                            button {
+                                border: 0;
+                                border-radius: 24px;
+                                padding: 4px 12px;
+                                font-size: 12px;
+                                background: var(--primary-100);
+                                color: var(--text-100);
+                            }
+                        }
+
                         fa-icon {
-                            color: var(--primary-100);
+                            color: var(--bg-100);
                         }
 
                         .action {
@@ -53,18 +71,17 @@
         }
     }
 
-    .right {
         .add-class {
             border: none;
             padding: 8px 14px;
             border-radius: 24px;
-            background: var(--primary-100);
+            background: var(--special-100);
             color: var(--text-100);
-
+            margin-bottom: 16px;
             span {
                 margin-left: 10px;
                 font-weight: 500;
             }
         }
-    }
+    
 }

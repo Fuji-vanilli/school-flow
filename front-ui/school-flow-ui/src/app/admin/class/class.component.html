@@ -1,6 +1,10 @@
-<div class="contain">
-    <div class="row">
-        <div class="col-md-9 left">
+<div class="contain ">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-11  left">
+          <button class="add-class" routerLink="/admin/add-class">
+            <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+            <span>Ajouter une classe</span>
+        </button>
             <table class="table custom-table">
                 <thead>
                   <tr>
@@ -22,8 +26,26 @@
                     <td>{{aClass.level.charAt(0).toUpperCase()+aClass.level.slice(1)}}</td>
                     <td>{{aClass.section}}</td>
                     <td>{{aClass.maximumCapacity}}</td>
-                    <td>{{aClass.students?.length}}</td>
-                    <td>{{aClass.professors?.length}}</td>
+                    <td>
+                      <div class="student">
+                        {{aClass.students?.length}}
+                        <div class="action">
+                          <button class="explorer">Explorer</button>
+                          <button class="ajouter">
+                            <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="professor">
+                        {{aClass.professors?.length}}
+                        <button>Explorer</button>
+                        <button>
+                          <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                        </button>
+                      </div>
+                    </td>
                     <td>{{aClass.ecolage}}</td>
                     <td>
                         <div class="action">
@@ -34,12 +56,6 @@
                   </tr>
                 </tbody>
               </table>
-        </div>
-        <div class="col-md-3 right">
-            <button class="add-class" routerLink="/admin/add-class">
-                <fa-icon [icon]="['fas', 'plus']"></fa-icon>
-                <span>Ajouter une classe</span>
-            </button>
         </div>
     </div>
 </div>
