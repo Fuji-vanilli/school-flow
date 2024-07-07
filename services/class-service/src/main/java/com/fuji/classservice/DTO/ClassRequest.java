@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 public record ClassRequest(
+        String id,
         @NotNull(message = "level required:")
         String level,
         @NotNull(message = "section required!")

@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -45,7 +46,35 @@ public class ClassServiceImpl implements ClassService{
 
     @Override
     public ClassResponse update(ClassRequest request) {
-        return null;
+        Optional<Class> classById = classRepository.findById(request.id());
+        if (classById.isEmpty()) {
+            log.error("sorry, class {} does not exist into the database", request.id());
+            throw new IllegalArgumentException("sorry, class does not exist into the database");
+        }
+
+        Class aClass = classById.get();
+        migrateClass(request, aClass);
+
+        aClass.setLastModifiedDate(Instant.now());
+        classRepository.save(aClass);
+
+        log.info("class updated successfully");
+        return classMapper.mapToClassResponse(aClass);
+    }
+
+    private void migrateClass(ClassRequest request, Class aClass) {
+        if (!request.level().isBlank()) {
+            aClass.setLevel(request.level());
+        }
+        if (!Objects.isNull(request.section())) {
+            aClass.setSection(request.section());
+        }
+        if (!Objects.isNull(request.ecolage())) {
+            aClass.setEcolage(request.ecolage());
+        }
+        if (!Objects.isNull(request.maximumCapacity())) {
+            aClass.setMaximumCapacity(request.maximumCapacity());
+        }
     }
 
     @Override
