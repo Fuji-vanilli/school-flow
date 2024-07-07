@@ -2,7 +2,7 @@
     <div class="container-1">
         <section>
             <header class="title">
-                <p>Créer une nouvelle classe </p>
+                <p>Ajouter une nouvelle Elève </p>
             </header>
             <div class="contents">
                 <div class="box">
@@ -44,6 +44,7 @@
                         </div>
                         <label>Classe <span>*</span></label>
                         <select class="form-select form-select-lg mb-3 field-select" formControlName="aClass">
+                            <option selected>Choisi une classe</option>
                             <option [value]="aClass" *ngFor="let aClass of classes">{{aClass.level}}</option>
                           </select>
 

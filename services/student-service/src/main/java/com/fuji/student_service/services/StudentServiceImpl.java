@@ -2,6 +2,7 @@ package com.fuji.student_service.services;
 
 import com.fuji.student_service.DTO.StudentRequest;
 import com.fuji.student_service.DTO.StudentResponse;
+import com.fuji.student_service.entities.Student;
 import com.fuji.student_service.mapper.StudentMapper;
 import com.fuji.student_service.models.Ecolage;
 import com.fuji.student_service.models.Note;
@@ -12,7 +13,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
 import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -24,7 +28,19 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public StudentResponse create(StudentRequest request) {
-        return null;
+        Student student = studentMapper.mapToStudent(request);
+        Random random= new Random();
+
+        String matricule= request.aClass().level().substring(0, 2)+"-"+ random.nextInt(100);
+        student.setMatricule(matricule);
+        student.setId(UUID.randomUUID().toString());
+        student.setCreatedDate(Instant.now());
+        student.setLastUpdatedDate(Instant.now());
+
+        studentRepository.save(student);
+        log.info("Student created: {}", student);
+
+        return studentMapper.mapToStudentResponse(student);
     }
 
     @Override

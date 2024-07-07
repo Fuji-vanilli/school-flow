@@ -36,7 +36,7 @@ export class AddStudentComponent implements OnInit{
       email: this.formBuilder.control('', Validators.required),
       phone: this.formBuilder.control('', Validators.required),
       address: this.formBuilder.control('', Validators.required),
-      aClass: this.formBuilder.control('', Validators.required),
+      aClass: this.formBuilder.control('Choisi une classe', Validators.required),
       originSchool: this.formBuilder.control('', Validators.required),
     })
   }
