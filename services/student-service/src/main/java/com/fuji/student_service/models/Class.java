@@ -1,4 +1,4 @@
-package com.fuji.student_service;
+package com.fuji.student_service.models;
 
 import java.math.BigDecimal;
 
