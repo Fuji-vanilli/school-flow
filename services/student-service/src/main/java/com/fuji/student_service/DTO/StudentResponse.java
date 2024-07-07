@@ -4,29 +4,29 @@ import com.fuji.student_service.entities.Address;
 import com.fuji.student_service.models.Class;
 import com.fuji.student_service.models.Ecolage;
 import com.fuji.student_service.models.Note;
-import jakarta.validation.constraints.NotNull;
+import com.fuji.student_service.models.Report;
 
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
-public record StudentRequest (
+public record StudentResponse(
         String id,
-        @NotNull(message = "firstname required!")
+        String matricule,
         String firstname,
-        @NotNull(message = "lastname required!")
         String lastname,
-        @NotNull(message = "date of birth required!")
         Date dateOfBirth,
-        @NotNull(message = "birth place required!")
         String birthPlace,
         String email,
-        @NotNull(message = "phone number required!")
         String phone,
-        @NotNull(message = "address required!")
         Address address,
-        @NotNull(message = "class required!")
+        String imageUrl,
         Class aClass,
-        String originSchool
-){
+        List<Ecolage> ecolages,
+        Note note,
+        Report report,
+        String originSchool,
+        Instant createdDate,
+        Instant lastUpdatedDate
+) {
 }

@@ -3,6 +3,7 @@ package com.fuji.student_service.entities;
 import com.fuji.student_service.models.Class;
 import com.fuji.student_service.models.Ecolage;
 import com.fuji.student_service.models.Note;
+import com.fuji.student_service.models.Report;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,6 +19,7 @@ import java.util.List;
 public class Student {
     @Id
     private String id;
+    private String matricule;
     private String firstname;
     private String lastname;
     private Date dateOfBirth;
@@ -29,6 +31,7 @@ public class Student {
     private Class aClass;
     private List<Ecolage> ecolages;
     private Note note;
+    private Report report;
     private String originSchool;
     private Instant createdDate;
     private Instant lastUpdatedDate;
