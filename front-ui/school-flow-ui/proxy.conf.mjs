@@ -1,6 +1,7 @@
 export default [
   {
     context: [
+      '/STUDENT-SERVICE',
       '/CLASS-SERVICE',
       '/USER-SERVICE',
       '/PROPERTY-SERVICE',

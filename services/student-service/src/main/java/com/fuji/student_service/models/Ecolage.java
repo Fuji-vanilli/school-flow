@@ -10,8 +10,8 @@ import java.util.Date;
 @Getter @Setter
 public class Ecolage {
     private Month month;
-    private Year year;
-    private Date paimentDate;
+    private String year;
+    private Date paymentDate;
     private BigDecimal amount;
     private boolean status;
 }
