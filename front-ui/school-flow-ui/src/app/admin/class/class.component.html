@@ -12,9 +12,10 @@
                     <th scope="col">Niveau</th>
                     <th scope="col">Section</th>
                     <th scope="col">Max capacité</th>
-                    <th scope="col">Nb d'Etudiants</th>
-                    <th scope="col">Nb de Professeurs</th>
+                    <th scope="col">Etudiants</th>
+                    <th scope="col">Professeurs</th>
                     <th scope="col">Ecolage</th>
+                    <th scope="col">Emploi du temps</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -30,9 +31,13 @@
                       <div class="student">
                         {{aClass.students?.length}}
                         <div class="action">
-                          <button class="explorer">Explorer</button>
-                          <button class="ajouter">
-                            <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                          <button class="explorer">
+                            <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                            Explorer
+                          </button>
+                          <button class="add">
+                            <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
+                            <span>Ajouter</span>
                           </button>
                         </div>
                       </div>
@@ -40,17 +45,29 @@
                     <td>
                       <div class="professor">
                         {{aClass.professors?.length}}
-                        <button>Explorer</button>
-                        <button>
-                          <fa-icon [icon]="['fas', 'plus']"></fa-icon>
-                        </button>
+                        <div class="action">
+                          <button class="explore-prof">
+                            <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                            Explorer
+                          </button>
+                          <button class="add-prof">
+                            <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
+                            Ajouter
+                          </button>
+                        </div>
                       </div>
                     </td>
                     <td>{{aClass.ecolage}}</td>
                     <td>
+                      <button class="edt">
+                        <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
+                        Consulter
+                      </button>
+                    </td>
+                    <td>
                         <div class="action">
                             <a href=""><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
-                            <a (click)="deleteClass(aClass.id!)"><fa-icon [icon]="['fas', 'trash-can']" class="delete"></fa-icon></a>
+                            <a (click)="deleteClass(aClass.id!)"><fa-icon [icon]="['fas', 'trash']" class="delete"></fa-icon></a>
                         </div>
                     </td>
                   </tr>
