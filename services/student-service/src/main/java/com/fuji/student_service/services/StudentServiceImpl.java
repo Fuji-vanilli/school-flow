@@ -55,7 +55,10 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public List<StudentResponse> getAll() {
-        return List.of();
+        log.info("all students getted successfully!");
+        return studentRepository.findAll().stream()
+                .map(studentMapper::mapToStudentResponse)
+                .toList();
     }
 
     @Override

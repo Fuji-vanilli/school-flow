@@ -71,7 +71,7 @@ export class AddStudentComponent implements OnInit{
       next: response=> {
         console.log('new class created successfully');
         Swal.fire('Succes', 'Nouvel élèves ajouté avec succès', 'success');
-        this.router.navigateByUrl('/admin/class')
+        this.router.navigateByUrl('/admin/student')
       },
       error: err=> {
         console.log('error: ', err);

@@ -1,6 +1,16 @@
 <div class="contain">
-    <div class="row">
-        <div class="col-md-11">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12 left">
+            <div class="top">
+                <button class="add-class" routerLink="/admin/add-student">
+                  <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                  <span>Ajouter un Elève</span>
+                </button>
+                <div class="total">
+                  Nombre total d'élèves: 
+                  <span>{{students?.length}}</span>
+                </div>
+              </div>
             <table class="table custom-table">
                 <thead>
                   <tr>
@@ -9,15 +19,14 @@
                     <th scope="col">Nom</th>
                     <th scope="col">Prénoms</th>
                     <th scope="col">Date de naissance</th>
-                    <th scope="col">Lieu de naissance</th>
                     <th scope="col">Email</th>
                     <th scope="col">Télephone</th>
                     <th scope="col">Adresse</th>
                     <th scope="col">Classe</th>
-                    <th scope="col">Classe</th>
                     <th scope="col">Notes</th>
                     <th scope="col">Absences</th>
                     <th scope="col">Ecolage</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -25,35 +34,37 @@
                     <td>
                       <fa-icon [icon]="['far', 'circle-check']"></fa-icon>
                     </td>
+                    <td>{{student.matricule}}</td>
                     <td>{{student.firstname?.toUpperCase()}}</td>
                     <td>{{student.lastname}}</td>
-                    <td>{{student.dateOfBirth?.getDate()}}</td>
-                    <td>{{student.birthPlace}}</td>
+                    <td>{{student.dateOfBirth?.toString()?.slice(0, 10)}}</td>
                     <td>{{student.email}}</td>
                     <td>{{student.phone}}</td>
+                    <td>{{student.address}}</td>
                     <td>{{student.aClass?.level}}</td>
                     <td>
-                      <div class="note">
-                          <button class="explorer">
+                      <div class="explorer">
+                          <button class="note">
                             <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
-                            Explorer
+                            Consulter
                           </button>
                         </div>
                     </td>
                     <td>
-                      <div class="absence">
-                          <button class="explore-prof">
+                      <div class="explorer">
+                          <button class="absence">
                             <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
-                            Explorer
+                            Consulter
                           </button>
                       </div>
                     </td>
-                    <td style="font-weight: 600;">{{aClass.ecolage}}</td>
                     <td>
-                      <button class="ecolage">
-                        <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
-                        Consulter
-                      </button>
+                      <div class="explorer">
+                        <button class="ecolage">
+                            <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
+                            Consulter
+                        </button>
+                      </div>
                     </td>
                     <td>
                       <div class="action">

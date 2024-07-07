@@ -19,7 +19,7 @@ export class StudentComponent implements OnInit {
   loadStudents() {
     this.studentService.getAll().subscribe({
       next: response=> {
-        this.students= this.students;
+        this.students= response;
         console.log('students: ', this.students);
         
       },
@@ -35,7 +35,7 @@ export class StudentComponent implements OnInit {
   }
 
   delete() {
-    
+
   }
 
 }
