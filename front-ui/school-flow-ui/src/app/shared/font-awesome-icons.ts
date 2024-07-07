@@ -55,6 +55,7 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faFileLines,
   faFolderPlus,
   faFolderOpen,
-  faTrash
+  faTrash,
+  faCalendarDays
 
 ]
