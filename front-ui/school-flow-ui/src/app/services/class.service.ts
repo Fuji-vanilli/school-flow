@@ -19,4 +19,8 @@ export class ClassService {
   getAll(): Observable<any> {
     return this.httpClient.get(environment.API_URL+'/CLASS-SERVICE/api/class/all');
   }
+
+  delete(id: string): Observable<any> {
+    return this.httpClient.delete(environment.API_URL+'/CLASS-SERVICE/api/class/delete/'+id);
+  }
 }

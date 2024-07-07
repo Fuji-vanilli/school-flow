@@ -1,7 +1,7 @@
 <div class="contain">
     <div class="row">
         <div class="col-md-9 left">
-            <table class="table">
+            <table class="table custom-table">
                 <thead>
                   <tr>
                     <th scope="col"></th>
@@ -27,8 +27,8 @@
                     <td>{{aClass.ecolage}}</td>
                     <td>
                         <div class="action">
-                            <fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon>
-                            <fa-icon [icon]="['fas', 'trash-can']" class="delete"></fa-icon>
+                            <a href=""><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
+                            <a (click)="deleteClass(aClass.id!)"><fa-icon [icon]="['fas', 'trash-can']" class="delete"></fa-icon></a>
                         </div>
                     </td>
                   </tr>

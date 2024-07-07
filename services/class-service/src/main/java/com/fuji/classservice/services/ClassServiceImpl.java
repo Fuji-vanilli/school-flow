@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -72,6 +73,15 @@ public class ClassServiceImpl implements ClassService{
 
     @Override
     public ClassResponse delete(String id) {
-        return null;
+        Optional<Class> classById = classRepository.findById(id);
+        if (classById.isEmpty()) {
+            log.error("sorry, class does not exist into the database");
+            throw new IllegalArgumentException("sorry, class does not exist into the database");
+        }
+
+        classRepository.deleteById(id);
+        log.info("class deleted successfully");
+
+        return classMapper.mapToClassResponse(classById.get());
     }
 }

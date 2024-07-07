@@ -21,6 +21,7 @@ import { NoteComponent } from './admin/note/note.component';
 import { ClassConcilComponent } from './admin/class-concil/class-concil.component';
 import { AddClassComponent } from './admin/add-class/add-class.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -63,10 +64,12 @@ function initializeKeycloak(keycloak: KeycloakService) {
     KeycloakAngularModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BaseChartDirective
   ],
   providers: [
     provideClientHydration(),
+    provideCharts(withDefaultRegisterables()),
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,

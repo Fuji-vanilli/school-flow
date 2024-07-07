@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ClassService } from '../../services/class.service';
 import { Class } from '../../models/class.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-class',
@@ -9,6 +10,7 @@ import { Class } from '../../models/class.model';
 })
 export class ClassComponent implements OnInit{
   classService= inject(ClassService);
+  router= inject(Router);
 
   classes: Class[] | undefined;
 
@@ -24,5 +26,13 @@ export class ClassComponent implements OnInit{
       }
     })
   }
-
+  
+  deleteClass(id: string) {
+    this.classService.delete(id).subscribe({
+      next: response=> {
+        console.log('class deleted successfully');
+        this.router.navigateByUrl('/admin/class');
+      }
+    })
+  }
 }

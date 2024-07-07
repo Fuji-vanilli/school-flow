@@ -2,7 +2,8 @@
     .left {
         padding-left: 30px;
 
-        .table {
+        .custom-table {
+            overflow: hidden;
             border-radius: 12px;
 
             thead {
@@ -11,18 +12,27 @@
                     background: var(--bg-100);
                     color: var(--primary-100);
                     font-size: 14px;
+                    padding: 16px;
                 }
             }
 
             tbody {
                 tr:nth-child(even) {
-                    background: var(--primary-100);
+                    background: var(--bg-100);
+                    
+                    td {
+                        color: var(--text-100);
+                    }
                 }
 
                 tr {
+                    border-radius: 18px; 
+
 
                     td {
                         background: none;
+                        font-size: 14px;
+                        padding: 16px;
                         fa-icon {
                             color: var(--primary-100);
                         }
@@ -30,7 +40,7 @@
                         .action {
                             .edit {
                                 color: var(--special-100);
-                                margin-right: 16px;
+                                margin-right: 20px;
                             }
 
                             .delete {
