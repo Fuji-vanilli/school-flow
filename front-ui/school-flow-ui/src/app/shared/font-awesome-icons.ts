@@ -9,19 +9,24 @@ import {
   faChevronRight,
   faCircleQuestion,
   faCircleUser,
+  faEnvelopeOpenText,
   faFileLines,
   faFolderOpen,
   faFolderPlus,
   faGauge,
   faGavel,
-  faGear, faGraduationCap, faMagnifyingGlass,
+  faGear, faGraduationCap, faLocationDot, faMagnifyingGlass,
+  faMapLocationDot,
   faMoneyCheckDollar,
+  faPhoneVolume,
   faPlus,
   faRightFromBracket,
   faSchoolFlag,
+  faSchoolLock,
   faTrash,
   faTrashCan,
   faUser,
+  faUserTag,
   faWallet,
   IconDefinition
 } from "@fortawesome/free-solid-svg-icons";
@@ -56,6 +61,12 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faFolderPlus,
   faFolderOpen,
   faTrash,
-  faCalendarDays
+  faCalendarDays,
+  faUserTag,
+  faLocationDot,
+  faEnvelopeOpenText,
+  faPhoneVolume,
+  faMapLocationDot,
+  faSchoolLock
 
 ]

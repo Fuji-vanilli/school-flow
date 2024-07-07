@@ -19,7 +19,7 @@ public record StudentResponse(
         String birthPlace,
         String email,
         String phone,
-        Address address,
+        String address,
         String imageUrl,
         Class aClass,
         List<Ecolage> ecolages,

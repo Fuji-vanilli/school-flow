@@ -12,7 +12,7 @@ export interface Student {
     birthPlace?: string,
     email?: string,
     phone?: string,
-    address?: Address,
+    address?: string,
     imageUrl?: string,
     aClass?: Class,
     ecolages?: Array<Ecolage>,

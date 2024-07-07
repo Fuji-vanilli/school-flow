@@ -26,7 +26,7 @@ public class Student {
     private String birthPlace;
     private String email;
     private String phone;
-    private Address address;
+    private String address;
     private String imageUrl;
     private Class aClass;
     private List<Ecolage> ecolages;
