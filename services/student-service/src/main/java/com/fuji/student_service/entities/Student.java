@@ -21,6 +21,7 @@ public class Student {
     private String firstname;
     private String lastname;
     private Date dateOfBirth;
+    private String birthPlace;
     private String email;
     private String phone;
     private Address address;
@@ -28,6 +29,7 @@ public class Student {
     private Class aClass;
     private List<Ecolage> ecolages;
     private Note note;
+    private String originSchool;
     private Instant createdDate;
     private Instant lastUpdatedDate;
 }
