@@ -10,17 +10,22 @@ import { Class } from '../models/class.model';
 export class ClassService {
 
   httpClient= inject(HttpClient);
+  url: string= environment.API_URL+'/CLASS-SERVICE/api/class';
   constructor() { }
 
   createClass(aClass: Class): Observable<any> {
-    return this.httpClient.post(environment.API_URL+'/CLASS-SERVICE/api/class/create', aClass);
+    return this.httpClient.post(this.url+'/create', aClass);
+  }
+
+  updateClass(aClass: Class): Observable<any> {
+    return this.httpClient.put(this.url+'/update', aClass);
   }
 
   getAll(): Observable<any> {
-    return this.httpClient.get(environment.API_URL+'/CLASS-SERVICE/api/class/all');
+    return this.httpClient.get(this.url+'/all');
   }
 
   delete(id: string): Observable<any> {
-    return this.httpClient.delete(environment.API_URL+'/CLASS-SERVICE/api/class/delete/'+id);
+    return this.httpClient.delete(this.url+'/delete/'+id);
   }
 }

@@ -78,8 +78,8 @@
                             .action {
                                 button {
                                     border: 0;
-                                    border-radius: 24px;
-                                    padding: 4px 12px;
+                                    border-radius: 6px;
+                                    padding: 4px 8px;
                                     font-size: 12px;
                                 }
 
@@ -123,13 +123,16 @@
                         }
 
                         .action {
+
                             .edit {
                                 color: var(--special-100);
                                 margin-right: 20px;
+                                cursor: pointer;
                             }
 
                             .delete {
                                 color: var(--delete-100);
+                                cursor: pointer;
                             }
                         }
                     }

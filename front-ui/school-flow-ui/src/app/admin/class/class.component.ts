@@ -16,6 +16,8 @@ export class ClassComponent implements OnInit{
   router= inject(Router);
   formBuilder= inject(FormBuilder);
 
+  classSelected: Class | undefined;
+
   classes: Class[] | undefined;
 
   formGroup!: FormGroup;
@@ -48,6 +50,7 @@ export class ClassComponent implements OnInit{
   }
 
   update(aClass: Class) {
+    this.classSelected= aClass;
     this.formGroup= this.formBuilder.group({
       level: this.formBuilder.control(aClass.level, Validators.required),
       section: this.formBuilder.control(aClass.section, Validators.required),
@@ -57,7 +60,25 @@ export class ClassComponent implements OnInit{
   }
 
   updateClass() {
+    const aClass= {
+      id: this.classSelected?.id,
+      level: this.formGroup.value.level,
+      section: this.formGroup.value.section,
+      maximumCapacity: this.formGroup.value.maximumCapacity,
+      ecolage: this.formGroup.value.ecolage
+    }
 
+    this.classService.updateClass(aClass).subscribe({
+      next: response=> {
+        Swal.fire('Succès', 'Class mis à jour avec succès', 'success');
+        this.loadClasses();
+        window.onload;
+      },
+      error: err=> {
+        console.log('error: ', err);
+        
+      }
+    })
   }
 
   deleteClass(id: string) {

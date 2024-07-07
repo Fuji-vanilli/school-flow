@@ -32,7 +32,7 @@
             </td>
             <td>{{aClass.level.charAt(0).toUpperCase()+aClass.level.slice(1)}}</td>
             <td>{{aClass.section}}</td>
-            <td>{{aClass.maximumCapacity}}</td>
+            <td style="font-weight: 600;">{{aClass.maximumCapacity}}</td>
             <td>
               <div class="student">
                 {{aClass.students?.length}}
@@ -63,7 +63,7 @@
                 </div>
               </div>
             </td>
-            <td>{{aClass.ecolage}}</td>
+            <td style="font-weight: 600;">{{aClass.ecolage}}</td>
             <td>
               <button class="edt">
                 <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
