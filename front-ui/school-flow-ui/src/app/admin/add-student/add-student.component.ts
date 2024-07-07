@@ -54,7 +54,7 @@ export class AddStudentComponent implements OnInit{
   }
 
   createStudent() {
-    const aClass= this.classes?.find(c=> c.id= this.formGroup.value.aClass)
+    const aClass= this.classes?.find(c=> c.id=== this.formGroup.value.aClass)
     const student= {
       firstname: this.formGroup.value.firstname,
       lastname: this.formGroup.value.lastname,

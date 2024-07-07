@@ -19,7 +19,6 @@
                     <th scope="col">Nom</th>
                     <th scope="col">Prénoms</th>
                     <th scope="col">Date de naissance</th>
-                    <th scope="col">Email</th>
                     <th scope="col">Télephone</th>
                     <th scope="col">Adresse</th>
                     <th scope="col">Classe</th>
@@ -36,12 +35,11 @@
                     </td>
                     <td>{{student.matricule}}</td>
                     <td>{{student.firstname?.toUpperCase()}}</td>
-                    <td>{{student.lastname}}</td>
+                    <td>{{capitalize(student.lastname!)}}</td>
                     <td>{{student.dateOfBirth?.toString()?.slice(0, 10)}}</td>
-                    <td>{{student.email}}</td>
                     <td>{{student.phone}}</td>
                     <td>{{student.address}}</td>
-                    <td>{{student.aClass?.level}}</td>
+                    <td>{{capitalize(student.aClass?.level!.toString())}}</td>
                     <td>
                       <div class="explorer">
                           <button class="note">
@@ -61,14 +59,14 @@
                     <td>
                       <div class="explorer">
                         <button class="ecolage">
-                            <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
+                            <fa-icon [icon]="['fas', 'wallet']"></fa-icon>
                             Consulter
                         </button>
                       </div>
                     </td>
                     <td>
                       <div class="action">
-                        <a (click)="update()" data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
+                        <a (click)="update(student)" data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
                         <a (click)="delete()"><fa-icon [icon]="['fas', 'trash']" class="delete"></fa-icon></a>
                       </div>
                     </td>
@@ -77,4 +75,80 @@
               </table>
         </div>
     </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <section>
+        <header class="title">
+            <p>Ajouter une nouvelle Elève </p>
+        </header>
+        <div class="contents">
+            <div class="box">
+                <form [formGroup]="formGroup" (ngSubmit)="updateStudent()">
+                    <label>Nom <span>*</span></label>
+                    <div class="field">
+                        <fa-icon [icon]="['fas', 'user-tag']"></fa-icon>
+                        <input type="text" placeholder="ex. Rakoto" formControlName="firstname">
+                    </div>
+                    <label>Prénoms <span>*</span></label>
+                    <div class="field">
+                        <fa-icon [icon]="['fas', 'user-tag']"></fa-icon>
+                        <input type="text" placeholder="ex. Tafita" formControlName="lastname">
+                    </div>
+                    <label>Date de naissance <span>*</span></label>
+                    <div class="field">
+                        <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
+                        <input type="date" formControlName="dateOfBirth">
+                    </div>
+                    <label>Lieu de naissance <span>*</span></label>
+                    <div class="field">
+                        <fa-icon [icon]="['fas', 'location-dot']"></fa-icon>
+                        <input type="text" placeholder="ex. Ambohitafita" formControlName="birthPlace">
+                    </div>
+                    <label>Email <span>*</span></label>
+                    <div class="field">
+                        <fa-icon [icon]="['fas', 'envelope-open-text']"></fa-icon>
+                        <input type="email" placeholder="ex. rakoto@tafita.com" formControlName="email">
+                    </div>
+                    <label>Télephone <span>*</span></label>
+                    <div class="field">
+                        <fa-icon [icon]="['fas', 'phone-volume']"></fa-icon>
+                        <input type="text" placeholder="ex. +261 00 11 222 33" formControlName="phone">
+                    </div>
+                    <label>Adresse <span>*</span></label>
+                    <div class="field">
+                        <fa-icon [icon]="['fas', 'map-location-dot']"></fa-icon>
+                        <input type="text" placeholder="ex. Lot WKX Ambohitafita" formControlName="address">
+                    </div>
+                    <label>Classe <span>*</span></label>
+                    <select class="form-select form-select-lg mb-3 field-select" formControlName="aClass">
+                        <option selected>Choisi une classe</option>
+                        <option [value]="aClass.id" *ngFor="let aClass of classes">{{aClass.level}}</option>
+                      </select>
+
+                    <label>Ecole d'origine<span> *</span></label>
+                    <div class="field">
+                        <fa-icon [icon]="['fas', 'school-lock']"></fa-icon>
+                        <input type="text" placeholder="ex. Ecole lumineux" formControlName="originSchool">
+                    </div>
+                    
+                    <div class="footer">
+                        <div>
+                            <i>* Les valeurs sont requis</i>
+                        </div>
+                        <div class="save">
+                            <button class="submit"><i class="bi bi-floppy"></i>Enregistrer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    </div>
+  </div>
 </div>
