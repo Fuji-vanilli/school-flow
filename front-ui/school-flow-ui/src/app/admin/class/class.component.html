@@ -1,78 +1,84 @@
 <div class="contain ">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-11  left">
-          <button class="add-class" routerLink="/admin/add-class">
-            <fa-icon [icon]="['fas', 'plus']"></fa-icon>
-            <span>Ajouter une classe</span>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-11  left">
+      <div class="top">
+        <button class="add-class" routerLink="/admin/add-class">
+          <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+          <span>Ajouter une classe</span>
         </button>
-            <table class="table custom-table">
-                <thead>
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Niveau</th>
-                    <th scope="col">Section</th>
-                    <th scope="col">Max capacité</th>
-                    <th scope="col">Etudiants</th>
-                    <th scope="col">Professeurs</th>
-                    <th scope="col">Ecolage</th>
-                    <th scope="col">Emploi du temps</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let aClass of classes">
-                    <td>
-                        <fa-icon [icon]="['far', 'circle-check']"></fa-icon>
-                    </td>
-                    <td>{{aClass.level.charAt(0).toUpperCase()+aClass.level.slice(1)}}</td>
-                    <td>{{aClass.section}}</td>
-                    <td>{{aClass.maximumCapacity}}</td>
-                    <td>
-                      <div class="student">
-                        {{aClass.students?.length}}
-                        <div class="action">
-                          <button class="explorer">
-                            <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
-                            Explorer
-                          </button>
-                          <button class="add">
-                            <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
-                            <span>Ajouter</span>
-                          </button>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="professor">
-                        {{aClass.professors?.length}}
-                        <div class="action">
-                          <button class="explore-prof">
-                            <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
-                            Explorer
-                          </button>
-                          <button class="add-prof">
-                            <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
-                            Ajouter
-                          </button>
-                        </div>
-                      </div>
-                    </td>
-                    <td>{{aClass.ecolage}}</td>
-                    <td>
-                      <button class="edt">
-                        <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
-                        Consulter
-                      </button>
-                    </td>
-                    <td>
-                        <div class="action">
-                            <a href=""><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
-                            <a (click)="deleteClass(aClass.id!)"><fa-icon [icon]="['fas', 'trash']" class="delete"></fa-icon></a>
-                        </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+        <div class="total">
+          Nombre total de classes: 
+          <span>{{classes?.length}}</span>
         </div>
+      </div>
+      <table class="table custom-table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Classe</th>
+            <th scope="col">Niveau</th>
+            <th scope="col">Max capacité</th>
+            <th scope="col">Etudiants</th>
+            <th scope="col">Professeurs</th>
+            <th scope="col">Ecolage (MGA)</th>
+            <th scope="col">Emploi du temps</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let aClass of classes">
+            <td>
+              <fa-icon [icon]="['far', 'circle-check']"></fa-icon>
+            </td>
+            <td>{{aClass.level.charAt(0).toUpperCase()+aClass.level.slice(1)}}</td>
+            <td>{{aClass.section}}</td>
+            <td>{{aClass.maximumCapacity}}</td>
+            <td>
+              <div class="student">
+                {{aClass.students?.length}}
+                <div class="action">
+                  <button class="explorer">
+                    <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                    Explorer
+                  </button>
+                  <button class="add">
+                    <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
+                    Ajouter
+                  </button>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="professor">
+                {{aClass.professors?.length}}
+                <div class="action">
+                  <button class="explore-prof">
+                    <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                    Explorer
+                  </button>
+                  <button class="add-prof">
+                    <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
+                    Ajouter
+                  </button>
+                </div>
+              </div>
+            </td>
+            <td>{{aClass.ecolage}}</td>
+            <td>
+              <button class="edt">
+                <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
+                Consulter
+              </button>
+            </td>
+            <td>
+              <div class="action">
+                <a (click)="update(aClass)"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
+                <a (click)="deleteClass(aClass.id!)"><fa-icon [icon]="['fas', 'trash']" class="delete"></fa-icon></a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

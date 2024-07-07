@@ -31,6 +31,11 @@ export class ClassComponent implements OnInit{
       }
     })
   }
+
+  update(aClass: Class) {
+
+  }
+
   deleteClass(id: string) {
     Swal.fire({
       title: 'Attention!',
@@ -48,9 +53,13 @@ export class ClassComponent implements OnInit{
         this.classService.delete(id).subscribe({
           next: response=> {
             console.log('class deleted successfully');
-            Swal.fire('Success', 'category deleted successfully!', 'success');
+            Swal.fire('Success', 'Class suprimé avec succès!', 'success');
             this.loadClasses();
             console.log("status", response.statusCode);
+          },
+          error: err=> {
+            console.log('error: ', err);
+            
           }
         })
     }

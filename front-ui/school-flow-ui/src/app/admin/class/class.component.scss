@@ -2,6 +2,30 @@
     .left {
         padding-left: 30px;
 
+        .top {
+            display: flex;
+            align-items: center;
+
+            .add-class {
+                border: none;
+                padding: 8px 14px;
+                border-radius: 8px;
+                background: var(--primary-100);
+                color: var(--text-100);
+                margin-bottom: 16px;
+                margin-right: 18px;
+    
+                span {
+                    margin-left: 10px;
+                    font-weight: 500;
+                }
+            }
+
+            span {
+                font-weight: 600;
+            }
+        }
+
         .custom-table {
             overflow: hidden;
             border-radius: 12px;
@@ -18,7 +42,7 @@
 
             tbody {
                 tr:nth-child(even) {
-                    background: var(--bg-100);
+                    background: var(--bg-300);
                     
                     td {
                         color: var(--text-100);
@@ -36,6 +60,10 @@
                         background: none;
                         font-size: 14px;
                         padding: 14px;
+
+                        button:hover {
+                            opacity: .7;
+                        }
 
                         .edt {
                             border: none;
@@ -62,7 +90,6 @@
 
                                     fa-icon {
                                         color: var(--text-100);
-                                        margin-right: 6px;
                                     }
                                 }
 
@@ -72,7 +99,6 @@
 
                                     fa-icon {
                                         color: var(--text-100);
-                                        margin-right: 6px;
                                     }
                                 }
                             }
@@ -110,20 +136,5 @@
                 }
             }
         }
-    }
-
-        .add-class {
-            border: none;
-            padding: 8px 14px;
-            border-radius: 8px;
-            background: var(--primary-100);
-            color: var(--text-100);
-            margin-bottom: 16px;
-
-            span {
-                margin-left: 10px;
-                font-weight: 500;
-            }
-        }
-    
+    }    
 }
