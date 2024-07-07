@@ -50,14 +50,17 @@
                     }
 
                     .field {
+                        display: flex;
+                        align-items: center;
                         background: var(--bg-100);
                         border: 1px solid var(--primary-200);
                         border-radius: 8px;
-                        padding: 8px 14px;
+                        padding: 4px 14px;
                         margin-bottom: 16px;
 
-                        i {
+                        fa-icon {
                             color: var(--primary-200);
+                            font-size: 12px;
                         }
 
                         input {

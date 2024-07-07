@@ -42,10 +42,10 @@
 
             tbody {
                 tr:nth-child(even) {
-                    background: var(--bg-300);
+                    background: var(--text-300);
                     
                     td {
-                        color: var(--text-100);
+                        color: var(--bg-100);
 
                         fa-icon {
                             color: var(--primary-100);

@@ -1,1 +1,79 @@
-<p>student works!</p>
+<div class="contain">
+    <div class="row">
+        <div class="col-md-11">
+            <table class="table custom-table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Mle</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénoms</th>
+                    <th scope="col">Date de naissance</th>
+                    <th scope="col">Lieu de naissance</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Télephone</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Classe</th>
+                    <th scope="col">Classe</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">Absences</th>
+                    <th scope="col">Ecolage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let student of students">
+                    <td>
+                      <fa-icon [icon]="['far', 'circle-check']"></fa-icon>
+                    </td>
+                    <td>{{aClass.level.charAt(0).toUpperCase()+aClass.level.slice(1)}}</td>
+                    <td>{{aClass.section}}</td>
+                    <td style="font-weight: 600;">{{aClass.maximumCapacity}}</td>
+                    <td>
+                      <div class="student">
+                        {{aClass.students?.length}}
+                        <div class="action">
+                          <button class="explorer">
+                            <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                            Explorer
+                          </button>
+                          <button class="add">
+                            <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
+                            Ajouter
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="professor">
+                        {{aClass.professors?.length}}
+                        <div class="action">
+                          <button class="explore-prof">
+                            <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                            Explorer
+                          </button>
+                          <button class="add-prof">
+                            <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
+                            Ajouter
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                    <td style="font-weight: 600;">{{aClass.ecolage}}</td>
+                    <td>
+                      <button class="edt">
+                        <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
+                        Consulter
+                      </button>
+                    </td>
+                    <td>
+                      <div class="action">
+                        <a (click)="update()" data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
+                        <a (click)="delete()"><fa-icon [icon]="['fas', 'trash']" class="delete"></fa-icon></a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
