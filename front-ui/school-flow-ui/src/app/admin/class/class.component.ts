@@ -72,7 +72,6 @@ export class ClassComponent implements OnInit{
       next: response=> {
         Swal.fire('Succès', 'Class mis à jour avec succès', 'success');
         this.loadClasses();
-        window.onload;
       },
       error: err=> {
         console.log('error: ', err);
