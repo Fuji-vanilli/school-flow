@@ -72,13 +72,64 @@
             </td>
             <td>
               <div class="action">
-                <a (click)="update(aClass)"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
+                <a (click)="update(aClass)" data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
                 <a (click)="deleteClass(aClass.id!)"><fa-icon [icon]="['fas', 'trash']" class="delete"></fa-icon></a>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <section>
+        <header class="title">
+            <p>Mettre à jour la classe </p>
+        </header>
+        <div class="contents">
+            <div class="box">
+                <form [formGroup]="formGroup" (ngSubmit)="updateClass()">
+                    <label>Classe <span>*</span></label>
+                    <div class="field">
+                        <i class="bi bi-pencil"></i>
+                        <input type="text" placeholder="ex. sixieme" formControlName="level">
+                    </div>
+
+                    <label>Niveau <span>*</span></label>
+                    <select class="form-select form-select-lg mb-3 field-select" formControlName="section">
+                        <option value="PRIMARY" selected>Primaire</option>
+                        <option value="SECONDARY">Secondaire</option>
+                        <option value="HIGH_SCHOOL">Lycée</option>
+                        <option value="UNIVERSITY">Universié</option>
+                      </select>
+
+                    <label>Capacité maximum<span> *</span></label>
+                    <div class="field">
+                        <i class="bi bi-emoji-smile"></i>
+                        <input type="text" formControlName="maximumCapacity">
+                    </div>
+                    <label>Ecolage<span> *</span></label>
+                    <div class="field">
+                        <i class="bi bi-emoji-smile"></i>
+                        <input type="text" placeholder="ex. 10000" formControlName="ecolage">
+                    </div>
+                    <div class="footer">
+                        <div>
+                            <i>* Les valeurs sont requis</i>
+                        </div>
+                        <div class="save">
+                            <button class="submit"><i class="bi bi-floppy"></i>Enregistrer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
     </div>
   </div>
 </div>

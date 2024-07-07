@@ -3,6 +3,8 @@ import { ClassService } from '../../services/class.service';
 import { Class } from '../../models/class.model';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { access } from 'fs';
 
 @Component({
   selector: 'app-class',
@@ -12,13 +14,26 @@ import Swal from 'sweetalert2';
 export class ClassComponent implements OnInit{
   classService= inject(ClassService);
   router= inject(Router);
+  formBuilder= inject(FormBuilder);
 
   classes: Class[] | undefined;
 
+  formGroup!: FormGroup;
+
   ngOnInit(): void {
     this.loadClasses();
+    this.initFormGroup();
   }
   
+  initFormGroup() {
+    this.formGroup= this.formBuilder.group({
+      level: this.formBuilder.control('', Validators.required),
+      section: this.formBuilder.control('PRIMARY', Validators.required),
+      maximumCapacity: this.formBuilder.control(0, Validators.required),
+      ecolage: this.formBuilder.control('', Validators.required)
+    })
+  }
+
   loadClasses() {
     this.classService.getAll().subscribe({
       next: classes=> {
@@ -33,6 +48,15 @@ export class ClassComponent implements OnInit{
   }
 
   update(aClass: Class) {
+    this.formGroup= this.formBuilder.group({
+      level: this.formBuilder.control(aClass.level, Validators.required),
+      section: this.formBuilder.control(aClass.section, Validators.required),
+      maximumCapacity: this.formBuilder.control(aClass.maximumCapacity, Validators.required),
+      ecolage: this.formBuilder.control(aClass.ecolage, Validators.required)
+    })
+  }
+
+  updateClass() {
 
   }
 

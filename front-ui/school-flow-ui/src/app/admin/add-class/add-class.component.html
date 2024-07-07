@@ -7,13 +7,13 @@
             <div class="contents">
                 <div class="box">
                     <form [formGroup]="formGroup" (ngSubmit)="createClass()">
-                        <label>Level <span>*</span></label>
+                        <label>Classe <span>*</span></label>
                         <div class="field">
                             <i class="bi bi-pencil"></i>
                             <input type="text" placeholder="ex. sixieme" formControlName="level">
                         </div>
 
-                        <label>Section <span>*</span></label>
+                        <label>Niveau <span>*</span></label>
                         <select class="form-select form-select-lg mb-3 field-select" formControlName="section">
                             <option value="PRIMARY" selected>Primaire</option>
                             <option value="SECONDARY">Secondaire</option>
