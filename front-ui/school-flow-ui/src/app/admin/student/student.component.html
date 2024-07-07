@@ -25,42 +25,32 @@
                     <td>
                       <fa-icon [icon]="['far', 'circle-check']"></fa-icon>
                     </td>
-                    <td>{{aClass.level.charAt(0).toUpperCase()+aClass.level.slice(1)}}</td>
-                    <td>{{aClass.section}}</td>
-                    <td style="font-weight: 600;">{{aClass.maximumCapacity}}</td>
+                    <td>{{student.firstname?.toUpperCase()}}</td>
+                    <td>{{student.lastname}}</td>
+                    <td>{{student.dateOfBirth?.getDate()}}</td>
+                    <td>{{student.birthPlace}}</td>
+                    <td>{{student.email}}</td>
+                    <td>{{student.phone}}</td>
+                    <td>{{student.aClass?.level}}</td>
                     <td>
-                      <div class="student">
-                        {{aClass.students?.length}}
-                        <div class="action">
+                      <div class="note">
                           <button class="explorer">
                             <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                             Explorer
                           </button>
-                          <button class="add">
-                            <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
-                            Ajouter
-                          </button>
                         </div>
-                      </div>
                     </td>
                     <td>
-                      <div class="professor">
-                        {{aClass.professors?.length}}
-                        <div class="action">
+                      <div class="absence">
                           <button class="explore-prof">
                             <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                             Explorer
                           </button>
-                          <button class="add-prof">
-                            <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
-                            Ajouter
-                          </button>
-                        </div>
                       </div>
                     </td>
                     <td style="font-weight: 600;">{{aClass.ecolage}}</td>
                     <td>
-                      <button class="edt">
+                      <button class="ecolage">
                         <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
                         Consulter
                       </button>
