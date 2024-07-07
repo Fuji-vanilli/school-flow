@@ -19,6 +19,7 @@ export class StudentComponent implements OnInit {
   students: Student[] | undefined;
   classes: Class[] | undefined;
   formGroup!: FormGroup;
+  selectedIDStudent!: string;
   
   ngOnInit(): void {
     this.loadStudents();
@@ -67,6 +68,7 @@ export class StudentComponent implements OnInit {
   }
 
   update(student: Student) {
+    this.selectedIDStudent= student.id!;
     this.formGroup= this.formBuilder.group({
       firstname: this.formBuilder.control(student.firstname, Validators.required),
       lastname: this.formBuilder.control(student.lastname, Validators.required),
@@ -83,6 +85,7 @@ export class StudentComponent implements OnInit {
   updateStudent() {
     const aClass= this.classes?.find(c=> c.id=== this.formGroup.value.id);
     const student= {
+      id: this.selectedIDStudent,
       firstname: this.formGroup.value.firstname,
       lastname: this.formGroup.value.lastname,
       dateOfBirth: this.formGroup.value.dateOfBirth,
@@ -97,6 +100,7 @@ export class StudentComponent implements OnInit {
     this.studentService.update(student).subscribe({
       next: response=> {
         console.log('updated: ', response);
+        this.loadStudents();
         Swal.fire('Succès', 'Elève mis à jour avec Succès', 'success');
         
       },

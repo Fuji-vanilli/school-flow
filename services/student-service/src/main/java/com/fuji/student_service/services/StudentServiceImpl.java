@@ -14,9 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @Transactional
@@ -45,7 +43,51 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public StudentResponse update(StudentRequest request) {
-        return null;
+        Optional<Student> studentByID = studentRepository.findById(request.id());
+        if (studentByID.isEmpty()) {
+            log.error("Student with id {} not found", request.id());
+            throw new IllegalArgumentException("Student with id " + request.id() + " not found");
+        }
+
+        Student student = studentByID.get();
+        mergeStudent(request, student);
+
+        student.setLastUpdatedDate(Instant.now());
+
+        studentRepository.save(student);
+        log.info("Student updated: {}", student);
+
+        return studentMapper.mapToStudentResponse(student);
+    }
+
+    public void mergeStudent(StudentRequest request, Student student) {
+        if (!request.firstname().isBlank()) {
+            student.setFirstname(request.firstname());
+        }
+        if (!request.lastname().isBlank()) {
+            student.setLastname(request.lastname());
+        }
+        if (!request.email().isBlank()) {
+            student.setEmail(request.email());
+        }
+        if (!request.phone().isBlank()) {
+            student.setPhone(request.phone());
+        }
+        if (!Objects.isNull(request.dateOfBirth())) {
+            student.setDateOfBirth(request.dateOfBirth());
+        }
+        if (!request.birthPlace().isBlank()) {
+            student.setBirthPlace(request.birthPlace());
+        }
+        if (!request.originSchool().isBlank()) {
+            student.setOriginSchool(request.originSchool());
+        }
+        if (!request.address().isBlank()) {
+            student.setAddress(request.address());
+        }
+        if (!Objects.isNull(request.aClass())) {
+            student.setAClass(request.aClass());
+        }
     }
 
     @Override
