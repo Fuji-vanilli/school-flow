@@ -112,8 +112,34 @@ export class StudentComponent implements OnInit {
 
   }
 
-  delete() {
-
+  delete(matricule: string) {
+    Swal.fire({
+      title: 'Attention!',
+      text: 'Vous êtes sûr de suprimer cette classe!?',
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonText: 'Anuler',
+      cancelButtonColor: 'rgba(0, 0, 0, 0.3)',
+      confirmButtonText: 'Suprimer',
+      confirmButtonColor: '#bb2649',
+      background: '#1E293B',
+      color: '#fff'
+    }).then(result=> {
+       if (result.isConfirmed) {
+        this.studentService.delete(matricule).subscribe({
+          next: response=> {
+            console.log('student deleted successfully');
+            Swal.fire('Success', 'Etudiant suprimé avec succès!', 'success');
+            this.loadClasses();
+            console.log("status", response.statusCode);
+          },
+          error: err=> {
+            console.log('error: ', err);
+            
+          }
+        })
+    }
+  })
   }
 
   capitalize(s: string): string {

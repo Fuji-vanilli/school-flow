@@ -67,7 +67,7 @@
                     <td>
                       <div class="action">
                         <a (click)="update(student)" data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
-                        <a (click)="delete()"><fa-icon [icon]="['fas', 'trash']" class="delete"></fa-icon></a>
+                        <a (click)="delete(student.matricule!)"><fa-icon [icon]="['fas', 'trash']" class="delete"></fa-icon></a>
                       </div>
                     </td>
                   </tr>
