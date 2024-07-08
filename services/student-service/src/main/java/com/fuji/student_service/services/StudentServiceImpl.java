@@ -120,6 +120,15 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public StudentResponse delete(String matricule) {
-        return null;
+        Optional<Student> studentByMatricule = studentRepository.findByMatricule(matricule);
+        if (studentByMatricule.isEmpty()) {
+            log.error("Student with id {} doesn't found", matricule);
+            throw new IllegalArgumentException("Student with id " + matricule + " not found");
+        }
+
+        studentRepository.deleteByMatricule(matricule);
+        log.info("Student deleted: {}", studentByMatricule.get());
+
+        return studentMapper.mapToStudentResponse(studentByMatricule.get());
     }
 }
