@@ -1,8 +1,8 @@
 package com.fuji.classservice.DTO;
 
 import com.fuji.classservice.entities.Section;
-import com.fuji.classservice.models.Professor.Professor;
-import com.fuji.classservice.models.Student.Student;
+import com.fuji.classservice.models.Professor;
+import com.fuji.classservice.models.Student;
 
 import java.math.BigDecimal;
 import java.time.Instant;

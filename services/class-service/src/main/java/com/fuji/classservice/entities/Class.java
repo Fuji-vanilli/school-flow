@@ -1,7 +1,7 @@
 package com.fuji.classservice.entities;
 
-import com.fuji.classservice.models.Professor.Professor;
-import com.fuji.classservice.models.Student.Student;
+import com.fuji.classservice.models.Professor;
+import com.fuji.classservice.models.Student;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

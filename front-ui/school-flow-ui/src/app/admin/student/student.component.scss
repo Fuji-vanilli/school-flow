@@ -28,13 +28,14 @@
                 border-radius: 34px;
 
                 .level {
-                    float: right;
-
+                    
                     .nav-item {
                         float: left;
                         list-style: none;
-                        padding-right: 24px;
+                        padding-right: 20px;
+                        margin-right: 16px;
                         position: relative;
+                        width: 150px;
                         
                         span {
                             color: var(--bg-200);
@@ -49,12 +50,32 @@
 
                         ul {
                             position: absolute;
-                            display: bloc;
-                            background: var(--primary-100);
+                            top: 100%;
+                            background: var(--text-100);
                             border-radius: 8px;
+                            width: 100%;
+                            padding: 8px 8px 14px;
+                            display: none;
+                            opacity: 0;
 
                             li {
                                 list-style: none;
+                                padding: 6px;
+                                
+                                a {
+                                    padding-left: 0;
+                                    color: var(--bg-200);
+                                    font-size: 14px;
+                                }
+                            }
+
+                            li:hover {
+                                background: var(--primary-100);
+                                border-radius: 8px;
+
+                                a {
+                                    color: var(--text-100);
+                                }
                             }
                         }
                         
@@ -64,6 +85,12 @@
                         border-right: 1px solid var(--text-200);
                     }
                 }
+
+                .level .nav-item:hover ul{
+                    display: block;
+                    visibility: visible;
+                    opacity: 1;
+                  }
             }
 
             span {

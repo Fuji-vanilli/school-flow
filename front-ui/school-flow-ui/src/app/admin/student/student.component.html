@@ -6,14 +6,14 @@
                   <fa-icon [icon]="['fas', 'plus']"></fa-icon>
                   <span>Ajouter un etudiant</span>
                 </button>
-                <nav class="section-level">
+                <div class="section-level">
                   <ul class="level">
                     <li class="nav-item">
                       <fa-icon [icon]="['fas', 'user-shield']"></fa-icon>
                       <span>Prescolaire</span>
                       <ul class="sub-item">
                         <li *ngFor="let prescolary of prescolarySection">
-                          <span>{{prescolary.level}}</span>
+                          <a>{{prescolary.level}}</a>
                         </li>
                       </ul>
                     </li>
@@ -22,7 +22,7 @@
                       <span>Primaire</span>
                       <ul class="sub-item">
                         <li *ngFor="let primary of primarySection">
-                          <span>{{primary.level}}</span>
+                          <a>{{primary.level}}</a>
                         </li>
                       </ul>
                     </li>
@@ -31,7 +31,7 @@
                       <span>Secondaire</span>
                       <ul class="sub-item">
                         <li *ngFor="let secondary of secondarySection">
-                          <span>{{secondary.level}}</span>
+                          <a>{{capitalize(secondary.level)}}</a>
                         </li>
                       </ul>
                     </li>
@@ -40,7 +40,7 @@
                       <span>Lycée</span>
                       <ul class="sub-item" >
                         <li *ngFor="let highSchool of hightSchoolSection">
-                          <span>{{highSchool.level}}</span>
+                          <a>{{capitalize(highSchool.level)}}</a>
                         </li>
                       </ul>
                     </li>
@@ -49,12 +49,12 @@
                       <span>Université</span>
                       <ul>
                         <li *ngFor="let university of universitySection">
-                          <span>{{university.level}}</span>
+                          <a>{{university.level}}</a>
                         </li>
                       </ul>
                     </li>
                   </ul>
-                </nav>
+                </div>
 
             </div>
             <table class="table custom-table">

@@ -4,8 +4,7 @@ import com.fuji.classservice.DTO.ClassRequest;
 import com.fuji.classservice.DTO.ClassResponse;
 import com.fuji.classservice.entities.Class;
 import com.fuji.classservice.mapper.ClassMapper;
-import com.fuji.classservice.models.Professor.Professor;
-import com.fuji.classservice.models.Student.Student;
+import com.fuji.classservice.models.Professor;
 import com.fuji.classservice.repository.ClassRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -78,7 +77,7 @@ public class ClassServiceImpl implements ClassService{
     }
 
     @Override
-    public ClassResponse addStudent(Student student) {
+    public ClassResponse addStudent(String id) {
         return null;
     }
 

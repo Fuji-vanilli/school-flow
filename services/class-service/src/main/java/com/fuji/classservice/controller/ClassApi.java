@@ -2,8 +2,7 @@ package com.fuji.classservice.controller;
 
 import com.fuji.classservice.DTO.ClassRequest;
 import com.fuji.classservice.DTO.ClassResponse;
-import com.fuji.classservice.models.Professor.Professor;
-import com.fuji.classservice.models.Student.Student;
+import com.fuji.classservice.models.Professor;
 import com.fuji.classservice.services.ClassService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +30,8 @@ public class ClassApi implements ClassController {
     }
 
     @Override
-    public ResponseEntity<ClassResponse> addStudent(Student student) {
-        return ResponseEntity.ok(classService.addStudent(student));
+    public ResponseEntity<ClassResponse> addStudent(String id) {
+        return ResponseEntity.ok(classService.addStudent(id));
     }
 
     @Override
