@@ -60,6 +60,18 @@ public class StudentServiceImpl implements StudentService{
         return studentMapper.mapToStudentResponse(student);
     }
 
+    @Override
+    public StudentResponse get(String id) {
+        Optional<Student> studentOptional = studentRepository.findById(id);
+        if (studentOptional.isEmpty()) {
+            log.error("Student with id : {} not found", id);
+            throw new IllegalArgumentException("Student with id " + id + " not found");
+        }
+
+        log.info("Student getted successfully");
+        return studentMapper.mapToStudentResponse(studentOptional.get());
+    }
+
     public void mergeStudent(StudentRequest request, Student student) {
         if (!request.firstname().isBlank()) {
             student.setFirstname(request.firstname());

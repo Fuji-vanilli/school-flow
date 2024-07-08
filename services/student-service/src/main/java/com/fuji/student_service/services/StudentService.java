@@ -12,6 +12,7 @@ import java.util.Map;
 public interface StudentService {
     StudentResponse create(StudentRequest request);
     StudentResponse update(StudentRequest request);
+    StudentResponse get(String id);
     StudentResponse getByMatricule(String matricule);
     List<StudentResponse> getAll();
     StudentResponse addNotes(Note note);
