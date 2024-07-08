@@ -92,7 +92,14 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public StudentResponse getByMatricule(String matricule) {
-        return null;
+        Optional<Student> studentOptional = studentRepository.findByMatricule(matricule);
+        if (studentOptional.isEmpty()) {
+            log.error("Student with matricule {} not found", matricule);
+            throw new IllegalArgumentException("Student with id " + matricule + " not found");
+        }
+
+        log.info("Student getted successfully: {}", studentOptional.get());
+        return studentMapper.mapToStudentResponse(studentOptional.get());
     }
 
     @Override
