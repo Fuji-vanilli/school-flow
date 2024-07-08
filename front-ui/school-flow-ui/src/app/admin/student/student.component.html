@@ -11,22 +11,47 @@
                     <li class="nav-item">
                       <fa-icon [icon]="['fas', 'user-shield']"></fa-icon>
                       <span>Prescolaire</span>
+                      <ul>
+                        <li *ngFor="let prescolary of prescolarySection">
+                          <span>{{prescolary.level}}</span>
+                        </li>
+                      </ul>
                     </li>
                     <li class="nav-item">
                       <fa-icon [icon]="['fas', 'users-between-lines']"></fa-icon>
                       <span>Primaire</span>
+                      <ul>
+                        <li *ngFor="let primary of primarySection">
+                          <span>{{primary.level}}</span>
+                        </li>
+                      </ul>
                     </li>
                     <li class="nav-item">
                       <fa-icon [icon]="['fas', 'user-pen']"></fa-icon>
                       <span>Secondaire</span>
+                      <ul>
+                        <li *ngFor="let secondary of secondarySection">
+                          <span>{{secondary.level}}</span>
+                        </li>
+                      </ul>
                     </li>
                     <li class="nav-item">
                       <fa-icon [icon]="['fas', 'chalkboard-user']"></fa-icon>
                       <span>Lycée</span>
+                      <ul>
+                        <li *ngFor="let highSchool of hightSchoolSection">
+                          <span>{{highSchool.level}}</span>
+                        </li>
+                      </ul>
                     </li>
                     <li class="nav-item">
                       <fa-icon [icon]="['fas', 'user-graduate']"></fa-icon>
                       <span>Université</span>
+                      <ul>
+                        <li *ngFor="let university of universitySection">
+                          <span>{{university.level}}</span>
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 </div>

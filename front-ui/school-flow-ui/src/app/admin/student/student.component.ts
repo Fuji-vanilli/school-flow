@@ -3,7 +3,7 @@ import { StudentService } from '../../services/student.service';
 import { Student } from '../../models/student.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClassService } from '../../services/class.service';
-import { Class } from '../../models/class.model';
+import { Class, Section } from '../../models/class.model';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -21,6 +21,12 @@ export class StudentComponent implements OnInit {
   formGroup!: FormGroup;
   selectedIDStudent!: string;
   
+  prescolarySection: Class[] | undefined;
+  primarySection: Class[] | undefined;
+  secondarySection: Class[] | undefined;
+  hightSchoolSection: Class[] | undefined;
+  universitySection: Class[] | undefined;
+
   ngOnInit(): void {
     this.loadStudents();
     this.loadClasses();
@@ -59,6 +65,11 @@ export class StudentComponent implements OnInit {
     this.classService.getAll().subscribe({
       next: response=> {
         this.classes= response;
+        this.prescolarySection= this.classes?.filter(c=> c.section=== Section.PRESCOLARY);
+        this.primarySection= this.classes?.filter(c=> c.section=== Section.PRIMARY);
+        this.secondarySection= this.classes?.filter(c=> c.section=== Section.SECONDARY);
+        this.hightSchoolSection= this.classes?.filter(c=> c.section=== Section.HIGH_SCHOOL);
+        this.universitySection= this.classes?.filter(c=> c.section=== Section.UNIVERSITY);
       },
       error: err=> {
         console.log('error: ', err);
