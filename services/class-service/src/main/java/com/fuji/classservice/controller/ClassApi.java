@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 import static com.fuji.classservice.utils.Root.APP_ROOT;
 
@@ -30,8 +31,8 @@ public class ClassApi implements ClassController {
     }
 
     @Override
-    public ResponseEntity<ClassResponse> addStudent(String id) {
-        return ResponseEntity.ok(classService.addStudent(id));
+    public ResponseEntity<ClassResponse> addStudent(Map<String, String> params) {
+        return ResponseEntity.ok(classService.addStudent(params));
     }
 
     @Override

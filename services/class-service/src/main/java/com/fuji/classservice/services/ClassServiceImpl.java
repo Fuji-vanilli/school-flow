@@ -5,17 +5,16 @@ import com.fuji.classservice.DTO.ClassResponse;
 import com.fuji.classservice.entities.Class;
 import com.fuji.classservice.mapper.ClassMapper;
 import com.fuji.classservice.models.Professor;
+import com.fuji.classservice.models.Student;
 import com.fuji.classservice.repository.ClassRepository;
+import com.fuji.classservice.webClient.WebClientStudentGetter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @Transactional
@@ -24,6 +23,7 @@ import java.util.UUID;
 public class ClassServiceImpl implements ClassService{
     private final ClassRepository classRepository;
     private final ClassMapper classMapper;
+    private final WebClientStudentGetter webClient;
 
     @Override
     public ClassResponse create(ClassRequest request) {
@@ -77,8 +77,26 @@ public class ClassServiceImpl implements ClassService{
     }
 
     @Override
-    public ClassResponse addStudent(String id) {
-        return null;
+    public ClassResponse addStudent(Map<String, String> params) {
+        final String studentID= params.get("studentID");
+        final String classID= params.get("classID");
+
+        Student student = webClient.getStudent(studentID);
+
+        Optional<Class> classOptional = classRepository.findById(classID);
+        if (classOptional.isEmpty()) {
+            log.error("sorry, student {} does not exist into the database", studentID);
+            throw new IllegalArgumentException("sorry, student does not exist into the database");
+        }
+
+        Class aClass = classOptional.get();
+        aClass.getStudents().add(student);
+        aClass.setLastModifiedDate(Instant.now());
+
+        classRepository.save(aClass);
+        log.info("student {} added successfully to the class {}", studentID, classID);
+
+        return classMapper.mapToClassResponse(aClass);
     }
 
     @Override
