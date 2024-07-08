@@ -115,7 +115,7 @@ export class StudentComponent implements OnInit {
   delete(matricule: string) {
     Swal.fire({
       title: 'Attention!',
-      text: 'Vous êtes sûr de suprimer cette classe!?',
+      text: 'Vous êtes sûr de suprimer cette étudiant!?',
       icon: 'warning',
       showCancelButton: true,
       cancelButtonText: 'Anuler',
@@ -130,7 +130,7 @@ export class StudentComponent implements OnInit {
           next: response=> {
             console.log('student deleted successfully');
             Swal.fire('Success', 'Etudiant suprimé avec succès!', 'success');
-            this.loadClasses();
+            this.loadStudents();
             console.log("status", response.statusCode);
           },
           error: err=> {

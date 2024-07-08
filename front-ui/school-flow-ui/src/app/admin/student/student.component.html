@@ -4,12 +4,14 @@
             <div class="top">
                 <button class="add-class" routerLink="/admin/add-student">
                   <fa-icon [icon]="['fas', 'plus']"></fa-icon>
-                  <span>Ajouter un Elève</span>
+                  <span>Ajouter</span>
                 </button>
-                <div class="total">
-                  Nombre total d'élèves: 
-                  <span>{{students?.length}}</span>
-                </div>
+                <ul class="navbar-nav level" *ngFor="let aClass of classes">
+                  <li class="nav-item" >
+                    <fa-icon [icon]="['fas', 'graduation-cap']"></fa-icon>  
+                    <span>{{capitalize(aClass.level.toString())}}</span> 
+                  </li>
+                </ul>
               </div>
             <table class="table custom-table">
                 <thead>
