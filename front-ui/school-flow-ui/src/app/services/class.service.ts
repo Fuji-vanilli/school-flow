@@ -25,6 +25,15 @@ export class ClassService {
     return this.httpClient.get(this.url+'/all');
   }
 
+  addStudent(studentID: string, classID: string): Observable<any> {
+    const params= {
+      studentID: studentID,
+      classID: classID
+    }
+
+    return this.httpClient.patch(this.url+'/add-student', params);
+  }
+
   delete(id: string): Observable<any> {
     return this.httpClient.delete(this.url+'/delete/'+id);
   }
