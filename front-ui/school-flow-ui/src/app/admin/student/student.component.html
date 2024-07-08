@@ -2,17 +2,36 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-12 left">
             <div class="top">
-                <button class="add-class" routerLink="/admin/add-student">
+                <!--button class="add-student" routerLink="/admin/add-student">
                   <fa-icon [icon]="['fas', 'plus']"></fa-icon>
                   <span>Ajouter</span>
-                </button>
-                <ul class="navbar-nav level" *ngFor="let aClass of classes">
-                  <li class="nav-item" >
-                    <fa-icon [icon]="['fas', 'graduation-cap']"></fa-icon>  
-                    <span>{{capitalize(aClass.level.toString())}}</span> 
-                  </li>
-                </ul>
-              </div>
+                </button-->
+                <div class="section-level">
+                  <ul class="level">
+                    <li class="nav-item">
+                      <fa-icon [icon]="['fas', 'user-shield']"></fa-icon>
+                      <span>Prescolaire</span>
+                    </li>
+                    <li class="nav-item">
+                      <fa-icon [icon]="['fas', 'users-between-lines']"></fa-icon>
+                      <span>Primaire</span>
+                    </li>
+                    <li class="nav-item">
+                      <fa-icon [icon]="['fas', 'user-pen']"></fa-icon>
+                      <span>Secondaire</span>
+                    </li>
+                    <li class="nav-item">
+                      <fa-icon [icon]="['fas', 'chalkboard-user']"></fa-icon>
+                      <span>Lycée</span>
+                    </li>
+                    <li class="nav-item">
+                      <fa-icon [icon]="['fas', 'user-graduate']"></fa-icon>
+                      <span>Université</span>
+                    </li>
+                  </ul>
+                </div>
+
+            </div>
             <table class="table custom-table">
                 <thead>
                   <tr>
