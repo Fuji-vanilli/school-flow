@@ -16,6 +16,7 @@ export interface Class {
 }
 
 export enum Section {
+    PRESCOLARY,
     PRIMARY,
     SECONDARY,
     HIGH_SCHOOL,
