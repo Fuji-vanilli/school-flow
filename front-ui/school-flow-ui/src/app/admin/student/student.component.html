@@ -6,12 +6,12 @@
                   <fa-icon [icon]="['fas', 'plus']"></fa-icon>
                   <span>Ajouter un etudiant</span>
                 </button>
-                <div class="section-level">
+                <nav class="section-level">
                   <ul class="level">
                     <li class="nav-item">
                       <fa-icon [icon]="['fas', 'user-shield']"></fa-icon>
                       <span>Prescolaire</span>
-                      <ul>
+                      <ul class="sub-item">
                         <li *ngFor="let prescolary of prescolarySection">
                           <span>{{prescolary.level}}</span>
                         </li>
@@ -20,7 +20,7 @@
                     <li class="nav-item">
                       <fa-icon [icon]="['fas', 'users-between-lines']"></fa-icon>
                       <span>Primaire</span>
-                      <ul>
+                      <ul class="sub-item">
                         <li *ngFor="let primary of primarySection">
                           <span>{{primary.level}}</span>
                         </li>
@@ -29,7 +29,7 @@
                     <li class="nav-item">
                       <fa-icon [icon]="['fas', 'user-pen']"></fa-icon>
                       <span>Secondaire</span>
-                      <ul>
+                      <ul class="sub-item">
                         <li *ngFor="let secondary of secondarySection">
                           <span>{{secondary.level}}</span>
                         </li>
@@ -38,7 +38,7 @@
                     <li class="nav-item">
                       <fa-icon [icon]="['fas', 'chalkboard-user']"></fa-icon>
                       <span>Lycée</span>
-                      <ul>
+                      <ul class="sub-item" >
                         <li *ngFor="let highSchool of hightSchoolSection">
                           <span>{{highSchool.level}}</span>
                         </li>
@@ -54,7 +54,7 @@
                       </ul>
                     </li>
                   </ul>
-                </div>
+                </nav>
 
             </div>
             <table class="table custom-table">

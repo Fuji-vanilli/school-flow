@@ -65,11 +65,14 @@ export class StudentComponent implements OnInit {
     this.classService.getAll().subscribe({
       next: response=> {
         this.classes= response;
-        this.prescolarySection= this.classes?.filter(c=> c.section=== Section.PRESCOLARY);
-        this.primarySection= this.classes?.filter(c=> c.section=== Section.PRIMARY);
-        this.secondarySection= this.classes?.filter(c=> c.section=== Section.SECONDARY);
-        this.hightSchoolSection= this.classes?.filter(c=> c.section=== Section.HIGH_SCHOOL);
-        this.universitySection= this.classes?.filter(c=> c.section=== Section.UNIVERSITY);
+        this.prescolarySection= this.classes?.filter(c=> c.section?.toString()=== 'PRESCOLARY');
+        this.primarySection= this.classes?.filter(c=> c.section?.toString()=== 'PRIMARY');
+        this.secondarySection= this.classes?.filter(c=> c.section?.toString()=== 'SECONDARY'); 
+        this.hightSchoolSection= this.classes?.filter(c=> c.section?.toString()=== 'HIGH_SCHOOL'); 
+        this.universitySection= this.classes?.filter(c=> c.section?.toString()=== 'UNIVERSITY'); 
+
+        console.log('secondary:', this.secondarySection);
+        
       },
       error: err=> {
         console.log('error: ', err);

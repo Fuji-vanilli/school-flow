@@ -6,7 +6,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
             margin-bottom: 18px;
 
             .add-student {
@@ -28,20 +27,14 @@
                 padding: 16px 0 16px 24px;
                 border-radius: 34px;
 
-                ul {
-                    margin: 0;
-                    padding: 0;
-                    gap: 1rem;
-                }
+                .level {
+                    float: right;
 
-                ul.level {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    li {
+                    .nav-item {
+                        float: left;
                         list-style: none;
                         padding-right: 24px;
+                        position: relative;
                         
                         span {
                             color: var(--bg-200);
@@ -53,9 +46,21 @@
                             margin-right: 16px;
                             color: var(--primary-100);
                         }
+
+                        ul {
+                            position: absolute;
+                            display: bloc;
+                            background: var(--primary-100);
+                            border-radius: 8px;
+
+                            li {
+                                list-style: none;
+                            }
+                        }
+                        
                     }
 
-                    li:not(:last-child) {
+                    li.nav-item:not(:last-child) {
                         border-right: 1px solid var(--text-200);
                     }
                 }
