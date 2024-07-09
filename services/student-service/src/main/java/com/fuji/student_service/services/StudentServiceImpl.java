@@ -8,6 +8,7 @@ import com.fuji.student_service.models.Ecolage;
 import com.fuji.student_service.models.Note;
 import com.fuji.student_service.models.Report;
 import com.fuji.student_service.repository.StudentRepository;
+import com.fuji.student_service.webClient.WebClientClass;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ import java.util.*;
 public class StudentServiceImpl implements StudentService{
     private final StudentRepository studentRepository;
     private final StudentMapper studentMapper;
+    private final WebClientClass webClientClass;
 
     @Override
     public StudentResponse create(StudentRequest request) {
@@ -145,6 +147,7 @@ public class StudentServiceImpl implements StudentService{
             throw new IllegalArgumentException("Student with id " + matricule + " not found");
         }
 
+        webClientClass.deleteStudentFromClass(studentByMatricule.get().getAClass().id());
         studentRepository.deleteByMatricule(matricule);
         log.info("Student deleted: {}", studentByMatricule.get());
 
