@@ -31,17 +31,19 @@ export class AddStudentComponent implements OnInit{
     this.activatedRoute.paramMap.subscribe(
       params=> {
         const classID= params.get('classID')!;
-        this.classService.getByID(classID).subscribe({
-          next: response=> {
-            this.classByID= response;
-            console.log('class by id for add student: ', this.classByID);
-            
-          },
-          error: err=> {
-            console.log('error: ', err);
-            
-          }
-        })
+        if (classID) {
+          this.classService.getByID(classID).subscribe({
+            next: response=> {
+              this.classByID= response;
+              console.log('class by id for add student: ', this.classByID);
+              
+            },
+            error: err=> {
+              console.log('error: ', err);
+              
+            }
+          })
+        }
       }
     )
   }

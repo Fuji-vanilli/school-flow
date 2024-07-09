@@ -1,6 +1,7 @@
 .contain{
     .left {
         padding-left: 30px;
+        padding-right: 30px;
 
         .top {
             display: flex;
@@ -36,6 +37,7 @@
                         margin-right: 16px;
                         position: relative;
                         width: 150px;
+                        cursor: pointer;
                         
                         span {
                             color: var(--bg-200);
@@ -100,7 +102,7 @@
 
         .custom-table {
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 6px;
 
             thead {
                 border-radius: 12px;
@@ -114,7 +116,7 @@
 
             tbody {
                 tr:nth-child(even) {
-                    background: var(--text-300);
+                    background: var(--text-100);
                     
                     td {
                         color: var(--bg-100);
