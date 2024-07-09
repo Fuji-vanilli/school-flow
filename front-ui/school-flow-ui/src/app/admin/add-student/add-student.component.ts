@@ -70,10 +70,9 @@ export class AddStudentComponent implements OnInit{
     this.studentService.create(student).subscribe({
       next: response=> {
         console.log('new class created successfully');
-        Swal.fire('Succes', 'Nouvel élèves ajouté avec succès', 'success');
-        this.router.navigateByUrl('/admin/student');
-
+        Swal.fire('Succes', 'Nouvel élève ajouté avec succès', 'success');
         this.classService.addStudent(response.id, aClass?.id!);
+        this.router.navigateByUrl('/admin/student');
       },
       error: err=> {
         console.log('error: ', err);

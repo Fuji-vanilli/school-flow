@@ -13,6 +13,7 @@ public class WebClientStudentGetter {
     private final WebClient.Builder webClient;
 
     public Student getStudent(String studentId) {
+        log.info("Get student {}", studentId);
         return webClient.build().get()
                 .uri("http://localhost:8800/STUDENT-SERVICE/api/student/get/" + studentId)
                 .retrieve()
