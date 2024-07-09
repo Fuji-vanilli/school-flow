@@ -125,6 +125,14 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
+    public List<StudentResponse> getAllByIds(List<String> ids) {
+        log.info("all students with the ids : {}getted successfully", ids);
+        return studentRepository.findAllById(ids).stream()
+                .map(studentMapper::mapToStudentResponse)
+                .toList();
+    }
+
+    @Override
     public StudentResponse addNotes(Note note) {
         return null;
     }
