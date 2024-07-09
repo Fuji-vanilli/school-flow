@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.*;
 
@@ -155,10 +156,14 @@ public class StudentServiceImpl implements StudentService{
             throw new IllegalArgumentException("Student with id " + matricule + " not found");
         }
 
-        webClientClass.deleteStudentFromClass(studentByMatricule.get().getAClass().id());
+        Student student = studentByMatricule.get();
+
+        Map<String, String> params = Map.of("classID", student.getAClass().id(), "studentID", student.getId());
+        webClientClass.deleteStudentFromClass(params);
+
         studentRepository.deleteByMatricule(matricule);
         log.info("Student deleted: {}", studentByMatricule.get());
 
-        return studentMapper.mapToStudentResponse(studentByMatricule.get());
+        return studentMapper.mapToStudentResponse(student);
     }
 }

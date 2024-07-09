@@ -24,6 +24,8 @@ public interface ClassController {
     ResponseEntity<ClassResponse> get(@PathVariable String level);
     @GetMapping("all")
     ResponseEntity<List<ClassResponse>> getAll();
+    @PatchMapping("delete-student")
+    ResponseEntity<ClassResponse> deleteStudent(@RequestBody Map<String, String> params);
     @DeleteMapping("delete/{id}")
     ResponseEntity<ClassResponse> delete(@PathVariable String id);
 }

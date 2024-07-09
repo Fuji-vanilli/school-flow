@@ -56,6 +56,11 @@ public class ClassApi implements ClassController {
     }
 
     @Override
+    public ResponseEntity<ClassResponse> deleteStudent(Map<String, String> params) {
+        return ResponseEntity.ok(classService.deleteStudentFromClass(params));
+    }
+
+    @Override
     public ResponseEntity<ClassResponse> delete(String id) {
         return ResponseEntity.ok(classService.delete(id));
     }
