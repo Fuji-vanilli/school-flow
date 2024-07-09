@@ -7,6 +7,7 @@ import com.fuji.student_service.models.Note;
 import com.fuji.student_service.models.Report;
 import com.fuji.student_service.services.StudentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,8 @@ import static com.fuji.student_service.utils.Root.APP_ROOT;
 @RequiredArgsConstructor
 public class StudentApi implements StudentController{
     private final StudentService studentService;
+    private final ServerProperties serverProperties;
+
     @Override
     public ResponseEntity<StudentResponse> create(StudentRequest request) {
         return ResponseEntity.ok(studentService.create(request));
@@ -43,6 +46,11 @@ public class StudentApi implements StudentController{
     @Override
     public ResponseEntity<List<StudentResponse>> getAll() {
         return ResponseEntity.ok(studentService.getAll());
+    }
+
+    @Override
+    public ResponseEntity<List<StudentResponse>> getAllByIds(List<String> ids) {
+        return ResponseEntity.ok(studentService.getAllByIds(ids));
     }
 
     @Override

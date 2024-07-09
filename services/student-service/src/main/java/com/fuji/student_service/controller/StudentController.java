@@ -21,6 +21,8 @@ public interface StudentController {
     ResponseEntity<StudentResponse>  getByMatricule(@PathVariable String matricule);
     @GetMapping("all")
     ResponseEntity<List<StudentResponse>> getAll();
+    @PostMapping("all-by-ids")
+    ResponseEntity<List<StudentResponse>> getAllByIds(@RequestBody List<String> ids);
     @PatchMapping("add-note")
     ResponseEntity<StudentResponse>  addNotes(@RequestBody Note note);
     @PatchMapping("payment-ecolage")
