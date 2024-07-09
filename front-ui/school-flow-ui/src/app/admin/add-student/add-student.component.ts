@@ -22,11 +22,26 @@ export class AddStudentComponent implements OnInit{
   classService= inject(ClassService);
 
   classes: Class[] | undefined;
-  classID: string= '';
+  classByID: Class | undefined;
+  classID: string | undefined;
 
   ngOnInit(): void {
     this.initFormGroup();
     this.loadClasses();
+    this.activatedRoute.paramMap.subscribe(
+      params=> {
+        const classID= params.get('classID')!;
+        this.classService.getByID(classID).subscribe({
+          next: response=> {
+            this.classByID= response;
+          },
+          error: err=> {
+            console.log('error: ', err);
+            
+          }
+        })
+      }
+    )
   }
 
   initFormGroup() {
@@ -50,7 +65,7 @@ export class AddStudentComponent implements OnInit{
       },
       error: err=> {
         console.log('error: ', err);
-        
+
       }
     })
   }
