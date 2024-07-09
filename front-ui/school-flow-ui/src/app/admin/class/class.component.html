@@ -41,7 +41,7 @@
                     <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                     Explorer
                   </button>
-                  <button class="add" routerLink="/admin/add-student">
+                  <button class="add" [routerLink]="'/admin/add-student/'+aClass.id">
                     <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
                     Ajouter
                   </button>

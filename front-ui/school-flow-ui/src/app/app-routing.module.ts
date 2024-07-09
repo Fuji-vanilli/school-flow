@@ -30,7 +30,8 @@ const routes: Routes = [
       { path: 'note', component: NoteComponent },
       { path: 'class-concil', component: ClassConcilComponent },
       { path: 'add-class', component: AddClassComponent },
-      { path: 'add-student', component: AddStudentComponent }
+      { path: 'add-student', component: AddStudentComponent },
+      { path: 'add-student/:classID', component: AddStudentComponent }
     ]
   }
 ];

@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StudentService } from '../../services/student.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ClassService } from '../../services/class.service';
 import { Class } from '../../models/class.model';
@@ -18,9 +18,11 @@ export class AddStudentComponent implements OnInit{
   studentService= inject(StudentService);
   formBuilder= inject(FormBuilder);
   router= inject(Router);
+  activatedRoute= inject(ActivatedRoute);
   classService= inject(ClassService);
 
   classes: Class[] | undefined;
+  classID: string= '';
 
   ngOnInit(): void {
     this.initFormGroup();
