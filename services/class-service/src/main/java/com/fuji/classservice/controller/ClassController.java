@@ -18,6 +18,8 @@ public interface ClassController {
     ResponseEntity<ClassResponse> addStudent(@RequestBody Map<String, String> params);
     @PatchMapping("add-professor")
     ResponseEntity<ClassResponse> addProfessor(@RequestBody Professor professor);
+    @GetMapping("get/{id}")
+    ResponseEntity<ClassResponse> getByID(@PathVariable String id);
     @GetMapping("get/{level}")
     ResponseEntity<ClassResponse> get(@PathVariable String level);
     @GetMapping("all")

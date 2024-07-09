@@ -110,6 +110,20 @@ public class ClassServiceImpl implements ClassService{
     }
 
     @Override
+    public ClassResponse getById(String id) {
+        Optional<Class> classOptional = classRepository.findById(id);
+        if (classOptional.isEmpty()) {
+            log.error("sorry, class {} does not exist into the database", id);
+            throw new IllegalArgumentException("sorry, class does not exist into the database");
+        }
+
+        Class aClass = classOptional.get();
+        log.info("class {} getted successfully", aClass.getId());
+
+        return classMapper.mapToClassResponse(aClass);
+    }
+
+    @Override
     public List<ClassResponse> getAll() {
         log.info("all class getted successfully");
         return classRepository.findAll().stream()

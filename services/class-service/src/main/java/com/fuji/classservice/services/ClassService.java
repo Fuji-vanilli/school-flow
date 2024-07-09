@@ -13,6 +13,7 @@ public interface ClassService {
     ClassResponse addStudent(Map<String, String> params);
     ClassResponse addProfessor(Professor professor);
     ClassResponse getByLevel(String level);
+    ClassResponse getById(String id);
     List<ClassResponse> getAll();
     ClassResponse delete(String id);
 }

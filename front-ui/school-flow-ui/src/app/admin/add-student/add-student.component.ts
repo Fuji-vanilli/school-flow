@@ -34,6 +34,8 @@ export class AddStudentComponent implements OnInit{
         this.classService.getByID(classID).subscribe({
           next: response=> {
             this.classByID= response;
+            console.log('class by id for add student: ', this.classByID);
+            
           },
           error: err=> {
             console.log('error: ', err);
