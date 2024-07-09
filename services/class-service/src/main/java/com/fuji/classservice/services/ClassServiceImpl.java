@@ -118,7 +118,8 @@ public class ClassServiceImpl implements ClassService{
         Class aClass = classOptional.get();
         List<String> studentsID = aClass.getStudentsID();
 
-
+        List<Student> allStudentsByIds = webClient.getAllStudentsByIds(studentsID);
+        aClass.setStudents(allStudentsByIds);
 
         aClass.setStudents(null);
         log.info("class {} getted successfully", aClass.getId());
