@@ -145,14 +145,19 @@ public class ClassServiceImpl implements ClassService{
         classRepository.save(aClass);
         log.info("class {} deleted successfully", aClass.getId());
 
-            return classMapper.mapToClassResponse(aClass);
+        return classMapper.mapToClassResponse(aClass);
     }
 
     @Override
     public List<ClassResponse> getAll() {
         log.info("all class getted successfully");
         return classRepository.findAll().stream()
-                .map(classMapper::mapToClassResponse)
+                .map(aClass-> {
+                    final List<String> studentsIDs= aClass.getStudentsID();
+                    aClass.setStudents(webClient.getAllStudentsByIds(studentsIDs));
+
+                    return classMapper.mapToClassResponse(aClass);
+                })
                 .toList();
     }
 

@@ -4,6 +4,7 @@ import com.fuji.classservice.models.Professor;
 import com.fuji.classservice.models.Student;
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
@@ -24,7 +25,10 @@ public class Class {
     private BigDecimal ecolage;
     private BigDecimal maximumCapacity;
     private List<String> studentsID= new ArrayList<>();
+    @Transient
     private List<Student> students= new ArrayList<>();
+    private List<String> professorsID= new ArrayList<>();
+    @Transient
     private List<Professor> professors= new ArrayList<>();
     private Instant createdDate;
     private Instant lastModifiedDate;
