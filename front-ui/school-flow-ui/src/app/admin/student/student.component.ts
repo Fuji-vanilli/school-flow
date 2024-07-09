@@ -71,7 +71,7 @@ export class StudentComponent implements OnInit {
         this.hightSchoolSection= this.classes?.filter(c=> c.section?.toString()=== 'HIGH_SCHOOL'); 
         this.universitySection= this.classes?.filter(c=> c.section?.toString()=== 'UNIVERSITY'); 
 
-        console.log('secondary:', this.secondarySection);
+        console.log('secondary:', this.secondarySection); 
         
       },
       error: err=> {

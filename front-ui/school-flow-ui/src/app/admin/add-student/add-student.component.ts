@@ -55,7 +55,7 @@ export class AddStudentComponent implements OnInit{
       email: this.formBuilder.control('', Validators.required),
       phone: this.formBuilder.control('', Validators.required),
       address: this.formBuilder.control('', Validators.required),
-      aClass: this.formBuilder.control('Choisi une classe', Validators.required),
+      aClass: this.formBuilder.control('Choisi une classe', Validators.required), 
       originSchool: this.formBuilder.control('', Validators.required),
     })
   }
@@ -73,7 +73,11 @@ export class AddStudentComponent implements OnInit{
   }
 
   createStudent() {
-    const aClass= this.classes?.find(c=> c.id=== this.formGroup.value.aClass)
+    let aClass= this.classes?.find(c=> c.id=== this.formGroup.value.aClass);
+    if (this.classByID) {
+      aClass= this.classByID;
+    }
+    
     const student= {
       firstname: this.formGroup.value.firstname,
       lastname: this.formGroup.value.lastname,
@@ -90,11 +94,23 @@ export class AddStudentComponent implements OnInit{
       next: response=> {
         console.log('new class created successfully');
         Swal.fire('Succes', 'Nouvel élève ajouté avec succès', 'success');
-        this.classService.addStudent(response.id, aClass?.id!);
-        this.router.navigateByUrl('/admin/student');
+        if (aClass?.id) {
+          this.classService.addStudent(response.id, aClass.id).subscribe({
+            next: () => {
+              console.log('Student added to class successfully');
+              this.router.navigateByUrl('/admin/student');
+            },
+            error: err => {
+              console.log('Error adding student to class: ', err);
+              Swal.fire('Error', 'Failed to add student to class', 'error');
+            }
+          });
+        } else {
+          this.router.navigateByUrl('/admin/student');
+        }
       },
       error: err=> {
-        console.log('error: ', err);
+        console.log('error: ', err); 
 
       }
     })

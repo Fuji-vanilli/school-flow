@@ -22,7 +22,7 @@ export class ClassService {
   }
 
   getByID(id: string): Observable<any> {
-    return this.httpClient.get(this.url+'/get/'+id);
+    return this.httpClient.get(this.url+'/get-by-id/'+id);
   }
 
   getAll(): Observable<any> {
