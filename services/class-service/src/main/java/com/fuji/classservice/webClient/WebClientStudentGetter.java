@@ -15,7 +15,7 @@ public class WebClientStudentGetter {
     public Student getStudent(String studentId) {
         log.info("Get student {}", studentId);
         return webClient.build().get()
-                .uri("http://localhost:8800/STUDENT-SERVICE/api/student/get/" + studentId)
+                .uri("http://localhost:8800/STUDENT-SERVICE/api/student/get-by-id/" + studentId)
                 .retrieve()
                 .bodyToMono(Student.class)
                 .block();

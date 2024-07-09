@@ -15,9 +15,9 @@ public interface StudentController {
     ResponseEntity<StudentResponse> create(@RequestBody StudentRequest request);
     @PutMapping("update")
     ResponseEntity<StudentResponse> update(@RequestBody StudentRequest request);
-    @GetMapping("get/{id}")
+    @GetMapping("get-by-id/{id}")
     ResponseEntity<StudentResponse>  get(@PathVariable String id);
-    @GetMapping("get/{matricule}")
+    @GetMapping("get-by-matricule/{matricule}")
     ResponseEntity<StudentResponse>  getByMatricule(@PathVariable String matricule);
     @GetMapping("all")
     ResponseEntity<List<StudentResponse>> getAll();
