@@ -81,8 +81,6 @@ public class ClassServiceImpl implements ClassService{
         final String studentID= params.get("studentID");
         final String classID= params.get("classID");
 
-        Student student = webClient.getStudent(studentID);
-
         Optional<Class> classOptional = classRepository.findById(classID);
         if (classOptional.isEmpty()) {
             log.error("sorry, student {} does not exist into the database", studentID);
@@ -90,7 +88,7 @@ public class ClassServiceImpl implements ClassService{
         }
 
         Class aClass = classOptional.get();
-        aClass.getStudents().add(student);
+        aClass.getStudentsID().add(studentID);
         aClass.setLastModifiedDate(Instant.now());
 
         classRepository.save(aClass);
@@ -118,9 +116,35 @@ public class ClassServiceImpl implements ClassService{
         }
 
         Class aClass = classOptional.get();
+        List<String> studentsID = aClass.getStudentsID();
+
+
+
+        aClass.setStudents(null);
         log.info("class {} getted successfully", aClass.getId());
 
         return classMapper.mapToClassResponse(aClass);
+    }
+
+    @Override
+    public ClassResponse deleteStudentFromClass(Map<String, String> query) {
+        final String classID= query.get("classID");
+        final String studentID= query.get("studentID");
+
+        Optional<Class> classByID = classRepository.findById(classID);
+        if (classByID.isEmpty()) {
+            log.error("sorry, class {} does not exist into the database", classID);
+            throw new IllegalArgumentException("sorry class: "+classID+" does not exist into the database");
+        }
+
+        Class aClass = classByID.get();
+        aClass.getStudentsID().remove(studentID);
+        aClass.setLastModifiedDate(Instant.now());
+
+        classRepository.save(aClass);
+        log.info("class {} deleted successfully", aClass.getId());
+
+            return classMapper.mapToClassResponse(aClass);
     }
 
     @Override

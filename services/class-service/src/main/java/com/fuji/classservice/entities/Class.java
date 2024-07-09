@@ -23,6 +23,7 @@ public class Class {
     private BigDecimal numberOfStudents;
     private BigDecimal ecolage;
     private BigDecimal maximumCapacity;
+    private List<String> studentsID= new ArrayList<>();
     private List<Student> students= new ArrayList<>();
     private List<Professor> professors= new ArrayList<>();
     private Instant createdDate;

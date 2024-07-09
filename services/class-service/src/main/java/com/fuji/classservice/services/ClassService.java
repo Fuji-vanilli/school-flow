@@ -14,6 +14,7 @@ public interface ClassService {
     ClassResponse addProfessor(Professor professor);
     ClassResponse getByLevel(String level);
     ClassResponse getById(String id);
+    ClassResponse deleteStudentFromClass(Map<String, String> query);
     List<ClassResponse> getAll();
     ClassResponse delete(String id);
 }
