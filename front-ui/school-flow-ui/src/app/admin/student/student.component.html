@@ -2,10 +2,12 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-12 left">
             <div class="top">
-                <button class="add-student" routerLink="/admin/add-student">
-                  <fa-icon [icon]="['fas', 'plus']"></fa-icon>
-                  <span>Ajouter un etudiant</span>
+              <div class="box-search">
+                <input type="text" placeholder="search anything..">
+                <button class="icon-search">
+                  <fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon>
                 </button>
+              </div>
                 <div class="section-level">
                   <ul class="level">
                     <li class="nav-item">
@@ -55,7 +57,10 @@
                     </li>
                   </ul>
                 </div>
-
+                <button class="add-student" routerLink="/admin/add-student">
+                  <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                  <span>Ajouter un etudiant</span>
+                </button>
             </div>
             <table class="table custom-table">
                 <thead>

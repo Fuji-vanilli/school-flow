@@ -6,16 +6,40 @@
         .top {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             margin-bottom: 18px;
+
+            .box-search {
+                background: var(--green-100);
+                border-radius: 24px;
+                padding: 8px 10px 8px 20px;
+        
+                input {
+                    outline: none;
+                    background: transparent;
+                    border: 0;
+                    color: var(--text-200);
+                }
+        
+                .icon-search {
+                    border: 0;
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    background: var(--primary-100);
+        
+                    fa-icon {
+                        color: var(--text-100);
+                    }
+                }
+            }
 
             .add-student {
                 border: none;
                 padding: 8px 14px;
-                border-radius: 24px;
-                background: var(--primary-100);
+                border-radius: 8px;
+                background: var(--special-100);
                 color: var(--text-100);
-                margin-right: 18px;
     
                 span {
                     margin-left: 10px;

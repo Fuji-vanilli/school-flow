@@ -143,7 +143,7 @@ public class ClassServiceImpl implements ClassService{
         aClass.setLastModifiedDate(Instant.now());
 
         classRepository.save(aClass);
-        log.info("class {} deleted successfully", aClass.getId());
+        log.info("student with the class {} deleted successfully", aClass.getId());
 
         return classMapper.mapToClassResponse(aClass);
     }
