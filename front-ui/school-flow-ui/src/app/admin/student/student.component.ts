@@ -17,6 +17,7 @@ export class StudentComponent implements OnInit {
   formBuilder= inject(FormBuilder);
 
   students: Student[] | undefined;
+  filterStudents: Student[] | undefined;
   classes: Class[] | undefined;
   formGroup!: FormGroup;
   selectedIDStudent!: string;
@@ -39,11 +40,11 @@ export class StudentComponent implements OnInit {
       lastname: this.formBuilder.control('', Validators.required),
       dateOfBirth: this.formBuilder.control('', Validators.required),
       birthPlace: this.formBuilder.control('', Validators.required),
-      email: this.formBuilder.control('', Validators.required),
+      email: this.formBuilder.control(''),
       phone: this.formBuilder.control('', Validators.required),
       address: this.formBuilder.control('', Validators.required),
       aClass: this.formBuilder.control('Choisi une classe', Validators.required),
-      originSchool: this.formBuilder.control('', Validators.required),
+      originSchool: this.formBuilder.control(''),
     })
   }
 
@@ -88,11 +89,11 @@ export class StudentComponent implements OnInit {
       lastname: this.formBuilder.control(student.lastname, Validators.required),
       dateOfBirth: this.formBuilder.control(student.dateOfBirth, Validators.required),
       birthPlace: this.formBuilder.control(student.birthPlace, Validators.required),
-      email: this.formBuilder.control(student.email, Validators.required),
+      email: this.formBuilder.control(student.email),
       phone: this.formBuilder.control(student.phone, Validators.required),
       address: this.formBuilder.control(student.address, Validators.required),
       aClass: this.formBuilder.control(student.aClass?.id, Validators.required),
-      originSchool: this.formBuilder.control(student.originSchool, Validators.required),
+      originSchool: this.formBuilder.control(student.originSchool),
     })
   }
 
@@ -154,6 +155,10 @@ export class StudentComponent implements OnInit {
         })
     }
   })
+  }
+
+  filterByLevel(level: string) {
+    this.filterStudents= this.students?.filter(s=> s.aClass?.level=== level);
   }
 
   capitalize(s: string): string {

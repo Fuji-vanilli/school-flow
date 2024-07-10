@@ -15,7 +15,7 @@
                       <span>Prescolaire</span>
                       <ul class="sub-item">
                         <li *ngFor="let prescolary of prescolarySection">
-                          <a>{{prescolary.level}}</a>
+                          <a>{{prescolary.level+' ('+prescolary.students?.length+')'}}</a>
                         </li>
                       </ul>
                     </li>
@@ -24,7 +24,7 @@
                       <span>Primaire</span>
                       <ul class="sub-item">
                         <li *ngFor="let primary of primarySection">
-                          <a>{{primary.level}}</a>
+                          <a>{{primary.level+' ('+primary.students?.length+')'}}</a>
                         </li>
                       </ul>
                     </li>
@@ -33,7 +33,7 @@
                       <span>Secondaire</span>
                       <ul class="sub-item">
                         <li *ngFor="let secondary of secondarySection">
-                          <a>{{capitalize(secondary.level)}}</a>
+                          <a>{{capitalize(secondary.level)+' ('+secondary.students?.length+')'}}</a>
                         </li>
                       </ul>
                     </li>
@@ -42,7 +42,7 @@
                       <span>Lycée</span>
                       <ul class="sub-item" >
                         <li *ngFor="let highSchool of hightSchoolSection">
-                          <a>{{capitalize(highSchool.level)}}</a>
+                          <a>{{capitalize(highSchool.level)+' ('+highSchool.students?.length+')'}}</a>
                         </li>
                       </ul>
                     </li>
@@ -51,7 +51,7 @@
                       <span>Université</span>
                       <ul>
                         <li *ngFor="let university of universitySection">
-                          <a>{{university.level}}</a>
+                          <a>{{university.level+' ('+university.students?.length+')'}}</a>
                         </li>
                       </ul>
                     </li>
@@ -80,7 +80,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let student of students">
+                  <tr *ngFor="let student of filterStudents">
                     <td>
                       <fa-icon [icon]="['far', 'circle-check']"></fa-icon>
                     </td>
