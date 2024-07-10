@@ -85,7 +85,9 @@
                       <fa-icon [icon]="['far', 'circle-check']"></fa-icon>
                     </td>
                     <td>{{student.matricule}}</td>
-                    <td>{{student.firstname?.toUpperCase()}}</td>
+                    <td>
+                      <a href="" class="name-student">{{student.firstname?.toUpperCase()}}</a>
+                    </td>
                     <td>{{capitalize(student.lastname!)}}</td>
                     <td>{{student.dateOfBirth?.toString()?.slice(0, 10)}}</td>
                     <td>{{student.phone}}</td>

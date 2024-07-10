@@ -159,6 +159,18 @@
                         font-size: 14px;
                         padding: 14px;
 
+                        .name-student {
+                            text-decoration: none;
+                            font-weight: 500;
+                            color: var(--bg-200);
+                            transition: all ease 0.4s;
+                        }
+
+                        .name-student:hover {
+                            text-decoration: underline;
+                            color: var(--special-100);
+                        }
+
                         button:hover {
                             opacity: .7;
                         }
