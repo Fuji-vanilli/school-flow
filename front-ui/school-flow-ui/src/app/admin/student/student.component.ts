@@ -93,7 +93,7 @@ export class StudentComponent implements OnInit {
       email: this.formBuilder.control(student.email),
       phone: this.formBuilder.control(student.phone, Validators.required),
       address: this.formBuilder.control(student.address, Validators.required),
-      aClass: this.formBuilder.control(student.aClass?.id, Validators.required),
+      classID: this.formBuilder.control(student.classID, Validators.required),
       originSchool: this.formBuilder.control(student.originSchool),
     })
   }
@@ -109,7 +109,7 @@ export class StudentComponent implements OnInit {
       email: this.formGroup.value.email,
       phone: this.formGroup.value.phone,
       address: this.formGroup.value.address,
-      aClass: aClass,
+      classID: this.formGroup.value.classID,
       originSchool: this.formGroup.value.originSchool
     }
 

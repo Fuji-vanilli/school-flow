@@ -36,6 +36,7 @@ public class StudentMapperImpl implements StudentMapper{
                 student.getPhone(),
                 student.getAddress(),
                 student.getImageUrl(),
+                student.getClassID(),
                 student.getAClass(),
                 student.getEcolages(),
                 student.getNote(),

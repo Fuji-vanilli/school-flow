@@ -179,10 +179,10 @@
                         <input type="text" placeholder="ex. Lot WKX Ambohitafita" formControlName="address">
                     </div>
                     <label>Classe <span>*</span></label>
-                    <select class="form-select form-select-lg mb-3 field-select" formControlName="aClass">
+                    <select class="form-select form-select-lg mb-3 field-select" formControlName="classID">
                         <option selected>Choisi une classe</option>
                         <option [value]="aClass.id" *ngFor="let aClass of classes">{{aClass.level}}</option>
-                      </select>
+                    </select>
 
                     <label>Ecole d'origine<span> *</span></label>
                     <div class="field">

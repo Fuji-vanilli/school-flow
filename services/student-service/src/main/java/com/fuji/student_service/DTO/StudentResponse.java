@@ -21,6 +21,7 @@ public record StudentResponse(
         String phone,
         String address,
         String imageUrl,
+        String classID,
         Class aClass,
         List<Ecolage> ecolages,
         Note note,

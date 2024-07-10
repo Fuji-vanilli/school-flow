@@ -32,6 +32,10 @@ export class StudentService {
     return this.httpClient.get(this.url+'/all');
   }
 
+  getByClassID(classID: string): Observable<any> {
+    return this.httpClient.get(this.url+'/get-by-clientID/'+classID);
+  }
+
   addNote(note: Note): Observable<any> {
     return this.httpClient.patch(this.url+'/add-note', note);
   }
