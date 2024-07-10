@@ -30,9 +30,9 @@ export class AddStudentComponent implements OnInit{
     this.loadClasses();
     this.activatedRoute.paramMap.subscribe(
       params=> {
-        const classID= params.get('classID')!;
-        if (classID) {
-          this.classService.getByID(classID).subscribe({
+        this.classID= params.get('classID')!;
+        if (this.classID) {
+          this.classService.getByID(this.classID).subscribe({
             next: response=> {
               this.classByID= response;
               console.log('class by id for add student: ', this.classByID);
@@ -75,7 +75,7 @@ export class AddStudentComponent implements OnInit{
   }
 
   createStudent() {
-    const classID= this.formGroup.value.classID;
+    const classIDForm= this.formGroup.value.classID;
     const student= {
       firstname: this.formGroup.value.firstname,
       lastname: this.formGroup.value.lastname,
@@ -84,7 +84,7 @@ export class AddStudentComponent implements OnInit{
       email: this.formGroup.value.email,
       phone: this.formGroup.value.phone,
       address: this.formGroup.value.address,
-      classID: classID,
+      classID: this.classID!== null? this.classID: classIDForm,
       originSchool: this.formGroup.value.originSchool
     };
 
@@ -92,8 +92,8 @@ export class AddStudentComponent implements OnInit{
       next: response=> {
         console.log('new class created successfully');
         Swal.fire('Succes', 'Nouvel élève ajouté avec succès', 'success');
-        if (classID) {
-          this.classService.addStudent(response.id, classID).subscribe({
+        if (this.classID) {
+          this.classService.addStudent(response.id, this.classID).subscribe({
             next: () => {
               console.log('Student added to class successfully');
               this.router.navigateByUrl('/admin/student');

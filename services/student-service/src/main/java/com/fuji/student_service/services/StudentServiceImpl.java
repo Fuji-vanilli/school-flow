@@ -146,12 +146,15 @@ public class StudentServiceImpl implements StudentService{
     public List<StudentResponse> getAllByIds(List<String> ids) {
         log.info("all students with the ids : {}getted successfully", ids);
         return studentRepository.findAllById(ids).stream()
-                .map(student-> {
-                    Class classByID = webClientClass.getClassByID(student.getClassID());
-                    student.setAClass(classByID);
+                .map(studentMapper::mapToStudentResponse)
+                .toList();
+    }
 
-                    return studentMapper.mapToStudentResponse(student);
-                })
+    @Override
+    public List<StudentResponse> getAllByClassID(String classID) {
+        log.info("all students with the classID : {}getted successfully", classID);
+        return studentRepository.findAllByClassID(classID).stream()
+                .map(studentMapper::mapToStudentResponse)
                 .toList();
     }
 

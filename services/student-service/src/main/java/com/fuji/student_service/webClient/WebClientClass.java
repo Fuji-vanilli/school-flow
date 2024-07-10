@@ -16,7 +16,7 @@ public class WebClientClass {
 
     public Class getClassByID(String id) {
         return webClient.build().get()
-                .uri("http://localhost:8800/CLASS-SERVICE/api/class/get-by-id/", id)
+                .uri("http://localhost:8800/CLASS-SERVICE/api/class/get-by-id/"+id)
                 .retrieve()
                 .bodyToMono(Class.class)
                 .block();

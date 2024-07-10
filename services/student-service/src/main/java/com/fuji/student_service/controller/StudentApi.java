@@ -54,6 +54,11 @@ public class StudentApi implements StudentController{
     }
 
     @Override
+    public ResponseEntity<List<StudentResponse>> getAllByClassID(String classID) {
+        return ResponseEntity.ok(studentService.getAllByClassID(classID));
+    }
+
+    @Override
     public ResponseEntity<StudentResponse> addNotes(Note note) {
         return ResponseEntity.ok(studentService.addNotes(note));
     }

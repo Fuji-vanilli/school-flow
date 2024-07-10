@@ -16,6 +16,7 @@ public interface StudentService {
     StudentResponse getByMatricule(String matricule);
     List<StudentResponse> getAll();
     List<StudentResponse> getAllByIds(List<String> ids);
+    List<StudentResponse> getAllByClassID(String classID);
     StudentResponse addNotes(Note note);
     StudentResponse paymentEcolage(Ecolage ecolage);
     StudentResponse addReport(Report report);

@@ -23,6 +23,8 @@ public interface StudentController {
     ResponseEntity<List<StudentResponse>> getAll();
     @PostMapping("all-by-ids")
     ResponseEntity<List<StudentResponse>> getAllByIds(@RequestBody List<String> ids);
+    @GetMapping("get-by-classID/{classID}")
+    ResponseEntity<List<StudentResponse>> getAllByClassID(@PathVariable String classID);
     @PatchMapping("add-note")
     ResponseEntity<StudentResponse>  addNotes(@RequestBody Note note);
     @PatchMapping("payment-ecolage")

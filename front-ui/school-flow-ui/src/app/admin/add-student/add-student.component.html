@@ -48,7 +48,7 @@
                                 <input type="text" [placeholder]="classByID.level" readonly>
                             </div>
                         } @else {
-                            <select class="form-select form-select-lg mb-3 field-select" formControlName="aClass">
+                            <select class="form-select form-select-lg mb-3 field-select" formControlName="classID">
                                 <option selected>Choisi une classe</option>
                                 <option [value]="aClass.id" *ngFor="let aClass of classes">{{aClass.level}}</option>
                               </select>
