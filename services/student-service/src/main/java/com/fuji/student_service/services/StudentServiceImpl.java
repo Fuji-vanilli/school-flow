@@ -4,6 +4,7 @@ import com.fuji.student_service.DTO.StudentRequest;
 import com.fuji.student_service.DTO.StudentResponse;
 import com.fuji.student_service.entities.Student;
 import com.fuji.student_service.mapper.StudentMapper;
+import com.fuji.student_service.models.Class;
 import com.fuji.student_service.models.Ecolage;
 import com.fuji.student_service.models.Note;
 import com.fuji.student_service.models.Report;
@@ -32,11 +33,14 @@ public class StudentServiceImpl implements StudentService{
         Student student = studentMapper.mapToStudent(request);
         Random random= new Random();
 
-        String matricule= request.aClass().level().substring(0, 2)+"-"+ random.nextInt(100);
+        Class classByID = webClientClass.getClassByID(student.getClassID());
+
+        String matricule= classByID.level().substring(0, 2)+"-"+ random.nextInt(100);
         student.setMatricule(matricule);
         student.setId(UUID.randomUUID().toString());
         student.setCreatedDate(Instant.now());
         student.setLastUpdatedDate(Instant.now());
+        student.setAClass(classByID);
 
         studentRepository.save(student);
         log.info("Student created: {}", student);
@@ -70,9 +74,13 @@ public class StudentServiceImpl implements StudentService{
             log.error("Student with id : {} not found", id);
             throw new IllegalArgumentException("Student with id " + id + " not found");
         }
+        Student student = studentOptional.get();
+
+        webClientClass.getClassByID(student.getClassID());
+        student.setAClass(student.getAClass());
 
         log.info("Student getted successfully");
-        return studentMapper.mapToStudentResponse(studentOptional.get());
+        return studentMapper.mapToStudentResponse(student);
     }
 
     public void mergeStudent(StudentRequest request, Student student) {
@@ -100,8 +108,8 @@ public class StudentServiceImpl implements StudentService{
         if (!request.address().isBlank()) {
             student.setAddress(request.address());
         }
-        if (!Objects.isNull(request.aClass())) {
-            student.setAClass(request.aClass());
+        if (request.classID().isBlank()) {
+            student.setClassID(request.classID());
         }
     }
 
@@ -113,15 +121,24 @@ public class StudentServiceImpl implements StudentService{
             throw new IllegalArgumentException("Student with id " + matricule + " not found");
         }
 
-        log.info("Student getted successfully: {}", studentOptional.get());
-        return studentMapper.mapToStudentResponse(studentOptional.get());
+        Student student = studentOptional.get();
+        Class classByID = webClientClass.getClassByID(student.getClassID());
+
+        student.setAClass(classByID);
+        log.info("Student getted successfully: {}", student);
+        return studentMapper.mapToStudentResponse(student);
     }
 
     @Override
     public List<StudentResponse> getAll() {
         log.info("all students getted successfully!");
         return studentRepository.findAll().stream()
-                .map(studentMapper::mapToStudentResponse)
+                .map(student-> {
+                    Class classByID = webClientClass.getClassByID(student.getClassID());
+                    student.setAClass(classByID);
+
+                    return studentMapper.mapToStudentResponse(student);
+                })
                 .toList();
     }
 
@@ -129,7 +146,12 @@ public class StudentServiceImpl implements StudentService{
     public List<StudentResponse> getAllByIds(List<String> ids) {
         log.info("all students with the ids : {}getted successfully", ids);
         return studentRepository.findAllById(ids).stream()
-                .map(studentMapper::mapToStudentResponse)
+                .map(student-> {
+                    Class classByID = webClientClass.getClassByID(student.getClassID());
+                    student.setAClass(classByID);
+
+                    return studentMapper.mapToStudentResponse(student);
+                })
                 .toList();
     }
 

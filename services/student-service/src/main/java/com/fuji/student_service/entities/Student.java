@@ -6,6 +6,7 @@ import com.fuji.student_service.models.Note;
 import com.fuji.student_service.models.Report;
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
@@ -28,6 +29,8 @@ public class Student {
     private String phone;
     private String address;
     private String imageUrl;
+    private String classID;
+    @Transient
     private Class aClass;
     private List<Ecolage> ecolages;
     private Note note;

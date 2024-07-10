@@ -25,8 +25,8 @@ public record StudentRequest (
         String phone,
         @NotNull(message = "address required!")
         String address,
-        @NotNull(message = "class required!")
-        Class aClass,
+        @NotNull(message = "class id required!")
+        String classID,
         String originSchool
 ){
 }

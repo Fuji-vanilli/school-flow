@@ -52,6 +52,7 @@ export class StudentComponent implements OnInit {
     this.studentService.getAll().subscribe({
       next: response=> {
         this.students= response;
+        this.filterStudents= this.students;
         console.log('students: ', this.students);
         
       },
@@ -158,7 +159,9 @@ export class StudentComponent implements OnInit {
   }
 
   filterByLevel(level: string) {
-    this.filterStudents= this.students?.filter(s=> s.aClass?.level=== level);
+    this.filterStudents= this.students?.filter(s=> s.aClass?.level.toLowerCase()=== level.toLowerCase());
+    console.log('filters: '+this.filterStudents);
+    
   }
 
   capitalize(s: string): string {

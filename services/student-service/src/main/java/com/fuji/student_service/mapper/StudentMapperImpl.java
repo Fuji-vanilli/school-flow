@@ -16,7 +16,7 @@ public class StudentMapperImpl implements StudentMapper{
                 .phone(request.phone())
                 .email(request.email())
                 .address(request.address())
-                .aClass(request.aClass())
+                .classID(request.classID())
                 .dateOfBirth(request.dateOfBirth())
                 .birthPlace(request.birthPlace())
                 .originSchool(request.originSchool())
