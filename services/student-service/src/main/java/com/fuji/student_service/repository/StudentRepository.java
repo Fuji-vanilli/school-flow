@@ -10,5 +10,5 @@ public interface StudentRepository extends MongoRepository<Student,String> {
     boolean existsByMatricule(String matricule);
     Optional<Student> findByMatricule(String matricule);
     void deleteByMatricule(String matricule);
-    List<Student> findAllByClassId(String classId);
+    //List<Student> findAllByClassId(String classId);
 }

@@ -14,6 +14,7 @@ export interface Student {
     phone?: string,
     address?: string,
     imageUrl?: string,
+    classID?: string,
     aClass?: Class,
     ecolages?: Array<Ecolage>,
     note?: Note,
