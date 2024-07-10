@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClassService } from '../../services/class.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-class',
@@ -35,6 +36,7 @@ export class AddClassComponent implements OnInit {
     this.classService.createClass(aClass).subscribe({
       next: response=> {
         console.log('new class created successfully');
+        Swal.fire('Succès', 'nouvelle class créer', 'success');
         this.router.navigateByUrl('/admin/class')
       },
       error: err=> {
