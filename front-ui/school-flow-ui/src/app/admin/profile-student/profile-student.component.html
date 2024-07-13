@@ -45,37 +45,31 @@
                     <div class="divider mt-4"></div>
                     <div class="competence mt-3">
                         <h3>Competences</h3>
-                        <button class="btn-competence" *ngFor="let competence of user.competences">{{competence}}</button>
+                        <button class="btn-competence" ></button>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="content-right">
-                        <div class="chart" *ngIf="dataResult.length> 0">
-                            <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
-                            [xaxis]="chartOptions.xaxis!" [stroke]="chartOptions.stroke!" [tooltip]="chartOptions.tooltip!"
-                            [dataLabels]="chartOptions.dataLabels!">
-                        </apx-chart>
-
                         </div>
                         <div class="recap ms-3">
                         <div class="row">
-                            <div class="col-md-4" *ngFor="let result of dataResult">
+                            <div class="col-md-4">
                                 <div class="card-finished">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="title-quiz">
                                             <i class="bi bi-paperclip" style="font-size: 20px;"></i>
-                                            <span>{{result.quizTitle}}</span>
+                                            
                                         </div>
                                         <button class="btn btn-success" routerLink="/user/quizzes">Explore</button>
                                     </div>
                                     <div class="result-details mt-4">
                                         <div>
                                             <i class="bi bi-patch-check"></i>
-                                            <span>{{result.frequency}} Completed</span>
+                                            
                                         </div>
                                         <div>
                                             <i class="bi bi-graph-up-arrow"></i>
-                                            <span>max score: {{result.maxScore+'%'}}</span>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +80,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
