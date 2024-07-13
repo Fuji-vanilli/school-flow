@@ -81,7 +81,7 @@
                   <tr *ngFor="let student of filterStudents">
                     <td>{{student.matricule}}</td>
                     <td>
-                      <a [routerLink]="'admin/profile-student/'+student.id" class="name-student">{{student.firstname?.toUpperCase()}}</a>
+                      <a [routerLink]="'/admin/profile-student/'+student.id" class="name-student">{{student.firstname?.toUpperCase()}}</a>
                     </td>
                     <td>{{capitalize(student.lastname!)}}</td>
                     <td>{{student.dateOfBirth?.toString()?.slice(0, 10)}}</td>
