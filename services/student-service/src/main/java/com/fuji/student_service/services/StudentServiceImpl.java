@@ -152,9 +152,14 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public List<StudentResponse> getAllByClassID(String classID) {
+        Class classByID = webClientClass.getClassByID(classID);
         log.info("all students with the classID : {}getted successfully", classID);
+
         return studentRepository.findAllByClassID(classID).stream()
-                .map(studentMapper::mapToStudentResponse)
+                .map(student -> {
+                    student.setAClass(classByID);
+                    return studentMapper.mapToStudentResponse(student);
+                })
                 .toList();
     }
 

@@ -15,7 +15,7 @@
                       <span>Prescolaire</span>
                       <ul class="sub-item">
                         <li *ngFor="let prescolary of prescolarySection">
-                          <a (click)="filterByLevel(prescolary.level)">{{prescolary.level+' ('+prescolary.students?.length+')'}}</a>
+                          <a (click)="filterByLevel(prescolary.id!)">{{prescolary.level+' ('+prescolary.students?.length+')'}}</a>
                         </li>
                       </ul>
                     </li>
@@ -24,7 +24,7 @@
                       <span>Primaire</span>
                       <ul class="sub-item">
                         <li *ngFor="let primary of primarySection">
-                          <a (click)="filterByLevel(primary.level)">{{primary.level+' ('+primary.students?.length+')'}}</a>
+                          <a (click)="filterByLevel(primary.id!)">{{primary.level+' ('+primary.students?.length+')'}}</a>
                         </li>
                       </ul>
                     </li>
@@ -33,7 +33,7 @@
                       <span>Secondaire</span>
                       <ul class="sub-item">
                         <li *ngFor="let secondary of secondarySection">
-                          <a (click)="filterByLevel(secondary.level)">{{capitalize(secondary.level)+' ('+secondary.students?.length+')'}}</a>
+                          <a (click)="filterByLevel(secondary.id!)">{{capitalize(secondary.level)+' ('+secondary.students?.length+')'}}</a>
                         </li>
                       </ul>
                     </li>
@@ -42,7 +42,7 @@
                       <span>Lycée</span>
                       <ul class="sub-item" >
                         <li *ngFor="let highSchool of hightSchoolSection">
-                          <a (click)="filterByLevel(highSchool.level)">{{capitalize(highSchool.level)+' ('+highSchool.students?.length+')'}}</a>
+                          <a (click)="filterByLevel(highSchool.id!)">{{capitalize(highSchool.level)+' ('+highSchool.students?.length+')'}}</a>
                         </li>
                       </ul>
                     </li>
@@ -51,7 +51,7 @@
                       <span>Université</span>
                       <ul>
                         <li *ngFor="let university of universitySection">
-                          <a (click)="filterByLevel(university.level)">{{university.level+' ('+university.students?.length+')'}}</a>
+                          <a (click)="filterByLevel(university.id!)">{{university.level+' ('+university.students?.length+')'}}</a>
                         </li>
                       </ul>
                     </li>
@@ -65,7 +65,6 @@
             <table class="table custom-table">
                 <thead>
                   <tr>
-                    <th scope="col"></th>
                     <th scope="col">Mle</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prénoms</th>
@@ -81,9 +80,6 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let student of filterStudents">
-                    <td>
-                      <fa-icon [icon]="['far', 'circle-check']"></fa-icon>
-                    </td>
                     <td>{{student.matricule}}</td>
                     <td>
                       <a href="" class="name-student">{{student.firstname?.toUpperCase()}}</a>

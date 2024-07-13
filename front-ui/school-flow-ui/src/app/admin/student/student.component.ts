@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClassService } from '../../services/class.service';
 import { Class, Section } from '../../models/class.model';
 import Swal from 'sweetalert2';
+import { response } from 'express';
+import { log } from 'console';
 
 @Component({
   selector: 'app-student',
@@ -43,7 +45,7 @@ export class StudentComponent implements OnInit {
       email: this.formBuilder.control(''),
       phone: this.formBuilder.control('', Validators.required),
       address: this.formBuilder.control('', Validators.required),
-      aClass: this.formBuilder.control('Choisi une classe', Validators.required),
+      classID: this.formBuilder.control('Choisi une classe', Validators.required),
       originSchool: this.formBuilder.control(''),
     })
   }
@@ -158,8 +160,18 @@ export class StudentComponent implements OnInit {
   })
   }
 
-  filterByLevel(level: string) {
-    this.filterStudents= this.students?.filter(s=> s.aClass?.level.toLowerCase()=== level.toLowerCase());
+  filterByLevel(classID: string) {
+    this.studentService.getByClassID(classID).subscribe({
+      next: response=>  {
+        this.filterStudents= response;
+        console.log('filtered: ', this.filterStudents);
+        
+      }, 
+      error: err=> {
+        console.log('error: ', err);
+        
+      }
+    })
     console.log('filters: '+this.filterStudents);
     
   }

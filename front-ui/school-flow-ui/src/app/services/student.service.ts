@@ -33,7 +33,7 @@ export class StudentService {
   }
 
   getByClassID(classID: string): Observable<any> {
-    return this.httpClient.get(this.url+'/get-by-clientID/'+classID);
+    return this.httpClient.get(this.url+'/get-by-classID/'+classID);
   }
 
   addNote(note: Note): Observable<any> {
