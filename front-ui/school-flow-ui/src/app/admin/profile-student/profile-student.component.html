@@ -1,1 +1,119 @@
-<p>profile-student works!</p>
+<div class="contain">
+    <div class="row ">
+        <div class="col-md-12 content">
+            <div class="row">
+                <div class="col-md-3 content-left">
+                    <h4></h4>
+                    <div class="image-profile">
+                        <img [src]="student?.imageUrl" alt="">
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-camera-fill"></i></a>
+                    </div>
+                    <div class="profile mt-5">
+                        <p class="username">{{student?.firstname?.toUpperCase()+' '+ capitalize(student?.lastname!)}}
+                        </p>
+                        <p class="email">{{student?.email}}</p>
+                    </div>
+
+                    <div class="competence mt-4">
+                        <h5>{{student?.aClass?.level}}</h5>
+                    </div>
+
+                    <div class="edit-profile">
+                        <button class="btn-edit-profile" routerLink="/user/edit-profile">Edit profile</button>
+                    </div>
+
+                    <div class="followers mt-4 d-flex justify-content-between">
+                        <a class="nav-link"><i class="bi bi-people"></i><span><strong>{{student?.dateOfBirth}}</strong>Followers</span></a>
+                        <a class="nav-link"><i
+                                class="bi bi-person-fill-check"></i><span><strong>{{student?.birthPlace}}</strong>Following</span></a>
+                    </div>
+
+                    <div class="other-link mt-3">
+                        <a class="nav-link"><i class="bi bi-link-45deg"></i>
+                            <span></span></a>
+                        <a class="nav-link mt-2">
+                            <i class="bi bi-linkedin"></i><span>linkedin.com/quiz-tech/profile</span>
+                        </a>
+                    </div>
+                    <div class="divider mt-4"></div>
+                    <div class="organisation mt-2">
+                        <h3>Organisations</h3>
+                        <img src="../../../../assets/tesla.png" alt="">
+                        <img src="../../../../assets/dropbox.png" alt="">
+                        <img src="../../../../assets/meta.png" alt="">
+                    </div>
+                    <div class="divider mt-4"></div>
+                    <div class="competence mt-3">
+                        <h3>Competences</h3>
+                        <button class="btn-competence" *ngFor="let competence of user.competences">{{competence}}</button>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="content-right">
+                        <div class="chart" *ngIf="dataResult.length> 0">
+                            <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
+                            [xaxis]="chartOptions.xaxis!" [stroke]="chartOptions.stroke!" [tooltip]="chartOptions.tooltip!"
+                            [dataLabels]="chartOptions.dataLabels!">
+                        </apx-chart>
+
+                        </div>
+                        <div class="recap ms-3">
+                        <div class="row">
+                            <div class="col-md-4" *ngFor="let result of dataResult">
+                                <div class="card-finished">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="title-quiz">
+                                            <i class="bi bi-paperclip" style="font-size: 20px;"></i>
+                                            <span>{{result.quizTitle}}</span>
+                                        </div>
+                                        <button class="btn btn-success" routerLink="/user/quizzes">Explore</button>
+                                    </div>
+                                    <div class="result-details mt-4">
+                                        <div>
+                                            <i class="bi bi-patch-check"></i>
+                                            <span>{{result.frequency}} Completed</span>
+                                        </div>
+                                        <div>
+                                            <i class="bi bi-graph-up-arrow"></i>
+                                            <span>max score: {{result.maxScore+'%'}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="header">
+            <h4 class="modal-title" id="exampleModalLabel">Choose your profile Image</h4> 
+        </div>
+      <div class="modal-body">
+        <div class="mb-3">
+            <input 
+                type="file" 
+                class="form-control"
+                (change)="handleFileInput($event)"
+                id="fileInput"
+                style="display: none;"
+            >
+            <button class="btn-upload" type="submit" id="inputGroupFileAddon04" (click)="uploadFile()"><i class="bi bi-plus-lg" style="margin-right: 18px;"></i>Import Image</button>
+        </div>
+            <p class="mb-3" style="color: #89929b;">File selected: <span style="color: #fff;">{{filename}}</span></p>
+            <div class="selected-image d-flex justify-content-center align-items-center " *ngIf="selectImage">
+                <img [src]="selectImage" alt="">
+            </div>
+            <div class="mt-5">
+                <button *ngIf="filename" class="btn btn-secondary" (click)="uploadProfileImage()">Upload</button>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
