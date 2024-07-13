@@ -70,7 +70,6 @@
                     <th scope="col">Prénoms</th>
                     <th scope="col">Date de naissance</th>
                     <th scope="col">Télephone</th>
-                    <th scope="col">Adresse</th>
                     <th scope="col">Classe</th>
                     <th scope="col">Notes</th>
                     <th scope="col">Absences</th>
@@ -82,12 +81,11 @@
                   <tr *ngFor="let student of filterStudents">
                     <td>{{student.matricule}}</td>
                     <td>
-                      <a href="" class="name-student">{{student.firstname?.toUpperCase()}}</a>
+                      <a [routerLink]="'admin/profile-student/'+student.id" class="name-student">{{student.firstname?.toUpperCase()}}</a>
                     </td>
                     <td>{{capitalize(student.lastname!)}}</td>
                     <td>{{student.dateOfBirth?.toString()?.slice(0, 10)}}</td>
                     <td>{{student.phone}}</td>
-                    <td>{{student.address}}</td>
                     <td>{{capitalize(student.aClass?.level!.toString())}}</td>
                     <td>
                       <div class="explorer">

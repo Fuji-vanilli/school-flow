@@ -15,6 +15,7 @@ import { NoteComponent } from './admin/note/note.component';
 import { ClassConcilComponent } from './admin/class-concil/class-concil.component';
 import { AddClassComponent } from './admin/add-class/add-class.component';
 import { AddStudentComponent } from './admin/add-student/add-student.component';
+import { ProfileStudentComponent } from './admin/profile-student/profile-student.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -31,7 +32,8 @@ const routes: Routes = [
       { path: 'class-concil', component: ClassConcilComponent },
       { path: 'add-class', component: AddClassComponent },
       { path: 'add-student', component: AddStudentComponent },
-      { path: 'add-student/:classID', component: AddStudentComponent }
+      { path: 'add-student/:classID', component: AddStudentComponent },
+      { path: 'profile-student/:studentID', component: ProfileStudentComponent }
     ]
   }
 ];

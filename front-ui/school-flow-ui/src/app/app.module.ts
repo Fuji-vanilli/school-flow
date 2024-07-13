@@ -23,6 +23,7 @@ import { AddClassComponent } from './admin/add-class/add-class.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { AddStudentComponent } from './admin/add-student/add-student.component';
+import { ProfileStudentComponent } from './admin/profile-student/profile-student.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -57,7 +58,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     NoteComponent,
     ClassConcilComponent,
     AddClassComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    ProfileStudentComponent
   ],
   imports: [
     BrowserModule,
