@@ -6,7 +6,9 @@
                     <h4></h4>
                     <div class="image-profile">
                         <img [src]="student?.imageUrl" alt="">
-                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-camera-fill"></i></a>
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                            <fa-icon [icon]="['fas', 'camera']"></fa-icon>
+                        </a>
                     </div>
                     <div class="profile mt-5">
                         <p class="username">{{student?.firstname?.toUpperCase()+' '+ capitalize(student?.lastname!)}}
@@ -19,15 +21,12 @@
                     </div>
 
                     <div class="edit-profile">
-                        <button class="btn-edit-profile" routerLink="/user/edit-profile">Edit profile</button>
+                        <button class="btn-edit-profile" routerLink="/user/edit-profile">Editer le profile</button>
                     </div>
 
                     <div class="followers mt-4 d-flex justify-content-between">
-                        <a class="nav-link"><i class="bi bi-people"></i><span><strong>{{student?.dateOfBirth}}</strong>Followers</span></a>
-                        <a class="nav-link"><i
-                                class="bi bi-person-fill-check"></i><span><strong>{{student?.birthPlace}}</strong>Following</span></a>
+                    
                     </div>
-
                     <div class="other-link mt-3">
                         <a class="nav-link"><i class="bi bi-link-45deg"></i>
                             <span></span></a>
@@ -37,14 +36,11 @@
                     </div>
                     <div class="divider mt-4"></div>
                     <div class="organisation mt-2">
-                        <h3>Organisations</h3>
-                        <img src="../../../../assets/tesla.png" alt="">
-                        <img src="../../../../assets/dropbox.png" alt="">
-                        <img src="../../../../assets/meta.png" alt="">
+                        <h6>Calendriers </h6>
                     </div>
                     <div class="divider mt-4"></div>
                     <div class="competence mt-3">
-                        <h3>Competences</h3>
+                        <h6>Competences</h6>
                         <button class="btn-competence" ></button>
                     </div>
                 </div>
@@ -60,7 +56,6 @@
                                             <i class="bi bi-paperclip" style="font-size: 20px;"></i>
                                             
                                         </div>
-                                        <button class="btn btn-success" routerLink="/user/quizzes">Explore</button>
                                     </div>
                                     <div class="result-details mt-4">
                                         <div>

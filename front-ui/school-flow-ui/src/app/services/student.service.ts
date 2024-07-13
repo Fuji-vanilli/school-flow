@@ -24,8 +24,8 @@ export class StudentService {
     return this.httpClient.put(this.url+'/update', student);
   }
 
-  get(matricule: string): Observable<any> {
-    return this.httpClient.get(this.url+'/get/'+matricule);
+  get(id: string): Observable<any> {
+    return this.httpClient.get(this.url+'/get-by-id/'+id);
   }
 
   getAll(): Observable<any> {

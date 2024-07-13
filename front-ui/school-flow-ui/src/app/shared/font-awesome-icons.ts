@@ -3,6 +3,7 @@ import {
   faBook,
   faBookOpenReader,
   faCalendarDays,
+  faCamera,
   faCartPlus,
   faCartShopping,
   faChalkboardTeacher,
@@ -77,6 +78,7 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faEnvelopeOpenText,
   faPhoneVolume,
   faMapLocationDot,
-  faSchoolLock
+  faSchoolLock,
+  faCamera
 
 ]
