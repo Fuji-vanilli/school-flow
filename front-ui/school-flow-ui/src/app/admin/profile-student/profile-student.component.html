@@ -25,7 +25,10 @@
                     </div>
 
                     <div class="followers mt-4 d-flex justify-content-between">
-                    
+                    <div class="details">
+                        <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
+                        <span>{{student?.dateOfBirth?.toString()?.slice(0, 10)}}</span>
+                    </div>
                     </div>
                     <div class="other-link mt-3">
                         <a class="nav-link"><i class="bi bi-link-45deg"></i>
