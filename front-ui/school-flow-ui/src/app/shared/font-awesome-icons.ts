@@ -1,4 +1,4 @@
-import { faBell, faCircleCheck, faCommentDots, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { faBell, faCircleCheck, faCommentDots, faIdBadge, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import {
   faBook,
   faBookOpenReader,
@@ -79,6 +79,7 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faPhoneVolume,
   faMapLocationDot,
   faSchoolLock,
-  faCamera
+  faCamera,
+  faIdBadge
 
 ]

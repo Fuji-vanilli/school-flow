@@ -5,15 +5,20 @@
                 <div class="col-md-3 content-left">
                     <h4></h4>
                     <div class="image-profile">
-                        <img [src]="student?.imageUrl" alt="">
+                        @if (student?.imageUrl=== null) {
+                            <img src="../../../assets/icon-256x256.png">
+                        } @else {
+                            <img [src]="student?.imageUrl">
+                        }
                         <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
                             <fa-icon [icon]="['fas', 'camera']"></fa-icon>
                         </a>
                     </div>
                     <div class="profile mt-5">
-                        <p class="username">{{student?.firstname?.toUpperCase()+' '+ capitalize(student?.lastname!)}}
-                        </p>
-                        <p class="email">{{student?.email}}</p>
+                        <span class="username">{{student?.firstname?.toUpperCase()+' '+ capitalize(student?.lastname!)}}
+                        </span>
+                        <span class="email">{{student?.email}}</span>
+                        <span class="classe">{{student?.address}}</span>
                     </div>
 
                     <div class="competence mt-4">
@@ -21,14 +26,34 @@
                     </div>
 
                     <div class="edit-profile">
-                        <button class="btn-edit-profile" routerLink="/user/edit-profile">Editer le profile</button>
+                        <button class="btn-edit-profile" routerLink="/user/edit-profile">Editer</button>
                     </div>
 
-                    <div class="followers mt-4 d-flex justify-content-between">
-                    <div class="details">
-                        <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
-                        <span>{{student?.dateOfBirth?.toString()?.slice(0, 10)}}</span>
-                    </div>
+                    <div class="followers mt-4">
+                        <div class="details">
+                            <fa-icon [icon]="['far', 'id-badge']"></fa-icon>
+                            <span>{{'Matricule : '+student?.matricule}}</span>
+                        </div>
+                        <div class="details">
+                            <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
+                            <span>{{'Née le : '+student?.dateOfBirth?.toString()?.slice(0, 10)}}</span>
+                        </div>
+                        <div class="details">
+                            <fa-icon [icon]="['fas', 'location-dot']"></fa-icon>
+                            <span>{{'Lieu de naissance : '+student?.birthPlace}}</span>
+                        </div>
+                        <div class="details">
+                            <fa-icon [icon]="['fas', 'map-location-dot']"></fa-icon>
+                            <span>{{'Adresse : '+student?.address}}</span>
+                        </div>
+                        <div class="details">
+                            <fa-icon [icon]="['fas', 'phone-volume']"></fa-icon>
+                            <span>{{'Télephone : '+student?.phone}}</span>
+                        </div>
+                        <div class="details">
+                            <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
+                            <span>{{'Crée le : '+student?.createdDate?.toString()?.slice(0, 10)}}</span>
+                        </div>
                     </div>
                     <div class="other-link mt-3">
                         <a class="nav-link"><i class="bi bi-link-45deg"></i>
@@ -49,30 +74,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="content-right">
-                        </div>
-                        <div class="recap ms-3">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card-finished">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="title-quiz">
-                                            <i class="bi bi-paperclip" style="font-size: 20px;"></i>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="result-details mt-4">
-                                        <div>
-                                            <i class="bi bi-patch-check"></i>
-                                            
-                                        </div>
-                                        <div>
-                                            <i class="bi bi-graph-up-arrow"></i>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     </div>
                 </div>

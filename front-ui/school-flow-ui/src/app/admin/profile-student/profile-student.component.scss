@@ -10,7 +10,7 @@ a {
 
 .content-left {
     margin-bottom: 46px;
-    background: var(--bg-100);
+    background: var(--text-100);
     border-radius: 12px;
     padding: 16px 16px 16px 60px;
 }
@@ -33,14 +33,14 @@ a {
 }
 
 .image-profile a {
-    color: #89929b;
+    color: var(--primary-100);
     position: absolute;
     bottom: 17%;
     right: 0;
-    background: var(--bg-200);
+    background: var(--text-100);
     padding: 6px 8px;
     border-radius: 50%;
-    border: 3px solid var(--bg-100);
+    border: 3px solid var(--primary-100);
 
     i {
         color: var(--text-100);
@@ -56,27 +56,27 @@ a {
 }
 
 .profile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     .username {
         margin-top: 18px;
         font-size: 16px;
-        color: var(--text-100);
+        color: var(--bg-100);
     }
 
     .email {
         font-size: 14px;
-        color: var(--text-200);
+        color: var(--bg-200);
     }
     
-}
-
-.competence {
-    margin-top: 16px;
-    color: var(--text-200);
-    font-size: 13px;
+    .classe {
+        color: var(--primary-100);
+    }
 }
 
 .edit-profile .btn-edit-profile {
-    background: var(--bg-200);
+    background: var(--primary-100);
     color: var(--text-100);
     width: 100%;
     padding: 8px 18px;
@@ -89,57 +89,21 @@ a {
     opacity: .7;
 }
 
-.btn-subscribe {
-    background: var(--primary-200);
-    color: var(--text-100);
-    width: 100%;
-    padding: 8px 18px;
-    font-weight: 600;
-    border: 0;
-    border-radius: 8px;
-}
-
-.btn-subscribe:hover {
-    opacity: .7;
-}
-
-.btn-unsubscribe {
-    background: var(--bg-100);
-    border: 1px solid var(--bg-200);
-    color: var(--text-200);
-    width: 100%;
-    padding: 8px 18px;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: all .5s ease;
-}
-
-.btn-unsubscribe:hover {
-    background: var(--bg-200);
-    border: 1px solid transparent;
-    color: var(--text-100);
-}
-
-.btn-subscribe:hover {
-    opacity: .7;
-}
-
-
 .followers {
     color: var(--text-100);
 
-    i {
-        color: var(--text-200);
-    }
+    .details {
+        margin-bottom: 14px;
 
-    span {
-        margin-left: 12px;
-        color: var(--text-200);
-    }
+        fa-icon {
+            margin-right: 16px;
+            color: var(--primary-100);
+        }
 
-    strong {
-        color: var(--text-200);
-        margin-right: 4px;
+        span {
+            font-size: 14px;
+            color: var(--bg-200);
+        }
     }
 }
 
