@@ -76,6 +76,9 @@ public class StudentServiceImpl implements StudentService{
         }
         Student student = studentOptional.get();
 
+        Class classByID = webClientClass.getClassByID(student.getClassID());
+        student.setAClass(classByID);
+
         webClientClass.getClassByID(student.getClassID());
         student.setAClass(student.getAClass());
 

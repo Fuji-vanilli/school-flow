@@ -26,6 +26,8 @@ export class ProfileStudentComponent implements OnInit{
           this.studentService.get(studentID).subscribe({
             next: response=> {
               this.student= response;
+              console.log('student: ', this.student);
+              
             },
             error: err=> {
               console.log('error: ', err);

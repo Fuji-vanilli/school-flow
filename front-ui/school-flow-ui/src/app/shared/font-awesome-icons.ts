@@ -1,3 +1,4 @@
+import { faGoogleScholar } from "@fortawesome/free-brands-svg-icons";
 import { faBell, faCircleCheck, faCommentDots, faIdBadge, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import {
   faBook,
@@ -80,6 +81,7 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faMapLocationDot,
   faSchoolLock,
   faCamera,
-  faIdBadge
+  faIdBadge,
+  faGoogleScholar
 
 ]

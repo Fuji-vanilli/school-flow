@@ -14,15 +14,15 @@
                             <fa-icon [icon]="['fas', 'camera']"></fa-icon>
                         </a>
                     </div>
-                    <div class="profile mt-5">
+                    <div class="profile mt-3">
                         <span class="username">{{student?.firstname?.toUpperCase()+' '+ capitalize(student?.lastname!)}}
                         </span>
                         <span class="email">{{student?.email}}</span>
-                        <span class="classe">{{student?.address}}</span>
                     </div>
 
-                    <div class="competence mt-4">
-                        <h5>{{student?.aClass?.level}}</h5>
+                    <div class="classe mt-4">
+                        <fa-icon [icon]="['fas', 'graduation-cap']"></fa-icon>
+                        <h5>{{capitalize(student?.aClass?.level!)}}</h5>
                     </div>
 
                     <div class="edit-profile">
@@ -56,25 +56,37 @@
                         </div>
                     </div>
                     <div class="other-link mt-3">
-                        <a class="nav-link"><i class="bi bi-link-45deg"></i>
-                            <span></span></a>
-                        <a class="nav-link mt-2">
-                            <i class="bi bi-linkedin"></i><span>linkedin.com/quiz-tech/profile</span>
-                        </a>
                     </div>
                     <div class="divider mt-4"></div>
-                    <div class="organisation mt-2">
-                        <h6>Calendriers </h6>
-                    </div>
+
+
                     <div class="divider mt-4"></div>
-                    <div class="competence mt-3">
-                        <h6>Competences</h6>
-                        <button class="btn-competence" ></button>
-                    </div>
                 </div>
                 <div class="col-md-9">
                     <div class="content-right">
-                        
+                        <div class="ecolage">
+                            <h4>Ecolage</h4>
+                            <table class="table">
+                                <thead>
+                                    <th>Sep</th>
+                                    <th>Oct</th>
+                                    <th>Nov</th>
+                                    <th>Déc</th>
+                                    <th>Jan</th>
+                                    <th>Fév</th>
+                                    <th>Mar</th>
+                                    <th>Avr</th>
+                                    <th>Mai</th>
+                                    <th>Jui</th>
+                                    <th>Jul</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -86,12 +98,12 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="header">
-            <h4 class="modal-title" id="exampleModalLabel">Choose your profile Image</h4> 
+            <h4 class="modal-title" id="exampleModalLabel">Choose your profile Image</h4>
         </div>
       <div class="modal-body">
         <div class="mb-3">
-            <input 
-                type="file" 
+            <input
+                type="file"
                 class="form-control"
                 (change)="handleFileInput($event)"
                 id="fileInput"

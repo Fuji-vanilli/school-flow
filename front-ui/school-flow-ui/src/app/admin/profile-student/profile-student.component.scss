@@ -59,21 +59,36 @@ a {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
     .username {
         margin-top: 18px;
         font-size: 16px;
         color: var(--bg-100);
+        font-weight: 550;
     }
 
     .email {
         font-size: 14px;
         color: var(--bg-200);
     }
-    
-    .classe {
-        color: var(--primary-100);
+}
+
+.classe {
+    display: flex;
+    //align-items: center;
+    margin-bottom: 14px;
+    color: var(--primary-200);
+
+    fa-icon {
+        font-size: 20px;
+        margin-right: 14px;
+    }
+
+    h5 {
+        font-weight: 600;
     }
 }
+
 
 .edit-profile .btn-edit-profile {
     background: var(--primary-100);
@@ -147,7 +162,7 @@ a {
 /***************/
 
 .content-right {
-    background: var(--bg-100);
+    background: var(--text-100);
     margin-left: 4px;
     border-radius: 10px;
     padding: 16px;
