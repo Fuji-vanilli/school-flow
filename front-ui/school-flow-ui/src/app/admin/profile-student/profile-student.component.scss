@@ -190,9 +190,15 @@ a {
             tbody {
                 tr {
                     td {
+                        background: var(--bg-200);
+
                         fa-icon {
                             color: var(--primary-100);
                             font-size: 20px;
+                        }
+
+                        .ko {
+                            color: var(--text-200);
                         }
                     }
                 }
