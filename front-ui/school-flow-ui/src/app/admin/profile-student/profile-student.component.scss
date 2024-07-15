@@ -167,100 +167,61 @@ a {
     border-radius: 10px;
     padding: 16px;
     width: 96%;
-}
 
-.chart {
-    overflow: hidden;
-}
-
-.recap {
-    margin-bottom: 28px;
-}
-
-.card-finished {
-    margin-bottom: 12px;
-    border: 1px solid var(--bg-200);
-    border-radius: 6px;
-    padding: 12px 16px;
-
-    span {
-        margin-left: 10px;
-        color: var(--text-200);
-    }
-
-    .frequency {
-        color: #faa356;
-        font-size: 18px;
-    }
-
-}
-
-.result-details {
-    display: flex;
-    justify-content: space-between;
-
-    i {
-        color: #faa356;
-    }
-
-    span {
-        font-size: 12px;
-    }
-}
-
-.title-quiz {
-    i {
-        color: var(--special-100);
-    }
-    span {
-        color: var(--special-100);
-    }
-}
-
-.btn-success {
-    padding: 4px;
-    font-size: 12px;
-    color: #fff;
-}
-
-
-
-.modal-content {
-    background: #21262d;
-
-    .header {
-        padding: 16px;
-        border-bottom: 1px solid #3b3c3d;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
+    .ecolage {
         h4 {
-            color: #fff;
+            color: var(--primary-100);
+        }
+
+        .custom-table {
+            overflow: hidden;
+
+            border-radius: 6px;
+            thead {
+                
+                th {
+                    background: var(--bg-100);
+                    padding: 10px 8px;
+                    color: var(--text-100);
+                    font-size: 14px;
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        fa-icon {
+                            color: var(--primary-100);
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
         }
     }
-
-    .btn-upload {
-        width: 100%;
-        border: 0;
-        padding: 10px;
-        background: #77bdfb;
-        border-radius: 8px;
-        transition: all 0.6 ease;
-    }
-    
-    .btn-upload:hover {
-        opacity: .7;
-    }
-
-    .selected-image img{
-        width: 250px;
-        height: 100px;
-        border-radius: 8px;
-    }
-    
-    .btn-secondary {
-        width: 100%;
-        font-size: 14px;
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

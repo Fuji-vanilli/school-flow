@@ -1,5 +1,5 @@
 import { faGoogleScholar } from "@fortawesome/free-brands-svg-icons";
-import { faBell, faCircleCheck, faCommentDots, faIdBadge, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { faBell, faCommentDots, faIdBadge, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import {
   faBook,
   faBookOpenReader,
@@ -10,6 +10,8 @@ import {
   faChalkboardTeacher,
   faChalkboardUser,
   faChevronRight,
+  faCircleCheck,
+  faCircleMinus,
   faCircleQuestion,
   faCircleUser,
   faEnvelopeOpenText,
@@ -60,7 +62,6 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faGavel,
   faBell,
   faCommentDots,
-  faCircleCheck,
   faPlus,
   faPenToSquare,
   faUserGraduate,
@@ -74,6 +75,8 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faFolderOpen,
   faTrash,
   faCalendarDays,
+  faCircleCheck,
+  faCircleMinus,
   faUserTag,
   faLocationDot,
   faEnvelopeOpenText,
