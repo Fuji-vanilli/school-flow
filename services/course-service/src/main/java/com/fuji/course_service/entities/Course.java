@@ -22,6 +22,7 @@ public class Course {
     private Professor professor;
     private BigDecimal credit;
     private BigDecimal hoursPerWeek;
+    private BigDecimal pricePerHour;
     private String syllabus;
     private Instant createdDate;
     private Instant updatedDate;

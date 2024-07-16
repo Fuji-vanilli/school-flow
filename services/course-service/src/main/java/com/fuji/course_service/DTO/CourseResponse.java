@@ -14,6 +14,7 @@ public record CourseResponse(
         Professor professor,
         BigDecimal credit,
         BigDecimal hoursPerWeek,
+        BigDecimal pricePerHour,
         String syllabus,
         Instant createdDate,
         Instant updatedDate

@@ -31,6 +31,7 @@ public class CourseMapperImpl implements CourseMapper{
                 course.getProfessor(),
                 course.getCredit(),
                 course.getHoursPerWeek(),
+                course.getPricePerHour(),
                 course.getSyllabus(),
                 course.getCreatedDate(),
                 course.getUpdatedDate()

@@ -15,6 +15,8 @@ public record CourseRequest(
         String professorID,
         @NotNull(message = "credit of the course required!")
         BigDecimal credit,
+        @NotNull(message = "price per hour required!")
+        BigDecimal pricePerHour,
         @NotNull(message = "hours per week of the course required!")
         BigDecimal hoursPerWeek,
         String syllabus
