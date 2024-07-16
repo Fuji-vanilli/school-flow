@@ -13,7 +13,6 @@ public record CourseRequest(
         String title,
         String description,
         String professorID,
-        Professor professor,
         @NotNull(message = "credit of the course required!")
         BigDecimal credit,
         @NotNull(message = "hours per week of the course required!")
