@@ -29,6 +29,7 @@ public class ClassMapperImpl implements ClassMapper{
                 _class.getEcolage(),
                 _class.getStudents(),
                 _class.getProfessors(),
+                _class.getCourses(),
                 _class.getCreatedDate(),
                 _class.getLastModifiedDate()
         );

@@ -1,6 +1,7 @@
 package com.fuji.classservice.DTO;
 
 import com.fuji.classservice.entities.Section;
+import com.fuji.classservice.models.Course;
 import com.fuji.classservice.models.Professor;
 import com.fuji.classservice.models.Student;
 
@@ -17,6 +18,7 @@ public record ClassResponse(
         BigDecimal ecolage,
         List<Student> students,
         List<Professor> professors,
+        List<Course> courses,
         Instant createdDate,
         Instant lastModifiedDate
 ) {
