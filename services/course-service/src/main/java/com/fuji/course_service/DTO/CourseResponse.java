@@ -3,6 +3,7 @@ package com.fuji.course_service.DTO;
 import com.fuji.course_service.models.Professor;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 
 public record CourseResponse(
         String id,
@@ -13,6 +14,8 @@ public record CourseResponse(
         Professor professor,
         BigDecimal credit,
         BigDecimal hoursPerWeek,
-        String syllabus
+        String syllabus,
+        Instant createdDate,
+        Instant updatedDate
 ) {
 }

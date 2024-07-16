@@ -31,7 +31,9 @@ public class CourseMapperImpl implements CourseMapper{
                 course.getProfessor(),
                 course.getCredit(),
                 course.getHoursPerWeek(),
-                course.getSyllabus()
+                course.getSyllabus(),
+                course.getCreatedDate(),
+                course.getUpdatedDate()
         );
     }
 }

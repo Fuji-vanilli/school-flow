@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
@@ -22,4 +23,6 @@ public class Course {
     private BigDecimal credit;
     private BigDecimal hoursPerWeek;
     private String syllabus;
+    private Instant createdDate;
+    private Instant updatedDate;
 }
