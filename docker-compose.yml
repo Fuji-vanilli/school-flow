@@ -81,6 +81,22 @@ services:
     networks:
       - school-flow-networks
 
+  mongodb-course:
+    image: mongo
+    container_name: mongodb-course
+    ports:
+      - "27020:27017"
+    expose:
+      - "27020"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ixml
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+      MONGO_INITDB_DATABASE: COURSE-DB
+    volumes:
+      - mongo-course-data:/data/db
+    networks:
+      - school-flow-networks
+
   mongo-express-class:
     image: mongo-express
     ports:
@@ -124,6 +140,21 @@ services:
     networks:
       - school-flow-networks
 
+  mongo-express-course:
+    image: mongo-express
+    ports:
+      - "8084:8081"
+    expose:
+      - "8084"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ixml
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 1234
+      ME_CONFIG_MONGODB_SERVER: mongodb-course
+      ME_CONFIG_BASICAUTH_USERNAME: root
+      ME_CONFIG_BASICAUTH_PASSWORD: 1234
+    networks:
+      - school-flow-networks
+
 networks:
   school-flow-networks:
     driver: bridge
@@ -133,6 +164,7 @@ volumes:
   mongo-student-data:
   mongo-professor-data:
   mongo-user-data:
+  mongo-course-data:
   mongo-property-data:
   postgres-kc-data:
   kc-data:
