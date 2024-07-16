@@ -97,6 +97,38 @@ services:
     networks:
       - school-flow-networks
 
+  mongodb-time-table:
+    image: mongo
+    container_name: mongodb-time-table
+    ports:
+      - "27021:27017"
+    expose:
+      - "27021"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ixml
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+      MONGO_INITDB_DATABASE: TIME-TABLE-DB
+    volumes:
+      - mongo-time-table-data:/data/db
+    networks:
+      - school-flow-networks
+
+  mongodb-report-card:
+    image: mongo
+    container_name: mongodb-report-card
+    ports:
+      - "27022:27017"
+    expose:
+      - "27022"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ixml
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+      MONGO_INITDB_DATABASE: COURSE-DB
+    volumes:
+      - mongo-report-card-data:/data/db
+    networks:
+      - school-flow-networks
+
   mongo-express-class:
     image: mongo-express
     ports:
@@ -155,6 +187,36 @@ services:
     networks:
       - school-flow-networks
 
+  mongo-express-time-table:
+    image: mongo-express
+    ports:
+      - "8085:8081"
+    expose:
+      - "8085"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ixml
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 1234
+      ME_CONFIG_MONGODB_SERVER: mongodb-time-table
+      ME_CONFIG_BASICAUTH_USERNAME: root
+      ME_CONFIG_BASICAUTH_PASSWORD: 1234
+    networks:
+      - school-flow-networks
+
+  mongo-express-report-card:
+    image: mongo-express
+    ports:
+      - "8086:8081"
+    expose:
+      - "8086"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ixml
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 1234
+      ME_CONFIG_MONGODB_SERVER: mongodb-report-card
+      ME_CONFIG_BASICAUTH_USERNAME: root
+      ME_CONFIG_BASICAUTH_PASSWORD: 1234
+    networks:
+      - school-flow-networks
+
 networks:
   school-flow-networks:
     driver: bridge
@@ -165,6 +227,8 @@ volumes:
   mongo-professor-data:
   mongo-user-data:
   mongo-course-data:
+  mongo-time-table-data:
+  mongo-report-card-data:
   mongo-property-data:
   postgres-kc-data:
   kc-data:
