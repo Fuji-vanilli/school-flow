@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -43,13 +44,34 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     public CourseResponse getByCode(String code) {
-        return null;
+        Optional<Course> courseByCode = courseRepository.findByCode(code);
+        if (courseByCode.isEmpty()) {
+            log.error("course with code: {} not found", code);
+            throw new IllegalArgumentException("course not found");
+        }
+
+        Course course = courseByCode.get();
+
+        log.info("course with code: {} getted successfully", code);
+        return courseMapper.mapToCourseResponse(course);
     }
 
     @Override
     public CourseResponse update(CourseRequest request) {
+        Optional<Course> courseByCode = courseRepository.findByCode(request.code());
+        if (courseByCode.isEmpty()) {
+            log.error("course not found");
+            throw new IllegalArgumentException("course not found");
+        }
 
-        return null;
+        Course course = courseByCode.get();
+        mergeCourse(course, request);
+        course.setUpdatedDate(Instant.now());
+
+        courseRepository.save(course);
+        log.info("update course successfully");
+
+        return courseMapper.mapToCourseResponse(course);
     }
 
     private void mergeCourse(Course course, CourseRequest request) {
@@ -75,11 +97,22 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     public List<CourseResponse> getAll() {
-        return List.of();
+        log.info("all course getted successfully");
+        return courseRepository.findAll().stream()
+                .map(courseMapper::mapToCourseResponse)
+                .toList();
     }
 
     @Override
     public CourseResponse delete(String code) {
-        return null;
+        Optional<Course> courseByCode = courseRepository.findByCode(code);
+        if (courseByCode.isEmpty()) {
+            log.error("course with the code: {} not found", code);
+            throw new IllegalArgumentException("course not found");
+        }
+
+        courseRepository.deleteByCode(code);
+        log.info("delete course successfully");
+        return courseMapper.mapToCourseResponse(courseByCode.get());
     }
 }

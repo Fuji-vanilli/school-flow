@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface CourseRepository extends MongoRepository<Course, String> {
     boolean existsByCode(String code);
     Optional<Course> findByCode(String code);
+    void deleteByCode(String code);
 }
