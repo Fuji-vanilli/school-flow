@@ -1,6 +1,10 @@
 export interface Course {
   id?: string,
-  name?: string,
-  coefficient?: number,
-  duration?: number
+  code?: string,
+  title?: string,
+  credit?: number,
+  professorID?: string,
+  hoursPerWeek?: number,
+  pricePerHour?: number,
+  syllabus?: string,
 }
