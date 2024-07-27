@@ -15,7 +15,7 @@ export class CourseService {
   constructor() { }
 
   create(course: Course): Observable<any> {
-    return this.httpClient.put(this.url+'/create', course);
+    return this.httpClient.post(this.url+'/create', course);
   }
 
   update(course: Course): Observable<any> {
