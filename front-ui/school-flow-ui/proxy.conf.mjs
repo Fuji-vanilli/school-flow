@@ -5,6 +5,7 @@ export default [
       '/CLASS-SERVICE',
       '/USER-SERVICE',
       '/PROPERTY-SERVICE',
+      '/COURSE-SERVICE',
       '/api',
       '/oauth2',
       '/login'
