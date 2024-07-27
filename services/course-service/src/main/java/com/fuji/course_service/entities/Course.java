@@ -3,6 +3,7 @@ package com.fuji.course_service.entities;
 import com.fuji.course_service.models.Professor;
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
@@ -19,6 +20,7 @@ public class Course {
     private String title;
     private String description;
     private String professorID;
+    @Transient
     private Professor professor;
     private BigDecimal credit;
     private BigDecimal hoursPerWeek;
