@@ -71,7 +71,7 @@
                             padding: 6px 14px;
                         }
 
-                        .student, .professor {
+                        .student, .course, .professor {
                             display: flex;
                             justify-content: space-between;
 
@@ -104,6 +104,19 @@
                             }
                         }
 
+                        .course {
+                            .action {
+                                .explorer {
+                                    background: var(--bg-100);
+                                    color: var(--text-100);
+                                }
+
+                                .add {
+                                    background: var(--special-100);
+                                    color: var(--text-100);
+                                }
+                            }
+                        }
                         .professor {
                             .action {
                                 .explore-prof {

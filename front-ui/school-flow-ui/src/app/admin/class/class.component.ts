@@ -39,8 +39,8 @@ export class ClassComponent implements OnInit{
   loadClasses() {
     this.classService.getAll().subscribe({
       next: classes=> {
-        this.classes= classes;
-        console.log("classes: ", classes);
+        this.classes= classes; 
+        console.log("classes: ", classes); 
       },
       error: err=> {
         console.log("error: ", err);

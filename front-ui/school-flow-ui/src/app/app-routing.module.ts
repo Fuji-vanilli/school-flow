@@ -35,7 +35,7 @@ const routes: Routes = [
       { path: 'add-student', component: AddStudentComponent },
       { path: 'add-student/:classID', component: AddStudentComponent },
       { path: 'profile-student/:studentID', component: ProfileStudentComponent },
-      { path: 'add-course', component: CourseComponent }
+      { path: 'add-course/:classID', component: CourseComponent }
     ]
   }
 ];

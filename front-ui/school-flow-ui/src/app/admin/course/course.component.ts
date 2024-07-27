@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CourseComponent implements OnInit{
 
-  formGroup: FormGroup | undefined;
+  formGroup!: FormGroup;
   formBuilder= inject(FormBuilder);
 
   ngOnInit(): void {
@@ -25,4 +25,7 @@ export class CourseComponent implements OnInit{
     })
   }
 
+  createCourse() {
+
+  }
 }

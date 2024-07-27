@@ -1,0 +1,48 @@
+<div class="contain">
+    <div class="container-1">
+        <section>
+            <header class="title">
+                <p>Créer une nouvelle classe </p>
+            </header>
+            <div class="contents">
+                <div class="box">
+                    <form [formGroup]="formGroup" (ngSubmit)="createCourse()">
+                        <label>Classe <span>*</span></label>
+                        <div class="field">
+                            <i class="bi bi-pencil"></i>
+                            <input type="text" placeholder="ex. sixieme" formControlName="level">
+                        </div>
+
+                        <label>Niveau <span>*</span></label>
+                        <select class="form-select form-select-lg mb-3 field-select" formControlName="section">
+                            <option value="PRESCOLARY" selected>Prescolaire</option>
+                            <option value="PRIMARY">Primaire</option>
+                            <option value="SECONDARY">Secondaire</option>
+                            <option value="HIGH_SCHOOL">Lycée</option>
+                            <option value="UNIVERSITY">Universié</option>
+                          </select>
+
+                        <label>Capacité maximum<span> *</span></label>
+                        <div class="field">
+                            <i class="bi bi-emoji-smile"></i>
+                            <input type="text" formControlName="maximumCapacity">
+                        </div>
+                        <label>Ecolage<span> *</span></label>
+                        <div class="field">
+                            <i class="bi bi-emoji-smile"></i>
+                            <input type="text" placeholder="ex. 10000" formControlName="ecolage">
+                        </div>
+                        <div class="footer">
+                            <div>
+                                <i>* Les valeurs sont requis</i>
+                            </div>
+                            <div class="save">
+                                <button class="submit"><i class="bi bi-floppy"></i>Enregistrer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
