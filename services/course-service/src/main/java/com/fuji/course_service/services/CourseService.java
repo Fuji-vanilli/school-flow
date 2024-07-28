@@ -9,6 +9,7 @@ public interface CourseService {
     CourseResponse create(CourseRequest request);
     CourseResponse getByCode(String code);
     CourseResponse update(CourseRequest request);
+    List<CourseResponse> getAllByIDs(List<String> ids);
     List<CourseResponse> getAll();
     CourseResponse delete(String code);
 }

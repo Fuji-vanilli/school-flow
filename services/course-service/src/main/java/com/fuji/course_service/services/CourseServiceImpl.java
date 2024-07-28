@@ -74,6 +74,14 @@ public class CourseServiceImpl implements CourseService{
         return courseMapper.mapToCourseResponse(course);
     }
 
+    @Override
+    public List<CourseResponse> getAllByIDs(List<String> ids) {
+        log.info("all course by ids getted successfully!");
+        return courseRepository.findAllById(ids).stream()
+                .map(courseMapper::mapToCourseResponse)
+                .toList();
+    }
+
     private void mergeCourse(Course course, CourseRequest request) {
         if (!request.code().isBlank()) {
             course.setCode(request.code());

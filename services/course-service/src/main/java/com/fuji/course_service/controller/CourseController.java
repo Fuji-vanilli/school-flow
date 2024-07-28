@@ -14,6 +14,8 @@ public interface CourseController {
     ResponseEntity<CourseResponse> update(@RequestBody CourseRequest request);
     @GetMapping("get/{code}")
     ResponseEntity<CourseResponse> get(@PathVariable String code);
+    @GetMapping("all-by-ids")
+    ResponseEntity<List<CourseResponse>> allByIDs(@RequestBody List<String> ids);
     @GetMapping("all")
     ResponseEntity<List<CourseResponse>> getAll();
     @DeleteMapping("delete/{code}")

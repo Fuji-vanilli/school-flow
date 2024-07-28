@@ -7,6 +7,7 @@ import com.fuji.classservice.mapper.ClassMapper;
 import com.fuji.classservice.models.Professor;
 import com.fuji.classservice.models.Student;
 import com.fuji.classservice.repository.ClassRepository;
+import com.fuji.classservice.webClient.WebClientCourse;
 import com.fuji.classservice.webClient.WebClientStudentGetter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,8 @@ import java.util.*;
 public class ClassServiceImpl implements ClassService{
     private final ClassRepository classRepository;
     private final ClassMapper classMapper;
-    private final WebClientStudentGetter webClient;
+    private final WebClientStudentGetter webClientStudent;
+    private final WebClientCourse webClientCourse;
 
     @Override
     public ClassResponse create(ClassRequest request) {
@@ -139,7 +141,7 @@ public class ClassServiceImpl implements ClassService{
         Class aClass = classOptional.get();
         List<String> studentsID = aClass.getStudentsID();
 
-        List<Student> allStudentsByIds = webClient.getAllStudentsByIds(studentsID);
+        List<Student> allStudentsByIds = webClientStudent.getAllStudentsByIds(studentsID);
         aClass.setStudents(allStudentsByIds);
 
         aClass.setStudents(null);
@@ -175,7 +177,10 @@ public class ClassServiceImpl implements ClassService{
         return classRepository.findAll().stream()
                 .map(aClass-> {
                     final List<String> studentsIDs= aClass.getStudentsID();
-                    aClass.setStudents(webClient.getAllStudentsByIds(studentsIDs));
+                    final List<String> courseIDs= aClass.getCoursesID();
+
+                    aClass.setStudents(webClientStudent.getAllStudentsByIds(studentsIDs));
+                    aClass.setCourses(webClientCourse.getAllCourseByIDs(courseIDs));
 
                     return classMapper.mapToClassResponse(aClass);
                 })

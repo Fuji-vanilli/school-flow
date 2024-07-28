@@ -35,6 +35,11 @@ public class CourseApi implements CourseController{
     }
 
     @Override
+    public ResponseEntity<List<CourseResponse>> allByIDs(List<String> ids) {
+        return ResponseEntity.ok(courseService.getAllByIDs(ids));
+    }
+
+    @Override
     public ResponseEntity<List<CourseResponse>> getAll() {
         return ResponseEntity.ok(courseService.getAll());
     }
