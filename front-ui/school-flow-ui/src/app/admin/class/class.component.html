@@ -31,7 +31,7 @@
             <td style="font-weight: 600;">
               <div class="course">
                 <div class="action">
-                  <button class="explorer">
+                  <button (click)="showCourses()" class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
                     <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                     Consulter
                   </button>
@@ -75,13 +75,13 @@
             <td style="font-weight: 600;">{{aClass.ecolage}}</td>
             <td>
               <button class="edt">
-                <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
+                <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon> 
                 Consulter
               </button>
             </td>
             <td>
               <div class="action">
-                <a (click)="update(aClass)" data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
+                <a (click)="update(aClass)" data-bs-toggle="modal" data-bs-target="#editClass"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
                 <a (click)="deleteClass(aClass.id!)"><fa-icon [icon]="['fas', 'trash']" class="delete"></fa-icon></a>
               </div>
             </td>
@@ -93,7 +93,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editClass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <section>
@@ -140,6 +140,25 @@
             </div>
         </div>
     </section>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Liste des Matières: Sixième</h1>
+        
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button class="close" data-bs-dismiss="modal">Fermer</button>
+      </div>
     </div>
   </div>
 </div>

@@ -49,6 +49,10 @@ export class ClassComponent implements OnInit{
     })
   }
 
+  showCourses() {
+    
+  }
+
   update(aClass: Class) {
     this.classSelected= aClass;
     this.formGroup= this.formBuilder.group({

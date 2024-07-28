@@ -17,15 +17,16 @@ public class WebClientCourse {
     public Course getCourse(String id) {
         log.info("course with the id {} getted successfully!", id);
         return webClient.build().get()
-                .uri("http://localhost:8800/COURSE-SERVICE/api/course/get/"+id)
+                .uri("http://localhost:8800/COURSE-SERVICE/api/course/get/")
                 .retrieve()
                 .bodyToMono(Course.class)
                 .block();
     }
 
     public List<Course> getAllCourseByIDs(List<String> ids) {
-        return webClient.build().get()
+        return webClient.build().post()
                 .uri("http://localhost:8800/COURSE-SERVICE/api/course/all-by-ids", ids)
+                .bodyValue(ids)
                 .retrieve()
                 .bodyToFlux(Course.class)
                 .collectList()

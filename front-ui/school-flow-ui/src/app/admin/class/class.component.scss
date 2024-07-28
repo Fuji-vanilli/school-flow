@@ -283,3 +283,19 @@ section {
         }
     }
 }
+
+.modal {
+    .modal-dialog {
+        .modal-content {
+            .modal-footer {
+                .close {
+                    border: 0;
+                    border-radius: 8px;
+                    padding: 8px 12px;
+                    background: var(--primary-100);
+                    color: var(--text-100);
+                }
+            }
+        }
+    }
+}
