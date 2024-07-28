@@ -24,6 +24,11 @@ public class WebClientCourse {
     }
 
     public List<Course> getAllCourseByIDs(List<String> ids) {
-        return List.of();
+        return webClient.build().get()
+                .uri("http://localhost:8800/COURSE-SERVICE/api/course/all-by-ids", ids)
+                .retrieve()
+                .bodyToFlux(Course.class)
+                .collectList()
+                .block();
     }
 }
