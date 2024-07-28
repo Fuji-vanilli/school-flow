@@ -16,6 +16,8 @@ public interface ClassController {
     ResponseEntity<ClassResponse> update(@RequestBody ClassRequest request);
     @PatchMapping("add-student")
     ResponseEntity<ClassResponse> addStudent(@RequestBody Map<String, String> params);
+    @PatchMapping("add-course")
+    ResponseEntity<ClassResponse> addCourse(@RequestBody Map<String, String> params);
     @PatchMapping("add-professor")
     ResponseEntity<ClassResponse> addProfessor(@RequestBody Professor professor);
     @GetMapping("get-by-id/{id}")

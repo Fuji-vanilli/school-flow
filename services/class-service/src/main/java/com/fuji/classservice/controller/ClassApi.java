@@ -36,6 +36,11 @@ public class ClassApi implements ClassController {
     }
 
     @Override
+    public ResponseEntity<ClassResponse> addCourse(Map<String, String> params) {
+        return ResponseEntity.ok(classService.addCourse(params));
+    }
+
+    @Override
     public ResponseEntity<ClassResponse> getByID(String id) {
         return ResponseEntity.ok(classService.getById(id));
     }

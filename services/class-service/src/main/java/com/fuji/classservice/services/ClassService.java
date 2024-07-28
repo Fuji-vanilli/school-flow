@@ -11,6 +11,7 @@ public interface ClassService {
     ClassResponse create(ClassRequest request);
     ClassResponse update(ClassRequest request);
     ClassResponse addStudent(Map<String, String> params);
+    ClassResponse addCourse(Map<String, String> params);
     ClassResponse addProfessor(Professor professor);
     ClassResponse getByLevel(String level);
     ClassResponse getById(String id);

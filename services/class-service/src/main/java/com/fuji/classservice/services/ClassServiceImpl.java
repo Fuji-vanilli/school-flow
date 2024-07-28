@@ -83,8 +83,8 @@ public class ClassServiceImpl implements ClassService{
 
         Optional<Class> classOptional = classRepository.findById(classID);
         if (classOptional.isEmpty()) {
-            log.error("sorry, student {} does not exist into the database", studentID);
-            throw new IllegalArgumentException("sorry, student does not exist into the database");
+            log.error("sorry, class {} does not exist into the database", studentID);
+            throw new IllegalArgumentException("sorry, class does not exist into the database");
         }
 
         Class aClass = classOptional.get();
@@ -93,6 +93,27 @@ public class ClassServiceImpl implements ClassService{
 
         classRepository.save(aClass);
         log.info("student {} added successfully to the class {}", studentID, classID);
+
+        return classMapper.mapToClassResponse(aClass);
+    }
+
+    @Override
+    public ClassResponse addCourse(Map<String, String> params) {
+        final String courseID= params.get("courseID");
+        final String classID= params.get("courseID");
+
+        Optional<Class> classOptional = classRepository.findById(classID);
+        if (classOptional.isEmpty()) {
+            log.error("sorry, class {} does not exist into the database", courseID);
+            throw new IllegalArgumentException("sorry, course does not exist into the database");
+        }
+
+        Class aClass = classOptional.get();
+        aClass.getCoursesID().add(courseID);
+        aClass.setLastModifiedDate(Instant.now());
+
+        classRepository.save(aClass);
+        log.info("Course {} added successfully to the class {}", courseID, classID);
 
         return classMapper.mapToClassResponse(aClass);
     }
