@@ -5,6 +5,7 @@ import com.fuji.course_service.DTO.CourseResponse;
 import com.fuji.course_service.entities.Course;
 import com.fuji.course_service.mapper.CourseMapper;
 import com.fuji.course_service.repository.CourseRepository;
+import com.fuji.course_service.webClient.WebClientCourse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Transient;
@@ -24,6 +25,7 @@ import java.util.UUID;
 public class CourseServiceImpl implements CourseService{
     private final CourseRepository courseRepository;
     private final CourseMapper courseMapper;
+    private final WebClientCourse webClientCourse;
 
     @Override
     public CourseResponse create(CourseRequest request) {
@@ -39,6 +41,8 @@ public class CourseServiceImpl implements CourseService{
         courseRepository.save(course);
         log.info("new course created successfully");
 
+        webClientCourse.addCourseToClass(course.getId(), request.classID());
+        log.info("the new course is added to class");
         return courseMapper.mapToCourseResponse(course);
     }
 

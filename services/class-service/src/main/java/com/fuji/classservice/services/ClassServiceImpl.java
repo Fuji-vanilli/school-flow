@@ -102,7 +102,7 @@ public class ClassServiceImpl implements ClassService{
     @Override
     public ClassResponse addCourse(Map<String, String> params) {
         final String courseID= params.get("courseID");
-        final String classID= params.get("courseID");
+        final String classID= params.get("classID");
 
         Optional<Class> classOptional = classRepository.findById(classID);
         if (classOptional.isEmpty()) {
