@@ -31,7 +31,7 @@
             <td style="font-weight: 600;">
               <div class="course">
                 <div class="action">
-                  <button (click)="showCourses()" class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
+                  <button (click)="showCourses(aClass)" class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
                     <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                     Consulter
                   </button>
@@ -150,11 +150,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Liste des Matières: Sixième</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Liste des Matières: {{classShowed?.level}}</h1>
         
       </div>
       <div class="modal-body">
-        ...
+        <ul>
+          <li *ngFor="let course of classShowed?.courses">
+            {{course.title}}
+          </li>
+        </ul>
       </div>
       <div class="modal-footer">
         <button class="close" data-bs-dismiss="modal">Fermer</button>

@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface CourseRepository extends MongoRepository<Course, String> {
     boolean existsByCode(String code);
+    boolean existsByTitle(String title);
     Optional<Course> findByCode(String code);
     void deleteByCode(String code);
 }

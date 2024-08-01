@@ -1,3 +1,4 @@
+import { Course } from "./course.model";
 import { Professor } from "./professor.model";
 import { Student } from "./student.model";
 
@@ -10,6 +11,7 @@ export interface Class {
     maximumCapacity?: number,
     ecolage?: number,
     students?: Array<Student>,
+    courses?: Array<Course>,
     professors?: Array<Professor>,
     cretedDate?: Date,
     lastModifiedDate?: Date

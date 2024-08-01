@@ -27,7 +27,7 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     public CourseResponse create(CourseRequest request) {
-        if (courseRepository.existsByCode(request.code())) {
+        if (courseRepository.existsByTitle(request.title())) {
             log.error("sorry, course already exists");
             throw new IllegalArgumentException("sorry, course already exists");
         }

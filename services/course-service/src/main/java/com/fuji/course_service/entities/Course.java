@@ -20,6 +20,7 @@ public class Course {
     private String title;
     private String description;
     private String professorID;
+    private String classID;
     @Transient
     private Professor professor;
     private BigDecimal credit;

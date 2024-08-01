@@ -17,6 +17,7 @@ export class ClassComponent implements OnInit{
   formBuilder= inject(FormBuilder);
 
   classSelected: Class | undefined;
+  classShowed: Class | undefined;
 
   classes: Class[] | undefined;
 
@@ -49,8 +50,8 @@ export class ClassComponent implements OnInit{
     })
   }
 
-  showCourses() {
-    
+  showCourses(aClass: Class) {
+    this.classShowed= aClass;
   }
 
   update(aClass: Class) {
