@@ -3,6 +3,7 @@ export interface Course {
   code?: string,
   title?: string,
   credit?: number,
+  classID?: string,
   professorID?: string,
   hoursPerWeek?: number,
   pricePerHour?: number,

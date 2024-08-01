@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CourseService } from '../../services/course.service';
 import { response } from 'express';
 import Swal from 'sweetalert2';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -13,10 +14,16 @@ export class CourseComponent implements OnInit{
 
   formGroup!: FormGroup;
   formBuilder= inject(FormBuilder);
+  activatedRoute= inject(ActivatedRoute);
   courseService= inject(CourseService);
+
+  classID: string= '';
 
   ngOnInit(): void {
    this.initFormGroup();
+   this.classID= this.activatedRoute.snapshot.paramMap.get('classID') || '';
+   console.log('classID: ', this.classID);
+   
   }
 
   initFormGroup() {
@@ -33,6 +40,7 @@ export class CourseComponent implements OnInit{
     const course= {
       title: this.formGroup.value.title,
       credit: this.formGroup.value.credit,
+      classID: this.classID,
       hoursPerWeek: this.formGroup.value.hoursPerWeek,
       pricePerHour: this.formGroup.value.pricePerHour
     };

@@ -29,11 +29,11 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     public CourseResponse create(CourseRequest request) {
-        if (courseRepository.existsByTitle(request.title())) {
+        /*if (courseRepository.existsByTitle(request.title())) {
             log.error("sorry, course already exists");
             throw new IllegalArgumentException("sorry, course already exists");
         }
-
+*/
         Course course = courseMapper.mapToCourse(request);
         course.setId(UUID.randomUUID().toString());
         course.setCreatedDate(Instant.now());

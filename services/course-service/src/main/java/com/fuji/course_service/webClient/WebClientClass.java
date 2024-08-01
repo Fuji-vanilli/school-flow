@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Configuration
 @RequiredArgsConstructor
-public class WebClientCourse {
+public class WebClientClass {
     private final WebClient.Builder webClient;
 
     public void addCourseToClass(String courseID, String classID) {
@@ -18,7 +18,7 @@ public class WebClientCourse {
         );
 
         webClient.build().patch()
-                .uri("http://localhost:8800/CLASS-SERVICE/api/course/add-course")
+                .uri("http://localhost:8800/CLASS-SERVICE/api/class/add-course")
                 .bodyValue(params)
                 .retrieve()
                 .bodyToMono(String.class)
