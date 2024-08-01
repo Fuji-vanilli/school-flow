@@ -11,6 +11,7 @@ public record CourseResponse(
         String title,
         String description,
         String professorID,
+        String classID,
         Professor professor,
         BigDecimal credit,
         BigDecimal hoursPerWeek,
