@@ -1,6 +1,18 @@
 package com.fuji.classservice.models;
 
-public record Course(
+import org.springframework.data.annotation.Transient;
 
+import java.math.BigDecimal;
+
+public record Course(
+        String id,
+        String code,
+        String title,
+        String description,
+        String professorID,
+        String classID,
+        BigDecimal credit,
+        BigDecimal hoursPerWeek,
+        BigDecimal pricePerHour
 ) {
 }
