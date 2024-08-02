@@ -150,15 +150,26 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Liste des Matières: {{classShowed?.level}}</h1>
+        <span class="title">Liste des Matières: {{capitalize(classShowed?.level!)}}</span>
         
       </div>
       <div class="modal-body">
-        <ul>
-          <li *ngFor="let course of classShowed?.courses">
-            {{course.title}}
-          </li>
-        </ul>
+        <table class="table">
+          <thead>
+            <th>Matière</th>
+            <th>Coéff</th>
+            <th>VH/semaine</th>
+            <th>Honoraire</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of classShowed?.courses">
+              <td>{{course.title}}</td>
+              <td>{{course.credit}}</td>
+              <td>{{course.hoursPerWeek}}</td>
+              <td>{{course.pricePerHour+' (Ar)'}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="modal-footer">
         <button class="close" data-bs-dismiss="modal">Fermer</button>

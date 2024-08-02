@@ -287,6 +287,56 @@ section {
 .modal {
     .modal-dialog {
         .modal-content {
+            .modal-header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .title {
+                    color: var(--bg-100);
+                    font-weight: 600;
+                }
+            }
+            .modal-body {
+                .table {
+                    overflow: hidden;
+                    border-radius: 6px;
+
+                    thead {
+
+                        th {
+                            background: var(--bg-100);
+                            color: var(--text-100);
+                            font-size: 14px;
+                            padding: 16px;
+                        }
+                    }
+
+                    tbody {
+                        tr:nth-child(even) {
+                            background: var(--text-300);
+                            
+                            td {
+                                color: var(--bg-100);
+
+                                fa-icon {
+                                    color: var(--primary-100);
+                                }
+                            }
+                        }
+
+                        tr {
+                            border-radius: 18px; 
+        
+                            td {
+                                background: none;
+                                font-size: 14px;
+                                padding: 14px;
+                            }
+                        }
+                    }
+                }
+            }
             .modal-footer {
                 .close {
                     border: 0;

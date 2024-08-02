@@ -16,6 +16,7 @@ public class CourseMapperImpl implements CourseMapper{
                 .description(request.description())
                 .credit(request.credit())
                 .hoursPerWeek(request.hoursPerWeek())
+                .pricePerHour(request.pricePerHour())
                 .syllabus(request.syllabus())
                 .build();
     }

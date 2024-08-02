@@ -1,6 +1,5 @@
 package com.fuji.classservice.models;
 
-import org.springframework.data.annotation.Transient;
 
 import java.math.BigDecimal;
 
