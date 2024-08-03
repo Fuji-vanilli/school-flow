@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { access } from 'fs';
+import { Student } from '../../models/student.model';
 
 @Component({
   selector: 'app-class',
@@ -54,6 +55,10 @@ export class ClassComponent implements OnInit{
   }
 
   showCourses(aClass: Class) {
+    this.classShowed= aClass;
+  }
+
+  showStudent(aClass: Class) {
     this.classShowed= aClass;
   }
 

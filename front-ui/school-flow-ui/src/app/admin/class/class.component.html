@@ -46,7 +46,7 @@
               <div class="student">
                 {{aClass.students?.length}}
                 <div class="action">
-                  <button class="explorer">
+                  <button (click)="showStudent(aClass)" class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
                     <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                     Explorer
                   </button>
@@ -92,7 +92,7 @@
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal update -->
 <div class="modal fade" id="editClass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -145,12 +145,45 @@
 </div>
 
 
-<!-- Modal -->
+<!-- Modal Course-->
 <div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <span class="title">Liste des Matières: {{classShowed?.level}}</span>
+        
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <th>Matière</th>
+            <th>Coéff</th>
+            <th>VH/semaine</th>
+            <th>Honoraire</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of classShowed?.courses"> 
+              <td>{{course.title}}</td>
+              <td>{{course.credit}}</td>
+              <td>{{course.hoursPerWeek}}</td>
+              <td>{{course.pricePerHour+' (Ar)'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="close" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal students-->
+<div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="title">Liste des Elèves: {{classShowed?.level}}</span>
         
       </div>
       <div class="modal-body">
