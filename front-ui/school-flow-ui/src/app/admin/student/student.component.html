@@ -65,6 +65,7 @@
             <table class="table custom-table">
                 <thead>
                   <tr>
+                    <th scope="col"></th>
                     <th scope="col">Mle</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prénoms</th>
@@ -79,6 +80,9 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let student of filterStudents">
+                    <td>
+                      <img src="../../../../../assets/icon-256x256.png">
+                    </td>
                     <td>{{student.matricule}}</td>
                     <td>
                       <a [routerLink]="'/admin/profile-student/'+student.id" class="name-student">{{student.firstname?.toUpperCase()}}</a>

@@ -1,0 +1,30 @@
+.contain {
+    background: var(--text-100);
+    margin-left: 12px;
+    margin-right: 12px;
+    border-radius: 10px;
+
+    .card-dash {
+        margin: 16px;
+        padding: 16px;
+        border-radius: 14px;
+        background: var(--primary-100);
+    
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            span {
+                font-weight: 600;
+                color: var(--text-100);
+            }
+        }
+    }
+}

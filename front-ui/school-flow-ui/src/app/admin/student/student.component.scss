@@ -160,6 +160,12 @@
                         padding: 14px;
                         overflow: hidden;
 
+                        img {
+                            border-radius: 50%;
+                            width: 35px;
+                            height: 35px;
+                          }
+
                         .name-student {
                             text-decoration: none;
                             font-weight: 500;
