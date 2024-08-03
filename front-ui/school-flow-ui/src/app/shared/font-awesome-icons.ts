@@ -36,6 +36,7 @@ import {
   faUsersBetweenLines,
   faUserShield,
   faUserTag,
+  faUserTie,
   faWallet,
   IconDefinition
 } from "@fortawesome/free-solid-svg-icons";
@@ -85,6 +86,8 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faSchoolLock,
   faCamera,
   faIdBadge,
-  faGoogleScholar
+  faGoogleScholar,
+  faUserTie,
+  faChalkboardTeacher
 
 ]

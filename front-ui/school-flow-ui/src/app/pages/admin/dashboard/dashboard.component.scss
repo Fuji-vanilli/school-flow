@@ -8,23 +8,55 @@
         margin: 16px;
         padding: 16px;
         border-radius: 14px;
-        background: var(--primary-100);
     
         .header {
             display: flex;
             align-items: center;
             justify-content: center;
+
+            h6 {
+                color: var(--text-100);
+            }
+        }
+
+        .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-100);
+            font-size: 20px;
         }
 
         .body {
             display: flex;
             justify-content: center;
             align-items: center;
-            
+
             span {
                 font-weight: 600;
+                font-size: 34px;
                 color: var(--text-100);
             }
         }
+    }
+
+    .classe {
+        background: var(--primary-100);
+    }
+
+    .student {
+        background: var(--special-200);
+    }
+
+    .professor {
+        background: var(--special-100);
+    }
+
+    .admin {
+        background: var(--delete-100);
+    }
+
+    .note {
+        background: var(--special-300);
     }
 }
