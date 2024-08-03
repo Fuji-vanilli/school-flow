@@ -182,7 +182,7 @@ public class ClassServiceImpl implements ClassService{
                     aClass.setStudents(webClientStudent.getAllStudentsByIds(studentsIDs));
                     aClass.setCourses(webClientCourse.getAllCourseByIDs(courseIDs));
 
-                    return classMapper.mapToClassResponse(aClass);
+                    return classMapper.mapToClassResponse(aClass); 
                 })
                 .toList();
     }

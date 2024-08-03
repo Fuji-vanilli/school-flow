@@ -38,10 +38,13 @@ export class ClassComponent implements OnInit{
   }
 
   loadClasses() {
+    console.time('loadClasses');
     this.classService.getAll().subscribe({
       next: classes=> {
         this.classes= classes; 
         console.log("classes: ", classes); 
+        console.timeEnd('loadClasses')
+        
       },
       error: err=> {
         console.log("error: ", err);

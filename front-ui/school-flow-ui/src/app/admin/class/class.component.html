@@ -150,7 +150,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <span class="title">Liste des Matières: {{capitalize(classShowed?.level!)}}</span>
+        <span class="title">Liste des Matières: {{classShowed?.level}}</span>
         
       </div>
       <div class="modal-body">
@@ -162,7 +162,7 @@
             <th>Honoraire</th>
           </thead>
           <tbody>
-            <tr *ngFor="let course of classShowed?.courses">
+            <tr *ngFor="let course of classShowed?.courses"> 
               <td>{{course.title}}</td>
               <td>{{course.credit}}</td>
               <td>{{course.hoursPerWeek}}</td>
