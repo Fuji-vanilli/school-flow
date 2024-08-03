@@ -46,7 +46,7 @@
               <div class="student">
                 {{aClass.students?.length}}
                 <div class="action">
-                  <button (click)="showStudent(aClass)" class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
+                  <button (click)="showStudent(aClass)" class="explorer" data-bs-toggle="modal" data-bs-target="#studentModal">
                     <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                     Explorer
                   </button>
@@ -189,17 +189,15 @@
       <div class="modal-body">
         <table class="table">
           <thead>
-            <th>Matière</th>
-            <th>Coéff</th>
-            <th>VH/semaine</th>
-            <th>Honoraire</th>
+            <th>Nom</th>
+            <th>Prénoms</th>
           </thead>
           <tbody>
-            <tr *ngFor="let course of classShowed?.courses"> 
-              <td>{{course.title}}</td>
-              <td>{{course.credit}}</td>
-              <td>{{course.hoursPerWeek}}</td>
-              <td>{{course.pricePerHour+' (Ar)'}}</td>
+            <tr *ngFor="let student of classShowed?.students"> 
+              <td>
+                <a [routerLink]="'/admin/profile-student/'+student.id">{{student.firstname?.toUpperCase()}}</a>
+              </td>
+              <td>{{capitalize(student.lastname!)}}</td>
             </tr>
           </tbody>
         </table>
