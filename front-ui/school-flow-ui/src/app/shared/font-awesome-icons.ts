@@ -22,6 +22,7 @@ import {
   faGavel,
   faGear, faGraduationCap, faLocationDot, faMagnifyingGlass,
   faMapLocationDot,
+  faMars,
   faMoneyCheckDollar,
   faPhoneVolume,
   faPlus,
@@ -37,6 +38,7 @@ import {
   faUserShield,
   faUserTag,
   faUserTie,
+  faVenus,
   faWallet,
   IconDefinition
 } from "@fortawesome/free-solid-svg-icons";
@@ -88,6 +90,8 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faIdBadge,
   faGoogleScholar,
   faUserTie,
-  faChalkboardTeacher
+  faChalkboardTeacher,
+  faVenus,
+  faMars
 
 ]
