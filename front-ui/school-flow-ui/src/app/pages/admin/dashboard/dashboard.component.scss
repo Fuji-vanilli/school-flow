@@ -44,18 +44,22 @@
 
     .classe {
         background: var(--primary-200);
+        cursor: pointer;
     }
 
     .student {
         background: var(--special-300);
+        cursor: pointer;
     }
 
     .professor {
         background: var(--special-100);
+        cursor: pointer;
     }
 
     .admin {
         background: var(--delete-100);
+        cursor: pointer;
     }
 
     .note {
@@ -84,8 +88,22 @@
                     td {
                         color: var(--bg-100);
 
-                        fa-icon {
-                            color: var(--primary-100);
+                        button {
+                            border: 0;
+                            border-radius: 6px;
+                            padding: 4px 8px;
+                            font-size: 12px;
+                            margin-left: 16px;
+                        }
+
+                        .explorer {
+                            background: var(--primary-100);
+                            color: var(--text-100);
+                            margin-right: 6px;
+
+                            fa-icon {
+                                color: var(--text-100);
+                            }
                         }
                     }
                 }
@@ -97,6 +115,98 @@
                         background: none;
                         font-size: 14px;
                         padding: 14px;
+
+                        button {
+                            border: 0;
+                            border-radius: 6px;
+                            padding: 4px 8px;
+                            margin-left: 16px;
+                            font-size: 12px;
+                        }
+
+                        .explorer {
+                            background: var(--primary-100);
+                            color: var(--text-100);
+                            margin-right: 6px;
+
+                            fa-icon {
+                                color: var(--text-100);
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .payment {
+        .table {
+            overflow: hidden;
+            border-radius: 6px;
+
+            thead {
+
+                th {
+                    background: var(--primary-100);
+                    color: var(--text-100);
+                    font-size: 12px;
+                    padding: 14px;
+                }
+            }
+
+            tbody {
+                tr:nth-child(even) {
+                    background: var(--bg-300);
+                    
+                    td {
+                        color: var(--text-100);
+
+                        button {
+                            border: 0;
+                            border-radius: 6px;
+                            padding: 4px 8px;
+                            font-size: 12px;
+                            margin-left: 16px;
+                        }
+
+                        .explorer {
+                            background: var(--primary-100);
+                            color: var(--text-100);
+                            margin-right: 6px;
+
+                            fa-icon {
+                                color: var(--text-100);
+                            }
+                        }
+                    }
+                }
+
+                tr {
+                    border-radius: 18px; 
+
+                    td {
+                        background: none;
+                        font-size: 14px;
+                        padding: 14px;
+
+                        button {
+                            border: 0;
+                            border-radius: 6px;
+                            padding: 4px 8px;
+                            margin-left: 16px;
+                            font-size: 12px;
+                        }
+
+                        .explorer {
+                            background: var(--primary-100);
+                            color: var(--text-100);
+                            margin-right: 6px;
+
+                            fa-icon {
+                                color: var(--text-100);
+                            }
+                        }
                     }
                 }
             }

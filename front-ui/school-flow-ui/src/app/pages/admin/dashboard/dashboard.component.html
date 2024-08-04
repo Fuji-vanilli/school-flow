@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="card-dash classe">
+                    <div class="card-dash classe" routerLink="/admin/class">
                         <div class="header">
                             <h6>Classe</h6>
                         </div>
@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card-dash student">
+                    <div class="card-dash student" routerLink="/admin/student">
                         <div class="header">
                             <h6>Elèves</h6>
                         </div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card-dash professor">
+                    <div class="card-dash professor" routerLink="/admin/professor">
                         <div class="header">
                             <h6>Enseignants</h6>
                         </div>
@@ -77,7 +77,13 @@
                                 <td>Sixième</td>
                                 <td>26</td>
                                 <td>18</td>
-                                <td>8</td>
+                                <td>
+                                    <span>8</span>
+                                    <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
+                                        <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                                        Consulter
+                                      </button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Cinquième</td>
@@ -94,8 +100,40 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 payment">
                     <h6>Paiement Salaire</h6>
+                    <table class="table">
+                        <thead>
+                            <th>Nom & Prénoms</th>
+                            <th>Fonction</th>
+                            <th>Payé</th>
+                            <th>Fiche de paie</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RAFIDIMANANA Jean Pierre</td>
+                                <td>Responsable Pédagogique</td>
+                                <td>Oui</td>
+                                <td>
+                                    <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
+                                        <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                                        Consulter
+                                      </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>STEFANO Razafy</td>
+                                <td>Assistante Admin</td>
+                                <td>Non</td>
+                                <td>
+                                    <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
+                                        <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                                        Consulter
+                                      </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
