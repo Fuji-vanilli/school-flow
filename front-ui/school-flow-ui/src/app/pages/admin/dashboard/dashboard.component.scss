@@ -2,6 +2,7 @@
     background: var(--text-100);
     margin-left: 12px;
     margin-right: 12px;
+    margin-bottom: 14px;
     padding: 16px;
     border-radius: 10px;
 
@@ -43,78 +44,10 @@
 
     .classe {
         background: var(--primary-200);
-        
-        .details {
-            .table {
-                thead {
-                    th {
-                        font-weight: 400;
-                        font-size: 12px;
-                    }
-                }
-
-                tbody {
-                    tr {
-                        td {
-                            background: 0;
-                            font-size: 12px;
-                            font-weight: 550;
-                            color: var(--primary-100);
-                            border: 0;
-
-                            .number {
-                                height: 20px;
-                                width: 20px;
-                                border-radius: 50%;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                background: var(--text-100);
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 
     .student {
         background: var(--special-300);
-
-        .details {
-            .table {
-                thead {
-                    th {
-                        font-weight: 400;
-                        font-size: 12px;
-                        color: var(--bg-300);
-                    }
-                }
-
-                tbody {
-                    tr {
-                        td {
-                            background: 0;
-                            font-size: 12px;
-                            font-weight: 550;
-                            color: var(--text-100);
-                            border: 0;
-
-                            .number {
-                                display: flex;
-                                justify-content: space-between;
-
-                                .genre {
-                                    span {
-                                        margin-left: 4px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 
     .professor {
@@ -127,5 +60,47 @@
 
     .note {
         background: var(--special-300);
+    }
+
+    .ecolage {
+        .table {
+            overflow: hidden;
+            border-radius: 6px;
+
+            thead {
+
+                th {
+                    background: var(--bg-100);
+                    color: var(--text-100);
+                    font-size: 12px;
+                    padding: 14px;
+                }
+            }
+
+            tbody {
+                tr:nth-child(even) {
+                    background: var(--text-300);
+                    
+                    td {
+                        color: var(--bg-100);
+
+                        fa-icon {
+                            color: var(--primary-100);
+                        }
+                    }
+                }
+
+                tr {
+                    border-radius: 18px; 
+
+                    td {
+                        background: none;
+                        font-size: 14px;
+                        padding: 14px;
+                    }
+                }
+            }
+
+        }
     }
 }

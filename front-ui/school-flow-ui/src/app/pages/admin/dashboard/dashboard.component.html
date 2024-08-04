@@ -1,5 +1,5 @@
-<div class="contain">
-    <div class="row">
+<div class="container-main">
+    <div class="row contain">
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-3">
@@ -14,22 +14,6 @@
                             <span>11</span>
                         </div>
                         <div class="details">
-                            <table class="table">
-                                <thead>
-                                    <th>Presco</th>
-                                    <th>Primaire</th>
-                                    <th>Secondaire</th>
-                                    <th>Lycée</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><div class="number">3</div></td>
-                                        <td><div class="number">5</div></td>
-                                        <td><div class="number">4</div></td>
-                                        <td><div class="number">3</div></td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
@@ -43,68 +27,6 @@
                         </div>
                         <div class="body">
                             <span>121</span>
-                        </div>
-                        <div class="details">
-                            <table class="table">
-                                <thead>
-                                    <th class="text-center">Presco</th>
-                                    <th class="text-center">Primaire</th>
-                                    <th class="text-center">Secondaire</th>
-                                    <th class="text-center">Lycée</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="number">
-                                                <div class="genre">
-                                                    <fa-icon [icon]="['fas', 'venus']"></fa-icon>
-                                                    <span>15</span>
-                                                </div>
-                                                <div class="genre">
-                                                    <fa-icon [icon]="['fas', 'mars']"></fa-icon>
-                                                    <span>11</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="number">
-                                                <div class="genre">
-                                                    <fa-icon [icon]="['fas', 'venus']"></fa-icon>
-                                                    <span>17</span>
-                                                </div>
-                                                <div class="genre">
-                                                    <fa-icon [icon]="['fas', 'mars']"></fa-icon>
-                                                    <span>13</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="number">
-                                                <div class="genre">
-                                                    <fa-icon [icon]="['fas', 'venus']"></fa-icon>
-                                                    <span>8</span>
-                                                </div>
-                                                <div class="genre">
-                                                    <fa-icon [icon]="['fas', 'mars']"></fa-icon>
-                                                    <span>14</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="number">
-                                                <div class="genre">
-                                                    <fa-icon [icon]="['fas', 'venus']"></fa-icon>
-                                                    <span>7</span>
-                                                </div>
-                                                <div class="genre">
-                                                    <fa-icon [icon]="['fas', 'mars']"></fa-icon>
-                                                    <span>19</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
@@ -133,6 +55,60 @@
                             <span>09</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row contain">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6 ecolage">
+                    <h6>Ecolage</h6>
+                    <table class="table">
+                        <thead>
+                            <th>Classe</th>
+                            <th>Nombre</th>
+                            <th>Payé</th>
+                            <th>Non Payé</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sixième</td>
+                                <td>26</td>
+                                <td>18</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>Cinquième</td>
+                                <td>18</td>
+                                <td>17</td>
+                                <td>
+                                    <span>1</span>
+                                    <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
+                                        <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                                        Consulter
+                                      </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h6>Paiement Salaire</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row contain">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>Notes</h6>
+                </div>
+                <div class="col-md-6">
+                    <h6>Paiement Salaire</h6>
                 </div>
             </div>
         </div>
