@@ -82,14 +82,24 @@
     }
 
     .ecolage {
+        h6 {
+            color: var(--special-100);
+        }
+
+        span {
+            color: var(--text-200);
+            font-size: 14px;
+        }
+
         .table {
             overflow: hidden;
             border-radius: 6px;
+            margin-top: 14px;
 
             thead {
 
                 th {
-                    background: var(--bg-100);
+                    background: var(--primary-100);
                     color: var(--text-100);
                     font-size: 12px;
                     padding: 14px;
