@@ -1,8 +1,8 @@
 <div class="container-main">
     <div class="row">
         <div class="col-md-9">
-            <div class="contain">
-                <div class="row">
+            <div class="">
+                <div class="row contain">
                     <div class="col-md-3">
                         <div class="card-dash classe" routerLink="/admin/class">
                             <div class="header">
@@ -73,112 +73,122 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row contain">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 ecolage">
+                            <h6>Ecolage</h6>
+                            <table class="table">
+                                <thead>
+                                    <th>Classe</th>
+                                    <th>Nombre</th>
+                                    <th>Payé</th>
+                                    <th>Non Payé</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sixième</td>
+                                        <td>26</td>
+                                        <td>18</td>
+                                        <td>
+                                            <span>8</span>
+                                            <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
+                                                <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                                                Consulter
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cinquième</td>
+                                        <td>18</td>
+                                        <td>17</td>
+                                        <td>
+                                            <span>1</span>
+                                            <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
+                                                <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                                                Consulter
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6 payment">
+                            <h6>Paiement Salaire</h6>
+                            <table class="table">
+                                <thead>
+                                    <th>Nom & Prénoms</th>
+                                    <th>Fonction</th>
+                                    <th>Payé</th>
+                                    <th>Fiche de paie</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>RAFIDIMANANA Jean Pierre</td>
+                                        <td>Responsable Pédagogique</td>
+                                        <td>Oui</td>
+                                        <td>
+                                            <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
+                                                <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                                                Consulter
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>STEFANO Razafy</td>
+                                        <td>Assistante Admin</td>
+                                        <td>Non</td>
+                                        <td>
+                                            <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
+                                                <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                                                Consulter
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row contain">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Notes</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Paiement Salaire</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-3">
             <div class="contain">
-                <mat-card class="demo-inline-calendar-card">
-                    <mat-calendar [(selected)]="selected"></mat-calendar>
-                </mat-card>
-                  <p>Selected date: {{selected()}}</p>                                    
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            
-        </div>
-    </div>
-
-    <div class="row contain">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-6 ecolage">
-                    <h6>Ecolage</h6>
-                    <table class="table">
-                        <thead>
-                            <th>Classe</th>
-                            <th>Nombre</th>
-                            <th>Payé</th>
-                            <th>Non Payé</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Sixième</td>
-                                <td>26</td>
-                                <td>18</td>
-                                <td>
-                                    <span>8</span>
-                                    <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
-                                        <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
-                                        Consulter
-                                      </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Cinquième</td>
-                                <td>18</td>
-                                <td>17</td>
-                                <td>
-                                    <span>1</span>
-                                    <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
-                                        <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
-                                        Consulter
-                                      </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-6 payment">
-                    <h6>Paiement Salaire</h6>
-                    <table class="table">
-                        <thead>
-                            <th>Nom & Prénoms</th>
-                            <th>Fonction</th>
-                            <th>Payé</th>
-                            <th>Fiche de paie</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>RAFIDIMANANA Jean Pierre</td>
-                                <td>Responsable Pédagogique</td>
-                                <td>Oui</td>
-                                <td>
-                                    <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
-                                        <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
-                                        Consulter
-                                      </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>STEFANO Razafy</td>
-                                <td>Assistante Admin</td>
-                                <td>Non</td>
-                                <td>
-                                    <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
-                                        <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
-                                        Consulter
-                                      </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row contain">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-6">
-                    <h6>Notes</h6>
-                </div>
-                <div class="col-md-6">
-                    <h6>Paiement Salaire</h6>
-                </div>
+                <mat-card class="example-card" appearance="outlined">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title>Shiba Inu</mat-card-title>
+                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                      <p>
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                      </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button>
+                    </mat-card-actions>
+                  </mat-card>
+                                                                
             </div>
         </div>
     </div>

@@ -28,6 +28,10 @@ import { CourseComponent } from './admin/course/course.component';
 import { MatCardModule } from '@angular/material/card';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -76,10 +80,14 @@ function initializeKeycloak(keycloak: KeycloakService) {
     ReactiveFormsModule,
     BaseChartDirective,
     MatCardModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration(),
+    provideNativeDateAdapter(),
     provideCharts(withDefaultRegisterables()),
     {
       provide: APP_INITIALIZER,
