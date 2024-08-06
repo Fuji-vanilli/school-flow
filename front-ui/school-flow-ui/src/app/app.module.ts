@@ -25,6 +25,9 @@ import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2
 import { AddStudentComponent } from './admin/add-student/add-student.component';
 import { ProfileStudentComponent } from './admin/profile-student/profile-student.component';
 import { CourseComponent } from './admin/course/course.component';
+import { MatCardModule } from '@angular/material/card';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -71,7 +74,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BaseChartDirective
+    BaseChartDirective,
+    MatCardModule,
+    MatDatepickerModule
   ],
   providers: [
     provideClientHydration(),

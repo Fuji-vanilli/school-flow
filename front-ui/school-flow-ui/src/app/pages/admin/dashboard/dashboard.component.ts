@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, model, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,5 +7,5 @@ import { Component, TemplateRef, ViewChild } from '@angular/core';
 })
 
 export class DashboardComponent {
-
+  selected = model<Date | null>(null);
 }
