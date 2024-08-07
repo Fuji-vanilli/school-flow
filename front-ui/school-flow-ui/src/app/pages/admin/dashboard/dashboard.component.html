@@ -88,12 +88,12 @@
                                     <th>Non Payé</th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let aClass of classes">
-                                        <td>{{aClass.level}}</td>
-                                        <td>{{aClass.students?.length}}</td>
-                                        <td>{{aClass.maximumCapacity}}</td>
+                                    <tr *ngFor="let aClasss of classes">
+                                        <td>{{aClasss.level}}</td>
+                                        <td>{{aClasss.id}}</td>
+                                        <td>{{aClasss.id}}</td>
                                         <td>
-                                            <span>{{aClass.cretedDate}}</span>
+                                            <span>{{aClasss.id}}</span>
                                             <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
                                                 <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                                                 Consulter
@@ -102,8 +102,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        
+                        </div> 
                     </div>
                 </div>
             </div>
