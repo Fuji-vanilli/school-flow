@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, model, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ClassService } from '../../../services/class.service';
 import { Class } from '../../../models/class.model';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +17,18 @@ export class DashboardComponent implements OnInit{
   classService= inject(ClassService);
 
   classes: Class[] | undefined;
+
+  length = 50;
+  pageSize = 10;
+  pageIndex = 0;
+  pageSizeOptions = [5, 10, 25];
+
+  hidePageSize = false;
+  showPageSizeOptions = true;
+  showFirstLastButtons = true;
+  disabled = false;
+
+  pageEvent!: PageEvent;
 
   ngOnInit(): void {
     this.loadClasses();
@@ -35,5 +48,18 @@ export class DashboardComponent implements OnInit{
         
       }
     })
+  }
+
+  handlePageEvent(e: PageEvent) {
+    this.pageEvent = e;
+    this.length = e.length;
+    this.pageSize = e.pageSize;
+    this.pageIndex = e.pageIndex;
+  }
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
   }
 }
