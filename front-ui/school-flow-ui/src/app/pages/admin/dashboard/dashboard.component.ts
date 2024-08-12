@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit{
   length = 50;
   pageSize = 5;
   pageIndex = 0;
-  pageSizeOptions = [5, 10, 25];
+  pageSizeOptions = [5, 10, 15];
 
   hidePageSize = false;
   showPageSizeOptions = true;
@@ -68,5 +68,9 @@ export class DashboardComponent implements OnInit{
     if (setPageSizeOptionsInput) {
       this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
     }
+  }
+
+  capitalize(s: string): string {
+    return s.charAt(0).toUpperCase()+ s.slice(1);
   }
 }
