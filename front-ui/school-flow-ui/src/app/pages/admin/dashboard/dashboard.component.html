@@ -179,6 +179,13 @@
                     <mat-calendar [(selected)]="selected"></mat-calendar>
                   </mat-card>                                         
             </div>
+
+            <div class="contain">
+                <h6>Bulletin</h6>
+                <mat-card *ngFor="let aClass of classes">
+                    <h1>{{aClass.level}}</h1>
+                </mat-card>
+            </div>
         </div>
     </div>
 </div>
