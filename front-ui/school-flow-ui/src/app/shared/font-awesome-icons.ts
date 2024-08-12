@@ -29,6 +29,7 @@ import {
   faPhoneVolume,
   faPlus,
   faRightFromBracket,
+  faSchoolCircleCheck,
   faSchoolFlag,
   faSchoolLock,
   faTrash,
@@ -95,6 +96,7 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faChalkboardTeacher,
   faVenus,
   faMars,
-  faAnglesRight
+  faAnglesRight,
+  faSchoolCircleCheck
 
 ]

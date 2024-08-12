@@ -182,8 +182,11 @@
 
             <div class="contain">
                 <h6>Bulletin</h6>
-                <mat-card class="bulletin" *ngFor="let aClass of classes">
-                    <h1>{{capitalize(aClass.level)}}</h1>
+                <mat-card class="bulletin" *ngFor="let aClass of classes; let i= index" [style.background]="colors[i% colors.length]">
+                    <div class="d-flex">
+                        <fa-icon [icon]="['fas', 'school-circle-check']"></fa-icon>
+                        <span>{{capitalize(aClass.level)}}</span>   
+                    </div>
                 </mat-card>
             </div>
         </div>

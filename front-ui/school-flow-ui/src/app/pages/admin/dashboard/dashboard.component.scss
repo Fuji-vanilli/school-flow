@@ -254,4 +254,22 @@
 
 .bulletin {
     background: var(--primary-100);
+    margin-bottom: 12px;
+    padding: 16px;
+    display: flex;
+    cursor: pointer;
+
+    fa-icon {
+        margin-right: 12px;
+        color: var(--text-100);
+    }
+
+    span {
+        font-weight: 550;
+        color: var(--text-100);
+    }
+}
+
+.bulletin:hover {
+    opacity: .7;
 }
