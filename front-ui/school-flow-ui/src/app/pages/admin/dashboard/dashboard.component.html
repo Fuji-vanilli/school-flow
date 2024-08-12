@@ -88,7 +88,7 @@
                                     <th>Non Payé</th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let aClass of classes">
+                                    <tr *ngFor="let aClass of classResult">
                                         <td>{{aClass.level}}</td>
                                         <td>{{aClass.maximumCapacity}}</td>
                                         <td>{{aClass.students?.length}}</td>
@@ -102,6 +102,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="paginator d-flex justify-content-center">
                                 <mat-paginator #paginator
                                     class="demo-paginator"
                                     (page)="handlePageEvent($event)"
@@ -113,7 +114,8 @@
                                     [hidePageSize]="hidePageSize"
                                     [pageIndex]="pageIndex"
                                     aria-label="Select page">
-                            </mat-paginator>
+                                </mat-paginator>
+                            </div>
                         </div> 
                     </div>
                 </div>
@@ -175,8 +177,7 @@
             <div class="contain">
                 <mat-card class="demo-inline-calendar-card">
                     <mat-calendar [(selected)]="selected"></mat-calendar>
-                  </mat-card>
-                  <p>Selected date: {{selected()}}</p>                                            
+                  </mat-card>                                         
             </div>
         </div>
     </div>
