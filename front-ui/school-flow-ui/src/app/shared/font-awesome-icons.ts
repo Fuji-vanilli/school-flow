@@ -16,6 +16,7 @@ import {
   faCircleMinus,
   faCircleQuestion,
   faCircleUser,
+  faCircleXmark,
   faCoins,
   faEnvelopeOpenText,
   faFileLines,
@@ -101,6 +102,7 @@ export const fontAwesomeIcons: IconDefinition[]= [
   faAnglesRight,
   faSchoolCircleCheck,
   faCoins,
-  faTags
+  faTags,
+  faCircleXmark
 
 ]

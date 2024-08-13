@@ -124,8 +124,8 @@
                     td {
 
                         span {
-                            color: var(--special-200);
-                            font-weight: 600;
+                            color: var(--bg-200);
+                            //font-weight: 600;
                         }
 
                         button {
@@ -179,10 +179,11 @@
                         background: none;
                         font-size: 14px;
                         padding: 14px;
+                        color: var(--bg-200);
 
                         span {
-                            color: var(--special-200);
-                            font-weight: 600;
+                            color: var(--bg-200);
+                            //font-weight: 00;
                         }
 
                         button {
@@ -210,6 +211,14 @@
     }
 
     .payment {
+        h6 {
+            color: var(--special-100);
+        }
+
+        span {
+            color: var(--text-200);
+            font-size: 14px;
+        }
         .table {
             overflow: hidden;
             border-radius: 6px;
