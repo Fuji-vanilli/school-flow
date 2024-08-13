@@ -26,14 +26,13 @@ import { AddStudentComponent } from './admin/add-student/add-student.component';
 import { ProfileStudentComponent } from './admin/profile-student/profile-student.component';
 import { CourseComponent } from './admin/course/course.component';
 import { MatCardModule } from '@angular/material/card';
-import { provideNativeDateAdapter } from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
-
+import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule, MomentDateAdapter, provideMomentDateAdapter } from '@angular/material-moment-adapter';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -98,13 +97,25 @@ export const MY_FORMATS = {
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatMomentDateModule,
+    MatNativeDateModule
   ],
   providers: [
+    provideNativeDateAdapter(),
     provideMomentDateAdapter(MY_FORMATS),
     provideClientHydration(),
     provideNativeDateAdapter(),
     provideCharts(withDefaultRegisterables()),
+    
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,

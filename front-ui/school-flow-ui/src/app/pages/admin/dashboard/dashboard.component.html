@@ -78,42 +78,60 @@
                 <div class="col-md-12">
                     <div>
                         <div class="ecolage">
-                            <h6>Ecolage</h6>
-                            <span>Détails des ecolages payés par classe</span>
-                            <mat-form-field>
-                                <mat-label>Month and Year</mat-label>
-                                <input matInput [matDatepicker]="dp" [formControl]="date">
-                                <mat-hint>MM/YYYY</mat-hint>
-                                <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
-                                <mat-datepicker #dp
-                                                startView="multi-year"
-                                                (monthSelected)="setMonthAndYear($event, dp)"
-                                                panelClass="example-month-picker">
-                                </mat-datepicker>
-                              </mat-form-field>
-                              
+                            <div class="d-flex justify-content-between" >
+                                <div>
+                                    <h6>Ecolage</h6>
+                                    <span>Détails des ecolages payés par classe</span> 
+                                </div>                             
+                                <div class="month">
+                                    <mat-form-field >
+                                        <mat-label>Choisir un Mois et une année</mat-label>
+                                        <input matInput [matDatepicker]="dp" [formControl]="date">
+                                        <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+                                        <mat-datepicker #dp
+                                                        startView="multi-year"
+                                                        (monthSelected)="setMonthAndYear($event, dp)"
+                                                        panelClass="example-month-picker">
+                                        </mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button class="btn btn-info">
+                                <fa-icon [icon]="['fas', 'coins']" style="margin-right: 14px;"></fa-icon>
+                                <span style="font-size: 14px; color: black;">Payer Ecolage</span>
+                            </button>
                             <table class="table">
                                 <thead>
                                     <th></th>
                                     <th>Classe</th>
                                     <th>Montant (Ar)</th>
-                                    <th>Nombres</th>
+                                    <th>Nombre Total</th>
                                     <th>Ayant Payé</th>
                                     <th>Non Payé</th>
+                                    <th></th>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let aClass of classResult">
                                         <td class="check"><fa-icon [icon]="['fas', 'check-circle']"></fa-icon></td>
                                         <td>{{capitalize(aClass.level)}}</td>
                                         <td>{{aClass.ecolage}}</td>
-                                        <td>{{aClass.maximumCapacity}}</td>
-                                        <td>{{aClass.students?.length}}</td>
-                                        <td>
-                                            <span>15</span>
+                                        <td>{{aClass.maximumCapacity+' Elèves'}}</td>
+                                        <td class="payed">
+                                            {{aClass.students?.length+' Elèves'}}
                                             <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
                                                 <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                                                 Consulter
                                             </button>
+                                        </td>
+                                        <td class="not-payed">
+                                            <span>15 Elèves</span>
+                                            <button class="explorer" data-bs-toggle="modal" data-bs-target="#courseModal">
+                                                <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                                                Consulter
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <fa-icon [icon]="['fas', 'tags']" style="color: var(--bg-200);"></fa-icon>
                                         </td>
                                     </tr>
                                 </tbody>

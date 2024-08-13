@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, model, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, model, OnInit, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ClassService } from '../../../services/class.service';
 import { Class } from '../../../models/class.model';
 import { PageEvent } from '@angular/material/paginator';
@@ -12,22 +12,21 @@ const moment = _rollupMoment || _moment;
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './dashboard.component.scss'
 })
 
 export class DashboardComponent implements OnInit{
   colors: string[]= [
     '#2E8B57',
-    '#61bc84',
-    '#8FBC8F',
     '#FFA500',
-    '#dd8900',
     '#a364ff',
-    '#cb80ff'
+    '#61bc84',
+    '#dd8900',
+    '#cb80ff',
+    '#8FBC8F'  
   ]
 
-  readonly dateTime = new FormControl(moment());
+  date = new FormControl(moment());
 
   selected = model<Date | null>(null);
 
@@ -47,7 +46,7 @@ export class DashboardComponent implements OnInit{
   disabled = false;
 
   pageEvent!: PageEvent;
-  date: any;
+  dateTime: any;
 
   ngOnInit(): void {
     this.loadClasses();
@@ -62,6 +61,7 @@ export class DashboardComponent implements OnInit{
         console.log("classes: ", classes); 
         console.timeEnd('loadClasses')
         
+        this.classResult= this.classes?.slice(0, 5);
       },
       error: err=> {
         console.log("error: ", err);
@@ -93,10 +93,10 @@ export class DashboardComponent implements OnInit{
   }
 
   setMonthAndYear(normalizedMonthAndYear: Moment, datepicker: MatDatepicker<Moment>) {
-    const ctrlValue = this.dateTime.value ?? moment();
+    const ctrlValue = this.date.value!;
     ctrlValue.month(normalizedMonthAndYear.month());
     ctrlValue.year(normalizedMonthAndYear.year());
-    this.dateTime.setValue(ctrlValue);
+    this.date.setValue(ctrlValue);
     datepicker.close();
   }
 }
