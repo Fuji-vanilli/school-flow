@@ -82,14 +82,18 @@
                             <span>Détails des ecolages payés par classe</span>
                             <table class="table">
                                 <thead>
+                                    <th></th>
                                     <th>Classe</th>
-                                    <th>Nombre</th>
-                                    <th>Payé</th>
+                                    <th>Montant (Ar)</th>
+                                    <th>Nombres</th>
+                                    <th>Ayant Payé</th>
                                     <th>Non Payé</th>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let aClass of classResult">
-                                        <td>{{aClass.level}}</td>
+                                        <td class="check"><fa-icon [icon]="['fas', 'check-circle']"></fa-icon></td>
+                                        <td>{{capitalize(aClass.level)}}</td>
+                                        <td>{{aClass.ecolage}}</td>
                                         <td>{{aClass.maximumCapacity}}</td>
                                         <td>{{aClass.students?.length}}</td>
                                         <td>
@@ -186,6 +190,9 @@
                     <div class="d-flex">
                         <fa-icon [icon]="['fas', 'school-circle-check']"></fa-icon>
                         <span>{{capitalize(aClass.level)}}</span>   
+                    </div>
+                    <div class="d-flex mt-3">
+                        <span>{{aClass.students?.length+' Elèves'}}</span>
                     </div>
                 </mat-card>
             </div>

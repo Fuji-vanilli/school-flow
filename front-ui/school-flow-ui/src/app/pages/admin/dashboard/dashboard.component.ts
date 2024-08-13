@@ -12,10 +12,13 @@ import { PageEvent } from '@angular/material/paginator';
 
 export class DashboardComponent implements OnInit{
   colors: string[]= [
-    '#00DC82',
-    '#2196F3',
-    '#FF3D3D',
-    'rgb(175 82 222)'
+    '#2E8B57',
+    '#61bc84',
+    '#8FBC8F',
+    '#FFA500',
+    '#dd8900',
+    '#a364ff',
+    '#cb80ff'
   ]
 
   selected = model<Date | null>(null);
