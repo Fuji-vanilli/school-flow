@@ -80,6 +80,18 @@
                         <div class="ecolage">
                             <h6>Ecolage</h6>
                             <span>Détails des ecolages payés par classe</span>
+                            <mat-form-field>
+                                <mat-label>Month and Year</mat-label>
+                                <input matInput [matDatepicker]="dp" [formControl]="date">
+                                <mat-hint>MM/YYYY</mat-hint>
+                                <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+                                <mat-datepicker #dp
+                                                startView="multi-year"
+                                                (monthSelected)="setMonthAndYear($event, dp)"
+                                                panelClass="example-month-picker">
+                                </mat-datepicker>
+                              </mat-form-field>
+                              
                             <table class="table">
                                 <thead>
                                     <th></th>

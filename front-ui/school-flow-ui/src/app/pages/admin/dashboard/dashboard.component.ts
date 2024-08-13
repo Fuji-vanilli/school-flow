@@ -2,6 +2,12 @@ import { ChangeDetectionStrategy, Component, inject, model, OnInit, TemplateRef,
 import { ClassService } from '../../../services/class.service';
 import { Class } from '../../../models/class.model';
 import { PageEvent } from '@angular/material/paginator';
+import { MatDatepicker } from '@angular/material/datepicker';
+import { FormControl } from '@angular/forms';
+import * as _moment from 'moment';
+import {default as _rollupMoment, Moment} from 'moment';
+
+const moment = _rollupMoment || _moment;
 
 @Component({
   selector: 'app-dashboard',
@@ -21,6 +27,8 @@ export class DashboardComponent implements OnInit{
     '#cb80ff'
   ]
 
+  readonly dateTime = new FormControl(moment());
+
   selected = model<Date | null>(null);
 
   classService= inject(ClassService);
@@ -39,6 +47,7 @@ export class DashboardComponent implements OnInit{
   disabled = false;
 
   pageEvent!: PageEvent;
+  date: any;
 
   ngOnInit(): void {
     this.loadClasses();
@@ -81,5 +90,13 @@ export class DashboardComponent implements OnInit{
 
   capitalize(s: string): string {
     return s.charAt(0).toUpperCase()+ s.slice(1);
+  }
+
+  setMonthAndYear(normalizedMonthAndYear: Moment, datepicker: MatDatepicker<Moment>) {
+    const ctrlValue = this.dateTime.value ?? moment();
+    ctrlValue.month(normalizedMonthAndYear.month());
+    ctrlValue.year(normalizedMonthAndYear.year());
+    this.dateTime.setValue(ctrlValue);
+    datepicker.close();
   }
 }

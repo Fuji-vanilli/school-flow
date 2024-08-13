@@ -32,6 +32,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 
 
 function initializeKeycloak(keycloak: KeycloakService) {
@@ -49,6 +50,18 @@ function initializeKeycloak(keycloak: KeycloakService) {
       }
     });
 }
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'MM/YYYY',
+  },
+  display: {
+    dateInput: 'MM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @NgModule({
   declarations: [
@@ -88,6 +101,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     MatPaginatorModule
   ],
   providers: [
+    provideMomentDateAdapter(MY_FORMATS),
     provideClientHydration(),
     provideNativeDateAdapter(),
     provideCharts(withDefaultRegisterables()),
