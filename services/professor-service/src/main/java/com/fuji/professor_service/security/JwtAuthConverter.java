@@ -1,6 +1,5 @@
 package com.fuji.professor_service.security;
 
-import com.fuji.student_service.security.JwtProperties;
 import com.nimbusds.jwt.JWTClaimNames;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;

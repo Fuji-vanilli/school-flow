@@ -2,7 +2,7 @@ package com.fuji.professor_service.service;
 
 import com.fuji.professor_service.DTO.ProfessorRequest;
 import com.fuji.professor_service.DTO.ProfessorResponse;
-import com.fuji.professor_service.ProfessorRepository;
+import com.fuji.professor_service.repository.ProfessorRepository;
 import com.fuji.professor_service.entities.Professor;
 import com.fuji.professor_service.mapper.ProfessorMapper;
 import lombok.RequiredArgsConstructor;
@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @Transactional
@@ -42,7 +39,46 @@ public class ProfessorServiceImpl implements ProfessorService{
 
     @Override
     public ProfessorResponse update(ProfessorRequest request) {
-        return null;
+        Optional<Professor> professorByID = professorRepository.findById(request.id());
+        if (professorByID.isEmpty()) {
+            log.error("Professor with id {} not found", request.id());
+            throw new IllegalArgumentException("Professor with id " + request.id() + " not found");
+        }
+
+        Professor professor = professorByID.get();
+        mergeProfessor(request, professor);
+
+        professor.setLastUpdatedDate(Instant.now());
+
+        professorRepository.save(professor);
+        log.info("Student updated: {}", professor);
+
+        return professorMapper.mapToProfessorResponse(professor);
+    }
+
+
+    public void mergeProfessor(ProfessorRequest request, Professor student) {
+        if (!request.firstname().isBlank()) {
+            student.setFirstname(request.firstname());
+        }
+        if (!request.lastname().isBlank()) {
+            student.setLastname(request.lastname());
+        }
+        if (!request.email().isBlank()) {
+            student.setEmail(request.email());
+        }
+        if (!request.phone().isBlank()) {
+            student.setPhone(request.phone());
+        }
+        if (!Objects.isNull(request.dateOfBirth())) {
+            student.setDateOfBirth(request.dateOfBirth());
+        }
+        if (!request.birthPlace().isBlank()) {
+            student.setBirthPlace(request.birthPlace());
+        }
+        if (!request.address().isBlank()) {
+            student.setAddress(request.address());
+        }
     }
 
     @Override
