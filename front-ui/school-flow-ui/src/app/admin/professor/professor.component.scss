@@ -1,0 +1,389 @@
+.contain{
+    .left {
+        padding-left: 30px;
+        padding-right: 30px;
+
+        .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+
+            .box-search {
+                background: var(--green-100);
+                border-radius: 24px;
+                padding: 8px 10px 8px 20px;
+        
+                input {
+                    outline: none;
+                    background: transparent;
+                    border: 0;
+                    color: var(--text-200);
+                }
+        
+                .icon-search {
+                    border: 0;
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    background: var(--primary-100);
+        
+                    fa-icon {
+                        color: var(--text-100);
+                    }
+                }
+            }
+
+            .add-student {
+                border: none;
+                padding: 8px 14px;
+                border-radius: 8px;
+                background: var(--special-100);
+                color: var(--text-100);
+    
+                span {
+                    margin-left: 10px;
+                    font-weight: 500;
+                }
+            }
+
+            .section-level {
+                background: var(--text-100);
+                padding: 16px 0 16px 24px;
+                border-radius: 34px;
+
+                .level {
+                    
+                    .nav-item {
+                        float: left;
+                        list-style: none;
+                        padding-right: 20px;
+                        margin-right: 16px;
+                        position: relative;
+                        width: 150px;
+                        cursor: pointer;
+                        
+                        span {
+                            color: var(--bg-200);
+                            font-size: 14px;
+                            font-weight: 550;
+                        }
+
+                        fa-icon {
+                            margin-right: 16px;
+                            color: var(--primary-100);
+                        }
+
+                        ul {
+                            position: absolute;
+                            top: 100%;
+                            background: var(--text-100);
+                            border-radius: 8px;
+                            width: 100%;
+                            padding: 8px 8px 14px;
+                            display: none;
+                            opacity: 0;
+
+                            li {
+                                list-style: none;
+                                padding: 6px;
+                                
+                                a {
+                                    padding-left: 0;
+                                    color: var(--bg-200);
+                                    font-size: 14px;
+                                }
+                            }
+
+                            li:hover {
+                                background: var(--primary-100);
+                                border-radius: 8px;
+
+                                a {
+                                    color: var(--text-100);
+                                }
+                            }
+                        }
+                        
+                    }
+
+                    li.nav-item:not(:last-child) {
+                        border-right: 1px solid var(--text-200);
+                    }
+                }
+
+                .level .nav-item:hover ul{
+                    display: block;
+                    visibility: visible;
+                    opacity: 1;
+                  }
+            }
+
+            span {
+                font-weight: 600;
+            }
+        }
+
+        .custom-table {
+            overflow: hidden;
+            border-radius: 6px;
+
+            thead {
+                border-radius: 12px;
+                th {
+                    background: var(--bg-100);
+                    color: var(--primary-100);
+                    font-size: 14px;
+                    padding: 16px;
+                }
+            }
+
+            tbody {
+                tr:nth-child(even) {
+                    background: var(--text-100);
+                    
+                    td {
+                        color: var(--bg-100);
+
+                        fa-icon {
+                            color: var(--primary-100);
+                        }
+                    }
+                }
+
+                tr {
+                    border-radius: 18px; 
+
+                    td {
+                        background: none;
+                        font-size: 14px;
+                        padding: 14px;
+                        overflow: hidden;
+
+                        img {
+                            border-radius: 50%;
+                            width: 35px;
+                            height: 35px;
+                          }
+
+                        .name-student {
+                            text-decoration: none;
+                            font-weight: 500;
+                            color: var(--bg-200);
+                            transition: all ease 0.4s;
+                        }
+
+                        .name-student:hover {
+                            text-decoration: underline;
+                            color: var(--special-100);
+                        }
+
+                        button:hover {
+                            opacity: .7;
+                        }
+
+                        .note {
+                            border: none;
+                            border-radius: 8px;
+                            padding: 6px 14px;
+                        }
+
+                        .explorer {
+                            display: flex;
+                            justify-content: space-between;
+
+                            .note {
+                                border: 0;
+                                border-radius: 6px;
+                                padding: 4px 8px;
+                                font-size: 12px;
+                                background: var(--primary-100);
+                                color: var(--text-100);
+
+                                fa-icon {
+                                    color: var(--text-100);
+                                }
+                            }
+
+                            .absence {
+                                border: 0;
+                                border-radius: 6px;
+                                padding: 4px 8px;
+                                font-size: 12px;
+                                background: var(--bg-100);
+                                color: var(--text-100);
+
+                                fa-icon {
+                                    color: var(--text-100);
+                                }
+                            }
+
+                            .ecolage {
+                                border: 0;
+                                border-radius: 6px;
+                                padding: 4px 8px;
+                                font-size: 12px;
+                                background: var(--special-300);
+                                color: var(--text-100);
+
+                                fa-icon {
+                                    color: var(--text-100);
+                                }
+                            }
+                        }
+
+                        fa-icon {
+                            color: var(--bg-100);
+                        }
+
+                        .action {
+
+                            .edit {
+                                color: var(--special-100);
+                                margin-right: 20px;
+                                cursor: pointer;
+                            }
+
+                            .delete {
+                                color: var(--delete-100);
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }    
+}
+
+
+//Modal
+
+section {
+    background: var(--primary-100);
+    border: 1px solid var(--primary-100);
+    padding: 20px;
+    border-radius: 6px;
+    position: relative;
+
+    header.title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            color: var(--text-100);
+            font-weight: bold;
+        }
+    }
+
+    .contents {
+        .box {
+            form {
+                label {
+                    color: var(--bg-100);
+                    margin-bottom: 14px;
+                    font-weight: 550;
+
+                    span {
+                        color: var(--delete-100);
+                        font-weight: 550;
+                    }
+                }
+
+                .field-select {
+                    background: var(--bg-100);
+                    border: 1px solid var(--primary-200);
+                    border-radius: 8px;
+                    padding: 16px 24px;
+                    margin-bottom: 16px;
+                    color: var(--primary-100);
+                    font-size: 16px;
+                    font-weight: 550;
+
+                    option {
+                        background: var(--bg-100);
+                        color: var(--text-100);
+                        font-size: 16px;
+                    }
+                }
+
+                .field {
+                    background: var(--bg-100);
+                    border: 1px solid var(--primary-200);
+                    border-radius: 8px;
+                    padding: 8px 14px;
+                    margin-bottom: 16px;
+                    display: flex;
+                    align-items: center;
+
+                    fa-icon {
+                        color: var(--primary-200);
+                        font-size: 12px;
+                    }
+
+                    input {
+                        padding: 8px 16px;
+                        background: transparent;
+                        color: var(--text-200);
+                        border: 0;
+                        outline: none;
+                        width: 98%;
+                    }
+
+                    ::-webkit-input-placeholder {
+                        font-style: italic;
+                    }
+                }
+
+                .field:focus-within {
+                    border: 1px solid var(--primary-200);
+                }
+
+                .image-upload {
+                    margin-bottom: 16px;
+
+                    .upload {
+                        border-radius: 8px;
+                        border: 1px solid var(--bg-200);
+                        color: var(--text-200);    
+                        width: 100%;
+                    }
+
+                    ::-webkit-file-upload-button {
+                        background: var(--primary-200);
+                        color: var(--bg-100);
+                        font-weight: 550;
+                        border: 0;
+                        padding: 8px 14px;
+                        margin-right: 14px;
+                    }
+                }
+
+
+
+                .save {
+                    display: flex;
+                    justify-content: end;
+
+                    button.submit {
+                        border: 0;
+                        padding: 8px 16px;
+                        background: var(--text-100);
+                        color: var(--bg-100);
+                        border-radius: 8px;
+                        font-weight: 550;
+
+                        i {
+                            margin-right: 6px;
+                        }
+                    }
+
+                    button.submit:hover {
+                        opacity: .6;
+                    }
+                }
+            }
+        }
+    }
+}
