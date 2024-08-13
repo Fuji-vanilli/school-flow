@@ -5,6 +5,7 @@ import com.fuji.professor_service.DTO.ProfessorResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 public interface ProfessorController {
@@ -15,7 +16,7 @@ public interface ProfessorController {
     @GetMapping("get/{matricule}")
     ResponseEntity<ProfessorResponse> get(@PathVariable String matricule);
     @GetMapping("all")
-    ResponseEntity<ProfessorResponse> getAll();
+    ResponseEntity<List<ProfessorResponse>> getAll();
     @PatchMapping("add-course")
     ResponseEntity<ProfessorResponse> addCourse(@RequestBody Map<String, String> params);
     @PatchMapping("add-course-apply")

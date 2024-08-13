@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 import static com.fuji.professor_service.utils.Root.APP_ROOT;
@@ -34,7 +35,7 @@ public class ProfessorApi implements ProfessorController{
     }
 
     @Override
-    public ResponseEntity<ProfessorResponse> getAll() {
+    public ResponseEntity<List<ProfessorResponse>> getAll() {
         return ResponseEntity.ok(professorService.getAll());
     }
 

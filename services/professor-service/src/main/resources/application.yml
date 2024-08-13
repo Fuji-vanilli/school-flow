@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: professor-service
+
+  config:
+    import: optional:configserver:http://localhost:8200
