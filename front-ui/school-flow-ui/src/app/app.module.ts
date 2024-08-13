@@ -33,6 +33,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule, MomentDateAdapter, provideMomentDateAdapter } from '@angular/material-moment-adapter';
+import { AddProfessorComponent } from './admin/add-professor/add-professor.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -81,7 +82,8 @@ export const MY_FORMATS = {
     AddClassComponent,
     AddStudentComponent,
     ProfileStudentComponent,
-    CourseComponent
+    CourseComponent,
+    AddProfessorComponent
   ],
   imports: [
     BrowserModule,
