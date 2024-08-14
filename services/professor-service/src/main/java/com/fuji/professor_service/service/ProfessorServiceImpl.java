@@ -56,7 +56,6 @@ public class ProfessorServiceImpl implements ProfessorService{
         return professorMapper.mapToProfessorResponse(professor);
     }
 
-
     public void mergeProfessor(ProfessorRequest request, Professor student) {
         if (!request.firstname().isBlank()) {
             student.setFirstname(request.firstname());
@@ -82,8 +81,31 @@ public class ProfessorServiceImpl implements ProfessorService{
     }
 
     @Override
+    public ProfessorResponse getById(String id) {
+        Optional<Professor> professorById = professorRepository.findById(id);
+        if (professorById.isEmpty()) {
+            log.info("professor: {} doesn't exist into the database: ", id);
+            throw new IllegalArgumentException("professor doesn't exist into the database:");
+        }
+
+        Professor professor= professorById.get();
+
+        log.info("professor getted successfully!");
+        return professorMapper.mapToProfessorResponse(professor);
+    }
+
+    @Override
     public ProfessorResponse getByMatricule(String matricule) {
-        return null;
+        Optional<Professor> professorByMatricule = professorRepository.findByMatricule(matricule);
+        if (professorByMatricule.isEmpty()) {
+            log.info("professor: {} doesn't exist into the database: ", matricule);
+            throw new IllegalArgumentException("professor doesn't exist into the database:");
+        }
+
+        Professor professor= professorByMatricule.get();
+
+        log.info("professor getted successfully!");
+        return professorMapper.mapToProfessorResponse(professor);
     }
 
     @Override

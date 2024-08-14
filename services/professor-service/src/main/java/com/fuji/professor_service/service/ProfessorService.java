@@ -9,6 +9,7 @@ import java.util.Map;
 public interface ProfessorService {
     ProfessorResponse create(ProfessorRequest request);
     ProfessorResponse update(ProfessorRequest request);
+    ProfessorResponse getById(String id);
     ProfessorResponse getByMatricule(String matricule);
     List<ProfessorResponse> getAll();
     ProfessorResponse addCourse(Map<String, String> params);
