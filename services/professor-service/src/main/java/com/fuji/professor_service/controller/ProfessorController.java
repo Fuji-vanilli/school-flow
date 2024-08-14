@@ -13,8 +13,10 @@ public interface ProfessorController {
     ResponseEntity<ProfessorResponse> create(@RequestBody ProfessorRequest request);
     @PutMapping("update")
     ResponseEntity<ProfessorResponse> update(@RequestBody ProfessorRequest request);
+    @GetMapping("get/{id}")
+    ResponseEntity<ProfessorResponse> getByID(@PathVariable String id);
     @GetMapping("get/{matricule}")
-    ResponseEntity<ProfessorResponse> get(@PathVariable String matricule);
+    ResponseEntity<ProfessorResponse> getByMatricule(@PathVariable String matricule);
     @GetMapping("all")
     ResponseEntity<List<ProfessorResponse>> getAll();
     @PatchMapping("add-course")

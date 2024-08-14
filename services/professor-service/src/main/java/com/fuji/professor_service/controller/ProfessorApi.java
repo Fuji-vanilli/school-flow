@@ -30,7 +30,12 @@ public class ProfessorApi implements ProfessorController{
     }
 
     @Override
-    public ResponseEntity<ProfessorResponse> get(String matricule) {
+    public ResponseEntity<ProfessorResponse> getByID(String id) {
+        return ResponseEntity.ok(professorService.getById(id));
+    }
+
+    @Override
+    public ResponseEntity<ProfessorResponse> getByMatricule(String matricule) {
         return ResponseEntity.ok(professorService.getByMatricule(matricule));
     }
 
