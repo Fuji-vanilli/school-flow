@@ -27,6 +27,7 @@ public class Professor {
     private String address;
     private String imageUrl;
     private List<String> classIDs;
+    private List<String> courseIDs;
     private List<CourseApply> courseApplies= new ArrayList<>();
     private Instant createdDate;
     private Instant lastUpdatedDate;

@@ -47,12 +47,26 @@
                         </div>
                     </div>
                     <div class="gender-details">
-                        <span class="gender-title">Sexe</span>
-                        <div class="category">
-                            <mat-radio-group aria-label="Select an option">
-                                <mat-radio-button value="1">Homme</mat-radio-button>
-                                <mat-radio-button value="2">Femme</mat-radio-button>
-                            </mat-radio-group>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <span class="gender-title">Sexe</span>
+                                <div class="category">
+                                    <mat-radio-group aria-label="Select an option">
+                                        <mat-radio-button value="1">Homme</mat-radio-button>
+                                        <mat-radio-button value="2">Femme</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="gender-title">Ajouter un photo</span>
+                                <div class="upload-image">
+                                    <input type="file" id="upload">
+                                    <label for="upload">
+                                        <fa-icon [icon]="['fas', 'cloud-arrow-up']"></fa-icon>
+                                        <span>Televerser un photo</span>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="register">
