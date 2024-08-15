@@ -1,29 +1,38 @@
 <div class="container-main">
     <div class="row d-flex justify-content-center">
-        <div class="col-md-10 contain">
-            <div class="example-container">
-                <mat-form-field>
-                  <mat-label>Enter your password</mat-label>
-                  <input matInput [type]="hide() ? 'password' : 'text'" />
-                  <button
-                    mat-icon-button
-                    matSuffix
-                    (click)="clickEvent($event)"
-                    [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide()"
-                  >
-                    <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  </button>
-                </mat-form-field>
-              
-                <mat-form-field floatLabel="always">
-                  <mat-label>Amount</mat-label>
-                  <input matInput type="number" class="example-right-align" placeholder="0" />
-                  <span matTextPrefix>$&nbsp;</span>
-                  <span matTextSuffix>.00</span>
-                </mat-form-field>
-              </div>
-              
+        <div class="col-md-8 main">
+            <div class="container">
+                <div class="title">Enregister un nouveau Professeur</div>
+            <form action="">
+                <div class="prof-details">
+                    <div class="input-box">
+                        <span class="details">Nom</span>
+                        <input type="text" placeholder="firstname">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Prénoms</span>
+                        <input type="text" placeholder="firstname">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Date de naissance</span>
+                        <input type="text" placeholder="firstname">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Adresse</span>
+                        <input type="text" placeholder="firstname">
+                    </div>
+                </div>
+                <div class="gender-details">
+                    <span class="gender-title">Sexe</span>
+                    <div class="category">
+                        <mat-radio-group aria-label="Select an option">
+                            <mat-radio-button value="1">Homme</mat-radio-button>
+                            <mat-radio-button value="2">Femme</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </form>
+            </div>
         </div>
     </div>
 </div>

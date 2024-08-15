@@ -33,6 +33,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
+import { MatRadioModule } from '@angular/material/radio';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule, MomentDateAdapter, provideMomentDateAdapter } from '@angular/material-moment-adapter';
 import { AddProfessorComponent } from './admin/add-professor/add-professor.component';
 
@@ -103,7 +104,8 @@ export const MY_FORMATS = {
     MatPaginatorModule,
     MatMomentDateModule,
     MatNativeDateModule,
-    MatIconModule
+    MatIconModule,
+    MatRadioModule
   ],
   providers: [
     provideNativeDateAdapter(),
