@@ -1,6 +1,7 @@
 package com.fuji.professor_service.DTO;
 
 import com.fuji.professor_service.models.Class;
+import com.fuji.professor_service.models.Course;
 import com.fuji.professor_service.models.CourseApply;
 import org.springframework.data.annotation.Transient;
 
@@ -23,6 +24,7 @@ public record ProfessorResponse (
         List<CourseApply> courseApplies,
         Instant createdDate,
         Instant lastUpdatedDate,
-        List<Class> classes
+        List<Class> classes,
+        List<Course> courses
 ){
 }

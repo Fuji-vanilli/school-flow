@@ -1,6 +1,7 @@
 package com.fuji.professor_service.entities;
 
 import com.fuji.professor_service.models.Class;
+import com.fuji.professor_service.models.Course;
 import com.fuji.professor_service.models.CourseApply;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
@@ -33,4 +34,6 @@ public class Professor {
     private Instant lastUpdatedDate;
     @Transient
     private List<Class> classes= new ArrayList<>();
+    @Transient
+    private List<Course> courses= new ArrayList<>();
 }

@@ -36,7 +36,8 @@ public class ProfessorMapperImpl implements ProfessorMapper{
                 professor.getCourseApplies(),
                 professor.getCreatedDate(),
                 professor.getLastUpdatedDate(),
-                professor.getClasses()
+                professor.getClasses(),
+                professor.getCourses()
         );
     }
 }
