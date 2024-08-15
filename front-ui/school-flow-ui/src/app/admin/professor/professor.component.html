@@ -92,63 +92,7 @@
         </header>
         <div class="contents">
             <div class="box">
-                <form [formGroup]="formGroup" (ngSubmit)="updateProfessor()">
-                    <label>Nom <span>*</span></label>
-                    <div class="field">
-                        <fa-icon [icon]="['fas', 'user-tag']"></fa-icon>
-                        <input type="text" placeholder="ex. Rakoto" formControlName="firstname">
-                    </div>
-                    <label>Prénoms <span>*</span></label>
-                    <div class="field">
-                        <fa-icon [icon]="['fas', 'user-tag']"></fa-icon>
-                        <input type="text" placeholder="ex. Tafita" formControlName="lastname">
-                    </div>
-                    <label>Date de naissance <span>*</span></label>
-                    <div class="field">
-                        <fa-icon [icon]="['fas', 'calendar-days']"></fa-icon>
-                        <input type="date" formControlName="dateOfBirth">
-                    </div>
-                    <label>Lieu de naissance <span>*</span></label>
-                    <div class="field">
-                        <fa-icon [icon]="['fas', 'location-dot']"></fa-icon>
-                        <input type="text" placeholder="ex. Ambohitafita" formControlName="birthPlace">
-                    </div>
-                    <label>Email <span>*</span></label>
-                    <div class="field">
-                        <fa-icon [icon]="['fas', 'envelope-open-text']"></fa-icon>
-                        <input type="email" placeholder="ex. rakoto@tafita.com" formControlName="email">
-                    </div>
-                    <label>Télephone <span>*</span></label>
-                    <div class="field">
-                        <fa-icon [icon]="['fas', 'phone-volume']"></fa-icon>
-                        <input type="text" placeholder="ex. +261 00 11 222 33" formControlName="phone">
-                    </div>
-                    <label>Adresse <span>*</span></label>
-                    <div class="field">
-                        <fa-icon [icon]="['fas', 'map-location-dot']"></fa-icon>
-                        <input type="text" placeholder="ex. Lot WKX Ambohitafita" formControlName="address">
-                    </div>
-                    <label>Classe <span>*</span></label>
-                    <select class="form-select form-select-lg mb-3 field-select" formControlName="classID">
-                        <option selected>Choisi une classe</option>
-                        <!--option [value]="aClass.id" *ngFor="let aClass of classes">{{aClass.level}}</option-->
-                    </select>
-
-                    <label>Ecole d'origine<span> *</span></label>
-                    <div class="field">
-                        <fa-icon [icon]="['fas', 'school-lock']"></fa-icon>
-                        <input type="text" placeholder="ex. Ecole lumineux" formControlName="originSchool">
-                    </div>
-                    
-                    <div class="footer">
-                        <div>
-                            <i>* Les valeurs sont requis</i>
-                        </div>
-                        <div class="save">
-                            <button class="submit"><i class="bi bi-floppy"></i>Enregistrer</button>
-                        </div>
-                    </div>
-                </form>
+                
             </div>
         </div>
     </section>

@@ -14,6 +14,7 @@ public class ProfessorMapperImpl implements ProfessorMapper{
                 .lastname(request.lastname())
                 .email(request.email())
                 .genre(request.genre())
+                .degree(request.degree())
                 .phone(request.phone())
                 .classIDs(request.classIDs())
                 .courseIDs(request.courseIDs())
