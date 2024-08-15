@@ -26,6 +26,6 @@ export class ProfessorService {
   }
 
   delete(id: string): Observable<any> {
-    return this.httpClient.delete(id);
+    return this.httpClient.delete(this.url+'delete/'+id);
   }
  }

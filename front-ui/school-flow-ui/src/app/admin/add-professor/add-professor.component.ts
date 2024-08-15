@@ -6,6 +6,7 @@ import { Course } from '../../models/course.model';
 import { Class } from '../../models/class.model';
 import { ClassService } from '../../services/class.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-professor',
@@ -17,6 +18,7 @@ export class AddProfessorComponent implements OnInit{
   professorService= inject(ProfessorService);
   courseService= inject(CourseService);
   classService= inject(ClassService);
+  route= inject(Router);
 
   formGroup!: FormGroup;
   classesSelected = new FormControl([]);
@@ -92,6 +94,7 @@ export class AddProfessorComponent implements OnInit{
       next: response=> {
         console.log('created successfully: ', response);
         Swal.fire('Succès', 'Nouvel Prof enregistrer avec succès', 'success');
+        this.route.navigateByUrl('/admin/professor')
       },
       error: err=> {
         console.log('error: ', err);
