@@ -23,6 +23,6 @@ public interface ProfessorController {
     ResponseEntity<ProfessorResponse> addCourse(@RequestBody Map<String, String> params);
     @PatchMapping("add-course-apply")
     ResponseEntity<ProfessorResponse> addCourseApply(@RequestBody Map<String, String> params);
-    @DeleteMapping("delete/{matricule}")
-    ResponseEntity<ProfessorResponse> delete(@PathVariable String matricule);
+    @DeleteMapping("delete/{id}")
+    ResponseEntity<ProfessorResponse> delete(@PathVariable String id);
 }

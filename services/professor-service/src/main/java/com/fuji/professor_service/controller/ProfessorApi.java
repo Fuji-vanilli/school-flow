@@ -55,7 +55,7 @@ public class ProfessorApi implements ProfessorController{
     }
 
     @Override
-    public ResponseEntity<ProfessorResponse> delete(String matricule) {
-        return ResponseEntity.ok(professorService.delete(matricule));
+    public ResponseEntity<ProfessorResponse> delete(String id) {
+        return ResponseEntity.ok(professorService.delete(id));
     }
 }

@@ -14,5 +14,5 @@ public interface ProfessorService {
     List<ProfessorResponse> getAll();
     ProfessorResponse addCourse(Map<String, String> params);
     ProfessorResponse addCourseApply(Map<String, String> params);
-    ProfessorResponse delete(String matricule);
+    ProfessorResponse delete(String id);
 }

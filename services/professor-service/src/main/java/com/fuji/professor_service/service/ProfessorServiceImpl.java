@@ -128,7 +128,16 @@ public class ProfessorServiceImpl implements ProfessorService{
     }
 
     @Override
-    public ProfessorResponse delete(String matricule) {
-        return null;
+    public ProfessorResponse delete(String id) {
+        Optional<Professor> professorById = professorRepository.findById(id);
+        if (professorById.isEmpty()) {
+            log.info("professor: {} doesn't exist into the database: ", id);
+            throw new IllegalArgumentException("professor doesn't exist into the database:");
+        }
+
+        professorRepository.deleteById(id);
+        log.info("professor deleted successfully");
+
+        return professorMapper.mapToProfessorResponse(professorById.get());
     }
 }
