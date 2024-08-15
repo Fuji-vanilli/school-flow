@@ -3,7 +3,7 @@
         <div class="col-md-8 main">
             <div class="container">
                 <div class="title">Enregister un nouveau Professeur</div>
-                <form action="">
+                <form [formGroup]="formGroup">
                     <div class="prof-details">
                         <div class="input-box">
                             <span class="details">Nom</span>
@@ -32,6 +32,10 @@
                         <div class="input-box">
                             <span class="details">Adresse</span>
                             <input type="text" placeholder="ex. Lot XA Andoharano Tana">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Diplôme</span>
+                            <input type="text" placeholder="ex. Baccalauréat">
                         </div>
                         <div class="input-box">
                             <span class="details">Matière</span>
