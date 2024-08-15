@@ -81,7 +81,9 @@ export class AddProfessorComponent implements OnInit{
       birthPlace: this.formGroup.value.birthPlace,
       email: this.formGroup.value.email,
       phone: this.formGroup.value.phone,
+      address: this.formGroup.value.address,
       degree: this.formGroup.value.degree,
+      genre: this.formGroup.value.genre,
       courseIDs: this.coursesSelected.value || [],
       classIDs: this.classesSelected.value || []
     }
