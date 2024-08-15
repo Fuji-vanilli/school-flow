@@ -9,8 +9,10 @@ export interface Professor {
     dateOfBirth?: Date,
     email?: string,
     phone?: string,
+    degree?: string,
     classIds?: string[],
+    coursesId?: string[],
     classes?: Array<Class>,
-    courseId?: string,
+    courses?: Array<Course>,
     Course?: Course
 }

@@ -37,6 +37,10 @@
                 width: calc(100%/2 - 20px);
                 margin: 12px 0 12px 0;
 
+                mat-form-field {
+                    width: 100%;
+                }
+
                 .details {
                     font-weight: 500;
                     display: block;
@@ -69,7 +73,7 @@
         .gender-details {
             .gender-title {
                 font-weight: 500;
-                    display: block;
+                display: block;
             }
 
             .upload-image {
@@ -81,7 +85,7 @@
                     font-size: 14px;
                     display: inline-block;
                     color: var(--text-100);
-                    background: var(--bg-100);
+                    background: var(--bg-200);
                     padding: 6px 80px;
                     border-radius: 5px;
                     cursor: pointer;

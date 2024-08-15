@@ -18,12 +18,11 @@ export class AddProfessorComponent implements OnInit{
   classService= inject(ClassService);
 
   formGroup!: FormGroup;
-  toppings = new FormControl('');
+  classesSelected = new FormControl('');
+  coursesSelected = new FormControl('');
 
   courses: Course[] | undefined;
   classes: Class[] | undefined;
-
-  classesSelected: String[] | undefined;
 
   ngOnInit(): void {
     this.initFormGroup();
@@ -36,7 +35,11 @@ export class AddProfessorComponent implements OnInit{
       firstname: this.formBuilder.control('', Validators.required),
       lastname: this.formBuilder.control(''),
       dateOfBirth: this.formBuilder.control('', Validators.required),
-
+      birthPlace: this.formBuilder.control('', Validators.required),
+      email: this.formBuilder.control(''),
+      phone: this.formBuilder.control('', Validators.required),
+      address: this.formBuilder.control('', Validators.required),
+      degree: this.formBuilder.control('', Validators.required)
     })
   }
 
@@ -66,5 +69,21 @@ export class AddProfessorComponent implements OnInit{
         
       }
     })
+  }
+
+  createProfessor() {
+    const professor= {
+      firstname: this.formGroup.value.firstname,
+      lastname: this.formGroup.value.lastname,
+      dateOfBirth: this.formGroup.value.dateOfBirth,
+      birthPlace: this.formGroup.value.birthPlace,
+      email: this.formGroup.value.email,
+      phone: this.formGroup.value.phone,
+      degree: this.formGroup.value.degree
+    }
+  }
+
+  capitalize(s: string): string {
+    return s.charAt(0).toUpperCase()+s.slice(1);
   }
 }
