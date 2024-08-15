@@ -5,6 +5,7 @@ import { CourseService } from '../../services/course.service';
 import { Course } from '../../models/course.model';
 import { Class } from '../../models/class.model';
 import { ClassService } from '../../services/class.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-professor',
@@ -18,8 +19,8 @@ export class AddProfessorComponent implements OnInit{
   classService= inject(ClassService);
 
   formGroup!: FormGroup;
-  classesSelected = new FormControl('');
-  coursesSelected = new FormControl('');
+  classesSelected = new FormControl([]);
+  coursesSelected = new FormControl([]);
 
   courses: Course[] | undefined;
   classes: Class[] | undefined;
@@ -38,6 +39,7 @@ export class AddProfessorComponent implements OnInit{
       birthPlace: this.formBuilder.control('', Validators.required),
       email: this.formBuilder.control(''),
       phone: this.formBuilder.control('', Validators.required),
+      genre: this.formBuilder.control('', Validators.required),
       address: this.formBuilder.control('', Validators.required),
       degree: this.formBuilder.control('', Validators.required)
     })
@@ -79,8 +81,21 @@ export class AddProfessorComponent implements OnInit{
       birthPlace: this.formGroup.value.birthPlace,
       email: this.formGroup.value.email,
       phone: this.formGroup.value.phone,
-      degree: this.formGroup.value.degree
+      degree: this.formGroup.value.degree,
+      courseIDs: this.coursesSelected.value || [],
+      classIDs: this.classesSelected.value || []
     }
+
+    this.professorService.create(professor).subscribe({
+      next: response=> {
+        console.log('created successfully: ', response);
+        Swal.fire('Succès', 'Nouvel Prof enregistrer avec succès', 'success');
+      },
+      error: err=> {
+        console.log('error: ', err);
+        
+      }
+    })
   }
 
   capitalize(s: string): string {

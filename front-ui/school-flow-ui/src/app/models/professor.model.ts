@@ -7,12 +7,12 @@ export interface Professor {
     firstname?: string,
     lastname?: string,
     dateOfBirth?: Date,
+    genre?: string,
     email?: string,
     phone?: string,
     degree?: string,
-    classIds?: string[],
-    coursesId?: string[],
+    classIDs?: string[],
+    courseIDs?: string[],
     classes?: Array<Class>,
     courses?: Array<Course>,
-    Course?: Course
 }

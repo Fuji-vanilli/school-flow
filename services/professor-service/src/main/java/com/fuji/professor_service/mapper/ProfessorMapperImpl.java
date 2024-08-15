@@ -13,7 +13,10 @@ public class ProfessorMapperImpl implements ProfessorMapper{
                 .firstname(request.firstname())
                 .lastname(request.lastname())
                 .email(request.email())
+                .genre(request.genre())
                 .phone(request.phone())
+                .classIDs(request.classIDs())
+                .courseIDs(request.courseIDs())
                 .address(request.address())
                 .dateOfBirth(request.dateOfBirth())
                 .birthPlace(request.birthPlace())
@@ -29,6 +32,7 @@ public class ProfessorMapperImpl implements ProfessorMapper{
                 professor.getLastname(),
                 professor.getDateOfBirth(),
                 professor.getBirthPlace(),
+                professor.getGenre(),
                 professor.getEmail(),
                 professor.getAddress(),
                 professor.getDegree(),

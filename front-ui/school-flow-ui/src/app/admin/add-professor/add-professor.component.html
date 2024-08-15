@@ -81,7 +81,7 @@
                             <div>
                                 <span class="gender-title">Sexe</span>
                                 <div class="category">
-                                    <mat-radio-group aria-label="Select an option">
+                                    <mat-radio-group aria-label="Select an option" formControlName="genre">
                                         <mat-radio-button value="1">Homme</mat-radio-button>
                                         <mat-radio-button value="2">Femme</mat-radio-button>
                                     </mat-radio-group>
@@ -100,7 +100,7 @@
                         </div>                         
                     </div>
                     <div class="register">
-                        <button [disabled]="formGroup.invalid">Enregistrer</button>
+                        <button>Enregistrer</button>
                     </div>
                 </form>
             </div>

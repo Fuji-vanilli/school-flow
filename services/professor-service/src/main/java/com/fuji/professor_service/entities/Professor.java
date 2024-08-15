@@ -28,6 +28,7 @@ public class Professor {
     private String address;
     private String imageUrl;
     private String degree;
+    private String genre;
     private List<String> classIDs;
     private List<String> courseIDs;
     private List<CourseApply> courseApplies= new ArrayList<>();

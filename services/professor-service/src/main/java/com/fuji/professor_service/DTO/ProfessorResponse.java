@@ -17,6 +17,7 @@ public record ProfessorResponse (
         String lastname,
         Date dateOfBirth,
         String birthPlace,
+        String genre,
         String email,
         String phone,
         String address,

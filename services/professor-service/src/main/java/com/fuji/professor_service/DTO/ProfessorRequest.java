@@ -16,10 +16,12 @@ public record ProfessorRequest(
         String birthPlace,
         @NotNull(message = "email is required!")
         String email,
+        @NotNull(message = "genre is required")
+        String genre,
         @NotNull(message = "class is required")
-        List<String> classes,
+        List<String> classIDs,
         @NotNull(message = "course is required")
-        List<String> courses,
+        List<String> courseIDs,
         @NotNull(message = "degree is required")
         String degree,
         @NotNull(message = "phone number required!")

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ProfessorService {
   httpClient= inject(HttpClient);
-  url: string= environment.API_URL+'/api/professor/';
+  url: string= environment.API_URL+'/PROFESSOR-SERVICE/api/professor/';
 
   constructor() { }
 

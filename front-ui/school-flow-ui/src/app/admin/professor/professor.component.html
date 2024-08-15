@@ -18,6 +18,7 @@
                   <tr>
                     <th scope="col"></th>
                     <th scope="col">Mle</th>
+                    <th scope="col">Sexe</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prénoms</th>
                     <th scope="col">Date de naissance</th>
@@ -35,11 +36,13 @@
                       <img src="../../../../../assets/icon-256x256.png">
                     </td>
                     <td>{{professor.matricule}}</td>
+                    <td>{{professor.genre}}</td>
                     <td>
                       <a [routerLink]="'/admin/profile-student/'+professor.id" class="name-student">{{professor.firstname?.toUpperCase()}}</a>
                     </td>
                     <td>{{capitalize(professor.lastname!)}}</td>
                     <td>{{professor.dateOfBirth?.toString()?.slice(0, 10)}}</td>
+                    <td>{{professor.email}}</td>
                     <td>{{professor.phone}}</td>
                     <td>
                       <ul>
@@ -62,14 +65,6 @@
                             <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                             Consulter
                           </button>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="explorer">
-                        <button class="ecolage">
-                            <fa-icon [icon]="['fas', 'wallet']"></fa-icon>
-                            Consulter
-                        </button>
                       </div>
                     </td>
                     <td>
