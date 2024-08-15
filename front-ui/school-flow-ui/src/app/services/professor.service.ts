@@ -24,4 +24,8 @@ export class ProfessorService {
   getAll(): Observable<any> {
     return this.httpClient.get(this.url+'all');
   }
+
+  delete(id: string): Observable<any> {
+    return this.httpClient.delete(id);
+  }
  }
