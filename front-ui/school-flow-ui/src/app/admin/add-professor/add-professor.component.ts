@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProfessorService } from '../../services/professor.service';
 import { CourseService } from '../../services/course.service';
 import { Course } from '../../models/course.model';
@@ -18,6 +18,7 @@ export class AddProfessorComponent implements OnInit{
   classService= inject(ClassService);
 
   formGroup!: FormGroup;
+  toppings = new FormControl('');
 
   courses: Course[] | undefined;
   classes: Class[] | undefined;

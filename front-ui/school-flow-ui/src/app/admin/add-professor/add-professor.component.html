@@ -39,11 +39,41 @@
                         </div>
                         <div class="input-box">
                             <span class="details">Matière</span>
-                            <input type="text" placeholder="firstname">
+                            <mat-form-field>
+                                <mat-label>Toppings</mat-label>
+                                <mat-select [formControl]="toppings" multiple>
+                                  <mat-select-trigger>
+                                    {{toppings.value?.[0] || ''}}
+                                    @if ((toppings.value?.length || 0) > 1) {
+                                      <span class="example-additional-selection">
+                                        (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                                      </span>
+                                    }
+                                  </mat-select-trigger>
+                                  @for (aClass of classes; track aClass) {
+                                <mat-option [value]="aClass.id">{{aClass.level}}</mat-option> 
+                              }
+                                </mat-select>
+                              </mat-form-field>
                         </div>
                         <div class="input-box">
                             <span class="details">Classe</span>
-                            <input type="text" placeholder="firstname">
+                            <mat-form-field>
+                                <mat-label>Classes selectionnées</mat-label>
+                                <mat-select [formControl]="toppings" multiple>
+                                  <mat-select-trigger>
+                                    {{toppings.value?.[0] || ''}}
+                                    @if ((toppings.value?.length || 0) > 1) {
+                                      <span class="example-additional-selection">
+                                        (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'autre' : 'autres'}})
+                                      </span>
+                                    }
+                                  </mat-select-trigger>
+                                  @for (aClass of classes; track aClass) {
+                                <mat-option [value]="aClass.level">{{aClass.level}}</mat-option> 
+                              }
+                                </mat-select>
+                              </mat-form-field>
                         </div>
                     </div>
                     <div class="gender-details">
@@ -67,14 +97,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
-                        <mat-form-field appearance="fill">
-                            <mat-label>Choisissez des options</mat-label>
-                            <mat-select [(value)]="classesSelected" multiple>
-                              <mat-option *ngFor="let aClass of classes" [value]="aClass">{{ aClass }}</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                          
+                        </div>                         
                     </div>
                     <div class="register">
                         <button>Enregistrer</button>
