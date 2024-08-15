@@ -17,5 +17,6 @@ public interface ClassService {
     ClassResponse getById(String id);
     ClassResponse deleteStudentFromClass(Map<String, String> query);
     List<ClassResponse> getAll();
+    List<ClassResponse> getAllByIds(List<String> ids);
     ClassResponse delete(String id);
 }

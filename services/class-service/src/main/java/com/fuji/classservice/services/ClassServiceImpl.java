@@ -188,6 +188,14 @@ public class ClassServiceImpl implements ClassService{
     }
 
     @Override
+    public List<ClassResponse> getAllByIds(List<String> ids) {
+        log.info("all class by ids getted successfully!");
+        return classRepository.findAllById(ids).stream()
+                .map(classMapper::mapToClassResponse)
+                .toList();
+    }
+
+    @Override
     public ClassResponse delete(String id) {
         Optional<Class> classById = classRepository.findById(id);
         if (classById.isEmpty()) {
