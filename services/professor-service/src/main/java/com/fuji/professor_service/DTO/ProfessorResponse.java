@@ -23,6 +23,7 @@ public record ProfessorResponse (
         String address,
         String degree,
         List<String> classIDs,
+        List<String> courseIDs,
         List<CourseApply> courseApplies,
         Instant createdDate,
         Instant lastUpdatedDate,
