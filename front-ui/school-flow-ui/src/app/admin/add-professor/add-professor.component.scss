@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     //height: 100vh;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    //background: linear-gradient(135deg, #71b7e6, #9b59b6);
     padding: 12px;
 }
 
@@ -51,14 +51,23 @@
                     width: 100%;
                     outline: none;
                     border-radius: 5px;
-                    border: 1px solid #ccc;
+                    border: 1px solid #dddd;
                     padding-left: 12px;
                     border-bottom-width: 2px;
+                    transition: all 0.3s ease;
                 }
 
                 input:focus {
-                    border-color: var(--primary-100);
+                    border-color: #9b59b6;
                 }
+            }
+        }
+
+        .register {
+            
+            button {
+                width: 100%;
+                background: linear-gradient(135deg, #71b7e6, #9b59b6);
             }
         }
     }
