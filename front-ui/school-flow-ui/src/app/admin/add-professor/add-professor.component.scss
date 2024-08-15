@@ -15,7 +15,7 @@
     border-radius: 5px;
 
     .title {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 500;
         position: relative;
     }
@@ -60,14 +60,30 @@
                 input:focus {
                     border-color: #9b59b6;
                 }
+
+                input::placeholder {
+                    color: var(--text- 200);
+                    font-size: 14px;
+                    font-style: italic;
+                }
             }
         }
 
+        .gender-details {
+            .gender-title {
+                font-weight: 500;
+                    display: block;
+            }
+        }
         .register {
             
             button {
                 width: 100%;
                 background: linear-gradient(135deg, #71b7e6, #9b59b6);
+                color: var(--text-100);
+                padding: 6px;
+                border-radius: 5px;
+                border: 0;
             }
         }
     }
