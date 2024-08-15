@@ -22,6 +22,8 @@ export class AddProfessorComponent implements OnInit{
   courses: Course[] | undefined;
   classes: Class[] | undefined;
 
+  classesSelected: String[] | undefined;
+
   ngOnInit(): void {
     this.initFormGroup();
     this.loadClasses();

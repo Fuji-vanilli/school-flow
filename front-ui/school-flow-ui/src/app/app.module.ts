@@ -36,6 +36,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule, MomentDateAdapter, provideMomentDateAdapter } from '@angular/material-moment-adapter';
 import { AddProfessorComponent } from './admin/add-professor/add-professor.component';
+import { MatSelectModule } from '@angular/material/select';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -105,7 +106,8 @@ export const MY_FORMATS = {
     MatMomentDateModule,
     MatNativeDateModule,
     MatIconModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [
     provideNativeDateAdapter(),
