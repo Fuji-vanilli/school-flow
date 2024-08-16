@@ -2,9 +2,11 @@ package com.fuji.professor_service.service;
 
 import com.fuji.professor_service.DTO.ProfessorRequest;
 import com.fuji.professor_service.DTO.ProfessorResponse;
+import com.fuji.professor_service.models.Class;
 import com.fuji.professor_service.repository.ProfessorRepository;
 import com.fuji.professor_service.entities.Professor;
 import com.fuji.professor_service.mapper.ProfessorMapper;
+import com.fuji.professor_service.webClient.WebClientClass;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,7 @@ import java.util.*;
 public class ProfessorServiceImpl implements ProfessorService{
     private final ProfessorRepository professorRepository;
     private final ProfessorMapper professorMapper;
+    private final WebClientClass webClientClass;
 
     @Override
     public ProfessorResponse create(ProfessorRequest request) {
@@ -113,7 +116,12 @@ public class ProfessorServiceImpl implements ProfessorService{
 
         log.info("All professors getted successfully");
         return professorRepository.findAll().stream()
-                .map(professorMapper::mapToProfessorResponse)
+                .map(professor -> {
+                    List<Class> classByIDs = webClientClass.getClassByID(professor.getClassIDs());
+                    professor.setClasses(classByIDs);
+
+                    return professorMapper.mapToProfessorResponse(professor);
+                })
                 .toList();
     }
 

@@ -1,10 +1,12 @@
 package com.fuji.professor_service.webClient;
 
+import com.fuji.professor_service.models.Class;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.List;
 import java.util.Map;
 
 @Configuration
@@ -13,11 +15,13 @@ import java.util.Map;
 public class WebClientClass {
     private final WebClient.Builder webClient;
 
-    public Class getClassByID(String id) {
-        return webClient.build().get()
-                .uri("http://localhost:8800/CLASS-SERVICE/api/class/get-by-id/"+id)
+    public List<Class> getClassByID(List<String> ids) {
+        return webClient.build().post()
+                .uri("http://localhost:8800/CLASS-SERVICE/api/class/get-all-by-ids")
+                .bodyValue(ids)
                 .retrieve()
-                .bodyToMono(Class.class)
+                .bodyToFlux(Class.class)
+                .collectList()
                 .block();
     }
     public void deleteStudentFromClass(Map<String, String> params) {
