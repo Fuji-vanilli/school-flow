@@ -7,6 +7,7 @@ import lombok.*;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,6 +30,7 @@ public class Professor {
     private String imageUrl;
     private String degree;
     private String genre;
+    private BigDecimal hoursRate;
     private List<String> classIDs;
     private List<String> courseIDs;
     private List<CourseApply> courseApplies= new ArrayList<>();

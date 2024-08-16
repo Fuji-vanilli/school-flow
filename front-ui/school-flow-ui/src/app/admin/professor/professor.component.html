@@ -45,13 +45,7 @@
                     <td>{{professor.email}}</td>
                     <td>{{professor.phone}}</td>
                     <td>
-                      <ol class="list-group list-group-numbered">
-                        <li class="list-group-item d-flex justify-content-between align-items-start"  *ngFor="let course of professor.courses">
-                          <div class="ms-2 me-auto">
-                            <div class="fw-bold">{{course.title}}</div>
-                          </div>
-                        </li>
-                      </ol>
+                      
                     </td>
                     <td>
                       <div class="explorer">
@@ -61,14 +55,7 @@
                           </button>
                         </div>
                     </td>
-                    <td>
-                      <div class="explorer">
-                          <button class="absence">
-                            <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
-                            Consulter
-                          </button>
-                      </div>
-                    </td>
+                    <td>{{professor.hoursRate}}</td>
                     <td>
                       <div class="action">
                         <a (click)="update(professor)" data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>

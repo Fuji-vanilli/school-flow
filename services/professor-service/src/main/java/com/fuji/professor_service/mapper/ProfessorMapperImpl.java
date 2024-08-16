@@ -19,6 +19,7 @@ public class ProfessorMapperImpl implements ProfessorMapper{
                 .classIDs(request.classIDs())
                 .courseIDs(request.courseIDs())
                 .address(request.address())
+                .hoursRate(request.hoursRate())
                 .dateOfBirth(request.dateOfBirth())
                 .birthPlace(request.birthPlace())
                 .build();
@@ -38,6 +39,7 @@ public class ProfessorMapperImpl implements ProfessorMapper{
                 professor.getPhone(),
                 professor.getAddress(),
                 professor.getDegree(),
+                professor.getHoursRate(),
                 professor.getClassIDs(),
                 professor.getCourseIDs(),
                 professor.getCourseApplies(),

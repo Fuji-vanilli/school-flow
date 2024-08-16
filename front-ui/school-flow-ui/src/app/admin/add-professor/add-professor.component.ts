@@ -44,7 +44,8 @@ export class AddProfessorComponent implements OnInit{
       phone: this.formBuilder.control('', Validators.required),
       genre: this.formBuilder.control('', Validators.required),
       address: this.formBuilder.control('', Validators.required),
-      degree: this.formBuilder.control('', Validators.required)
+      degree: this.formBuilder.control('', Validators.required),
+      hoursRate: this.formBuilder.control('', Validators.required)
     })
   }
 
@@ -97,6 +98,7 @@ export class AddProfessorComponent implements OnInit{
       address: this.formGroup.value.address,
       degree: this.formGroup.value.degree,
       genre: this.formGroup.value.genre,
+      hoursRate: this.formGroup.value.hoursRate,
       courseIDs: this.coursesSelected.value || [],
       classIDs: this.classesSelected.value || []
     }
