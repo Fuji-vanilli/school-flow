@@ -8,6 +8,7 @@ import { ClassService } from '../../services/class.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { access } from 'node:fs';
+import { response } from 'express';
 
 @Component({
   selector: 'app-add-professor',
@@ -27,6 +28,10 @@ export class AddProfessorComponent implements OnInit{
 
   courses: Course[]= [];
   classes: Class[]= [];
+
+  selectedFile!: File;
+  filename: string= '';
+  selectImage: any;
 
   ngOnInit(): void {
     this.initFormGroup();
@@ -106,8 +111,44 @@ export class AddProfessorComponent implements OnInit{
     this.professorService.create(professor).subscribe({
       next: response=> {
         console.log('created successfully: ', response);
+        this.uploadImage(response.id);
+
         Swal.fire('Succès', 'Nouvel Prof enregistrer avec succès', 'success');
         this.route.navigateByUrl('/admin/professor')
+      },
+      error: err=> {
+        console.log('error: ', err);
+        
+      }
+    })
+  }
+
+  uploadFile() {
+    document.getElementById('fileInput')?.click();
+  }
+
+  handleFileInput(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.selectImage = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    const target= event.target as HTMLInputElement;
+    if (target.files && target.files.length> 0) {
+      this.selectedFile= target.files[0];
+      this.filename= this.selectedFile.name;
+    }
+  }
+
+  uploadImage(id: string) {
+    this.professorService.uploadImageProfile(this.selectedFile, id).subscribe({
+      next: response=> {
+        console.log('professor: ', response);
+        
       },
       error: err=> {
         console.log('error: ', err);
