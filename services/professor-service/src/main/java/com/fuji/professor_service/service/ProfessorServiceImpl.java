@@ -3,10 +3,12 @@ package com.fuji.professor_service.service;
 import com.fuji.professor_service.DTO.ProfessorRequest;
 import com.fuji.professor_service.DTO.ProfessorResponse;
 import com.fuji.professor_service.models.Class;
+import com.fuji.professor_service.models.Course;
 import com.fuji.professor_service.repository.ProfessorRepository;
 import com.fuji.professor_service.entities.Professor;
 import com.fuji.professor_service.mapper.ProfessorMapper;
 import com.fuji.professor_service.webClient.WebClientClass;
+import com.fuji.professor_service.webClient.WebClientCourse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,7 @@ public class ProfessorServiceImpl implements ProfessorService{
     private final ProfessorRepository professorRepository;
     private final ProfessorMapper professorMapper;
     private final WebClientClass webClientClass;
+    private final WebClientCourse webClientCourse;
 
     @Override
     public ProfessorResponse create(ProfessorRequest request) {
@@ -118,7 +121,10 @@ public class ProfessorServiceImpl implements ProfessorService{
         return professorRepository.findAll().stream()
                 .map(professor -> {
                     List<Class> classByIDs = webClientClass.getClassByID(professor.getClassIDs());
+                    List<Course> courseByIDs = webClientCourse.getAllCourseByIDs(professor.getCourseIDs());
+
                     professor.setClasses(classByIDs);
+                    professor.setCourses(courseByIDs);
 
                     return professorMapper.mapToProfessorResponse(professor);
                 })
