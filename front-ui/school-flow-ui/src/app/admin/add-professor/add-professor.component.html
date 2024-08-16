@@ -43,15 +43,15 @@
                                 <mat-label>Matières selectionnées</mat-label>
                                 <mat-select [formControl]="coursesSelected" multiple>
                                   <mat-select-trigger>
-                                    {{coursesSelected.value?.[0] || ''}}
+                                    {{getSelectedCourseTitles()[0] || ''}}
                                     @if ((coursesSelected.value?.length || 0) > 1) {
                                       <span class="example-additional-selection">
-                                        (+{{(coursesSelected.value?.length || 0) - 1}} {{coursesSelected.value?.length === 2 ? 'other' : 'others'}})
+                                        (+{{(coursesSelected.value?.length || 0) - 1}} {{coursesSelected.value?.length === 2 ? 'autre' : 'autres'}})
                                       </span>
                                     }
                                   </mat-select-trigger>
                                   @for (course of courses; track course) {
-                                <mat-option [value]="course">{{capitalize(course.title!)}}</mat-option> 
+                                <mat-option [value]="course.id">{{capitalize(course.title!)}}</mat-option> 
                               }
                                 </mat-select>
                               </mat-form-field>
@@ -62,7 +62,7 @@
                                 <mat-label>Classes selectionnées</mat-label>
                                 <mat-select [formControl]="classesSelected" multiple>
                                   <mat-select-trigger>
-                                    {{classesSelected.value?.[0] || ''}}
+                                    {{getSelectedClassLevel()[0] || ''}}
                                     @if ((classesSelected.value?.length || 0) > 1) {
                                       <span class="example-additional-selection">
                                         (+{{(classesSelected.value?.length || 0) - 1}} {{classesSelected.value?.length === 2 ? 'autre' : 'autres'}})
@@ -70,8 +70,8 @@
                                     }
                                   </mat-select-trigger>
                                   @for (aClass of classes; track aClass) {
-                                <mat-option [value]="aClass.id">{{capitalize(aClass.level)}}</mat-option> 
-                              }
+                                    <mat-option [value]="aClass.id">{{capitalize(aClass.level)}}</mat-option> 
+                                    }
                                 </mat-select>
                               </mat-form-field>
                         </div>

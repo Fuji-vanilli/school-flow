@@ -7,6 +7,7 @@ import { Class } from '../../models/class.model';
 import { ClassService } from '../../services/class.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { access } from 'node:fs';
 
 @Component({
   selector: 'app-add-professor',
@@ -21,11 +22,11 @@ export class AddProfessorComponent implements OnInit{
   route= inject(Router);
 
   formGroup!: FormGroup;
-  classesSelected = new FormControl([]);
-  coursesSelected = new FormControl([]);
+  classesSelected = new FormControl<string[]>([]);
+  coursesSelected = new FormControl<string[]>([]);
 
-  courses: Course[] | undefined;
-  classes: Class[] | undefined;
+  courses: Course[]= [];
+  classes: Class[]= [];
 
   ngOnInit(): void {
     this.initFormGroup();
@@ -73,6 +74,16 @@ export class AddProfessorComponent implements OnInit{
         
       }
     })
+  }
+
+  getSelectedCourseTitles() {
+    return this.courses.filter(course => this.coursesSelected.value?.includes(course.id!))
+      .map(course => course.title);
+  }
+
+  getSelectedClassLevel() {
+    return this.classes.filter(aClass => this.classesSelected.value?.includes(aClass.id!))
+      .map(aClass => aClass.level);
   }
 
   createProfessor() {
