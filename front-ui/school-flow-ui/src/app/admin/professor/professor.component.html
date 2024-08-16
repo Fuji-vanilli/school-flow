@@ -21,7 +21,7 @@
                     <th scope="col">Sexe</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prénoms</th>
-                    <th scope="col">Date de naissance</th>
+                    <th scope="col">Diplôme</th>
                     <th scope="col">Email</th>
                     <th scope="col">Télephone</th>
                     <th scope="col">Matière</th>
@@ -41,15 +41,18 @@
                       <a [routerLink]="'/admin/profile-student/'+professor.id" class="name-student">{{professor.firstname?.toUpperCase()}}</a>
                     </td>
                     <td>{{capitalize(professor.lastname!)}}</td>
-                    <td>{{professor.dateOfBirth?.toString()?.slice(0, 10)}}</td>
+                    <td>{{professor.degree}}</td>
                     <td>{{professor.email}}</td>
                     <td>{{professor.phone}}</td>
                     <td>
-                      <ul>
-                        <li *ngFor="let aClass of professor.classes">
-                          {{capitalize(aClass?.level!.toString())}}
+                      <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                          <div class="ms-2 me-auto">
+                            <div class="fw-bold" *ngFor="let course of courses">{{course.title}}</div>
+                          </div>
+                          <span class="badge bg-primary rounded-pill">14</span>
                         </li>
-                      </ul>
+                      </ol>
                     </td>
                     <td>
                       <div class="explorer">

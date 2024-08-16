@@ -3,6 +3,10 @@ import { Professor } from '../../models/professor.model';
 import { ProfessorService } from '../../services/professor.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Course } from '../../models/course.model';
+import { Class } from '../../models/class.model';
+import { ClassService } from '../../services/class.service';
+import { CourseService } from '../../services/course.service';
 
 @Component({
   selector: 'app-professor',
@@ -12,13 +16,20 @@ import Swal from 'sweetalert2';
 export class ProfessorComponent implements OnInit {
   professors: Professor[] | undefined;
   professorService= inject(ProfessorService);
+  classService= inject(ClassService);
+  courseService= inject(CourseService);
   formBuilder= inject(FormBuilder);
 
   formGroup!: FormGroup;
 
+  courses: Course[]= [];
+  classes: Class[]= [];
+
   ngOnInit(): void {
     this.initFormGroup();
     this.loadProfessors();
+    this.loadClasses();
+    this.loadCourses();
   }
 
   loadProfessors() {
@@ -30,6 +41,34 @@ export class ProfessorComponent implements OnInit {
       },
       error: err=> {
         console.log(err);
+        
+      }
+    })
+  }
+
+  loadCourses() {
+    this.courseService.getAll().subscribe({
+      next: response=> {
+        this.courses= response;
+        console.log('courses: ', this.courses);
+        
+      },
+      error: err=> {
+        console.log('error: ', err);
+        
+      }
+    })
+  }
+
+  loadClasses() {
+    this.classService.getAll().subscribe({
+      next: response=> {
+        this.classes= response;
+        console.log('classes: ', this.classes);
+        
+      }, 
+      error: err=> {
+        console.log('error: ', err);
         
       }
     })
