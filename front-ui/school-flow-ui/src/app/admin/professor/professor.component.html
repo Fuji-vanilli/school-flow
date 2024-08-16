@@ -46,11 +46,10 @@
                     <td>{{professor.phone}}</td>
                     <td>
                       <ol class="list-group list-group-numbered">
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <li class="list-group-item d-flex justify-content-between align-items-start"  *ngFor="let course of professor.courses">
                           <div class="ms-2 me-auto">
-                            <div class="fw-bold" *ngFor="let course of courses">{{course.title}}</div>
+                            <div class="fw-bold">{{course.title}}</div>
                           </div>
-                          <span class="badge bg-primary rounded-pill">14</span>
                         </li>
                       </ol>
                     </td>
