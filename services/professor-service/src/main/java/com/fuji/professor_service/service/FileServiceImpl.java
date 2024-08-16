@@ -6,6 +6,7 @@ import com.fuji.professor_service.mapper.ProfessorMapper;
 import com.fuji.professor_service.repository.ProfessorRepository;
 import lombok.RequiredArgsConstructor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
@@ -18,6 +19,7 @@ import java.util.UUID;
 
 @Configuration
 @RequiredArgsConstructor
+@Slf4j
 public class FileServiceImpl implements FileService{
     private final ProfessorRepository professorRepository;
     private final ProfessorMapper professorMapper;
@@ -48,6 +50,7 @@ public class FileServiceImpl implements FileService{
         }
 
         professorRepository.save(professor);
+        log.info("image uploaded successfully!");
         return professorMapper.mapToProfessorResponse(professor);
     }
 }

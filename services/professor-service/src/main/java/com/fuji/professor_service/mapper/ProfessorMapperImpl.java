@@ -39,6 +39,7 @@ public class ProfessorMapperImpl implements ProfessorMapper{
                 professor.getPhone(),
                 professor.getAddress(),
                 professor.getDegree(),
+                professor.getImageUrl(),
                 professor.getHoursRate(),
                 professor.getClassIDs(),
                 professor.getCourseIDs(),

@@ -90,7 +90,7 @@
                             <div>
                                 <span class="gender-title">Ajouter un photo</span>
                                 <div class="upload-image">
-                                    <input type="file" id="upload">
+                                    <input type="file" id="upload" (change)="handleFileInput($event)">
                                     <label for="upload">
                                         <fa-icon [icon]="['fas', 'cloud-arrow-up']"></fa-icon>
                                         <span>Televerser un photo</span>

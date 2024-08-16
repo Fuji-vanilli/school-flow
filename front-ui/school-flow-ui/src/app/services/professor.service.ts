@@ -31,7 +31,7 @@ export class ProfessorService {
 
   uploadImageProfile(file: File, id: string): Observable<any> {
     const formData= new FormData();
-    formData.append('file', file, file.name);
+    formData.append('file', file);
     formData.append('id', id)
 
     return this.httpClient.patch(this.url+'add-image-profile', formData);

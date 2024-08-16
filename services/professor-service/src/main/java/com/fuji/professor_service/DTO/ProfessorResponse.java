@@ -23,6 +23,7 @@ public record ProfessorResponse (
         String phone,
         String address,
         String degree,
+        String imageUrl,
         BigDecimal hoursRate,
         List<String> classIDs,
         List<String> courseIDs,

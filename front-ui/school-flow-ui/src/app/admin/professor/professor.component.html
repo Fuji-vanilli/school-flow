@@ -33,7 +33,7 @@
                 <tbody>
                   <tr *ngFor="let professor of professors">
                     <td>
-                      <img src="../../../../../assets/icon-256x256.png">
+                      <img [src]="professor.imageUrl">
                     </td>
                     <td>{{professor.matricule}}</td>
                     <td>{{professor.genre}}</td>
@@ -45,17 +45,22 @@
                     <td>{{professor.email}}</td>
                     <td>{{professor.phone}}</td>
                     <td>
-                      
+                      <div class="explorer">
+                        <button class="course" data-bs-target="#courseListModal" (click)="selectProf(professor)">
+                          <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
+                          Consulter
+                        </button>
+                    </div>
                     </td>
                     <td>
                       <div class="explorer">
-                          <button class="note">
+                          <button class="class" data-bs-target="#classListModal" (click)="selectProf(professor)">
                             <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                             Consulter
                           </button>
-                        </div>
+                      </div>
                     </td>
-                    <td>{{professor.hoursRate}}</td>
+                    <td>{{professor.hoursRate+' Ar'}}</td>
                     <td>
                       <div class="action">
                         <a (click)="update(professor)" data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
@@ -85,6 +90,69 @@
             </div>
         </div>
     </section>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal course liste-->
+<div class="modal fade" id="courseListModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="title">Liste des Matières: {{profShowed?.firstname}}</span>
+        
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <th>Titre</th>
+            <th>Coefficient</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of profShowed?.courses"> 
+              <td>
+                <a [routerLink]="'/admin/profile-student/'+profShowed.id">{{capitalize(course.title!)}}</a>
+              </td>
+              <td>{{course.credit}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="close" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal class list-->
+<div class="modal fade" id="classListModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="title">Liste des classes: {{profShowed?.firstname}}</span>
+        
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <th>Classe</th>
+            <th>Niveau</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let class of profShowed?.classes"> 
+              <td>
+                <a [routerLink]="'/admin/profile-student/'+profShowed.id">{{capitalize(class.level)}}</a>
+              </td>
+              <td>{{class.section}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="close" data-bs-dismiss="modal">Fermer</button>
+      </div>
     </div>
   </div>
 </div>

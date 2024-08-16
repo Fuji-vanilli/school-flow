@@ -25,6 +25,8 @@ export class ProfessorComponent implements OnInit {
   courses: Course[]= [];
   classes: Class[]= [];
 
+  profShowed!: Professor;
+
   ngOnInit(): void {
     this.initFormGroup();
     this.loadProfessors();
@@ -80,13 +82,10 @@ export class ProfessorComponent implements OnInit {
     })
   }
 
-  create() {
-
-  }
-
   updateProfessor() {
     
   }
+
   update(professor: Professor) {
 
   }
@@ -119,6 +118,10 @@ export class ProfessorComponent implements OnInit {
         })
     }
   })
+  }
+
+  selectProf(prof: Professor) {
+    this.profShowed= prof;
   }
 
   capitalize(s: string): string {
