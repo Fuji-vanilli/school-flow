@@ -46,7 +46,7 @@
                     <td>{{professor.phone}}</td>
                     <td>
                       <div class="explorer">
-                        <button class="course" data-bs-target="#courseListModal" (click)="selectProf(professor)">
+                        <button class="course" data-bs-toggle="modal" data-bs-target="#courseListModal" (click)="selectProf(professor)">
                           <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                           Consulter
                         </button>
@@ -54,7 +54,7 @@
                     </td>
                     <td>
                       <div class="explorer">
-                          <button class="class" data-bs-target="#classListModal" (click)="selectProf(professor)">
+                          <button class="class" data-bs-toggle="modal"  data-bs-target="#classListModal" (click)="selectProf(professor)">
                             <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                             Consulter
                           </button>
@@ -63,7 +63,7 @@
                     <td>{{professor.hoursRate+' Ar'}}</td>
                     <td>
                       <div class="action">
-                        <a (click)="update(professor)" data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
+                        <a (click)="update(professor)" data-bs-toggle="modal"  data-bs-toggle="modal" data-bs-target="#exampleModal"><fa-icon [icon]="['far', 'pen-to-square']" class="edit"></fa-icon></a>
                         <a (click)="delete(professor.id!)"><fa-icon [icon]="['fas', 'trash']" class="delete"></fa-icon></a>
                       </div>
                     </td>
