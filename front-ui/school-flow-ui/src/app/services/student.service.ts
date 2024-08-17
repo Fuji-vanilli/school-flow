@@ -24,6 +24,14 @@ export class StudentService {
     return this.httpClient.put(this.url+'/update', student);
   }
 
+  uploadImageProfile(file: File, id: string): Observable<any> {
+    const formData= new FormData();
+    formData.append('file', file);
+    formData.append('id', id);
+
+    return this.httpClient.patch(this.url, formData);
+  }
+
   get(id: string): Observable<any> {
     return this.httpClient.get(this.url+'/get-by-id/'+id);
   }

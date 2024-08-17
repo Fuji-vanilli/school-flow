@@ -156,7 +156,7 @@
       </div>
       <div class="modal-body">
         <ol class="list-group list-group-numbered">
-          <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let course of profShowed.courses">
+          <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let course of profShowed?.courses">
             <div class="ms-2 me-auto">
               <div class="fw-bold">{{course.title}}</div>
               {{course.code}}
@@ -181,20 +181,15 @@
         
       </div>
       <div class="modal-body">
-        <table class="table">
-          <thead>
-            <th>Classe</th>
-            <th>Niveau</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let class of profShowed?.classes"> 
-              <td>
-                <a [routerLink]="'/admin/profile-student/'+profShowed.id">{{capitalize(class.level)}}</a>
-              </td>
-              <td>{{class.section}}</td>
-            </tr>
-          </tbody>
-        </table>
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let aClass of profShowed?.classes">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">{{capitalize(aClass.level)}}</div>
+              {{aClass.section?.toString()?.toLowerCase()}}
+            </div>
+            <span class="badge bg-primary rounded-pill">{{aClass.students?.length}}</span>
+          </li>
+        </ol>
       </div>
       <div class="modal-footer">
         <button class="close" data-bs-dismiss="modal">Fermer</button>

@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { StudentService } from '../../services/student.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -12,8 +12,6 @@ import { Class } from '../../models/class.model';
   styleUrl: './add-student.component.scss'
 })
 export class AddStudentComponent implements OnInit{
-
-
   formGroup!: FormGroup;
   studentService= inject(StudentService);
   formBuilder= inject(FormBuilder);
@@ -21,9 +19,15 @@ export class AddStudentComponent implements OnInit{
   activatedRoute= inject(ActivatedRoute);
   classService= inject(ClassService);
 
-  classes: Class[] | undefined;
+  classesSelected = new FormControl<string[]>([]);
+
+  classes: Class[]= [];
   classByID: Class | undefined;
   classID: string | undefined;
+
+  selectedFile!: File;
+  filename: string= '';
+  selectImage: any;
 
   ngOnInit(): void {
     this.initFormGroup();
@@ -112,6 +116,49 @@ export class AddStudentComponent implements OnInit{
 
       }
     })
+  }
+
+  uploadFile() {
+    document.getElementById('fileInput')?.click();
+  }
+
+  handleFileInput(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.selectImage = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    const target= event.target as HTMLInputElement;
+    if (target.files && target.files.length> 0) {
+      this.selectedFile= target.files[0];
+      this.filename= this.selectedFile.name;
+    }
+  }
+
+  uploadImage(id: string) {
+    this.studentService.uploadImageProfile(this.selectedFile, id).subscribe({
+      next: response=> {
+        console.log('professor: ', response);
+        
+      },
+      error: err=> {
+        console.log('error: ', err);
+        
+      }
+    })
+  }
+
+  getSelectedClassLevel() {
+    return this.classes.filter(aClass => this.classesSelected.value?.includes(aClass.id!))
+      .map(aClass => aClass.level);
+  }
+
+  capitalize(s: string): string {
+    return s.charAt(0).toUpperCase()+s.slice(1);
   }
 
 }

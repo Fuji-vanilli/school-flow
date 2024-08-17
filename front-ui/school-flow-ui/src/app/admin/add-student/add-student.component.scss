@@ -1,146 +1,120 @@
-.container-1 {
-    padding: 20px 30%;
-    section {
-        background: var(--primary-100);
-        border: 1px solid var(--primary-100);
-        padding: 20px;
-        border-radius: 6px;
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    background-color: var(--text-100);
+    padding: 25px 30px;
+    border-radius: 5px;
+
+    .title {
+        font-size: 18px;
+        font-weight: 500;
         position: relative;
+    }
 
-        header.title {
+    .title::before {
+        content: '';
+        position: absolute;
+        height: 3px;
+        width: 30px;
+        left: 0;
+        bottom: 0;
+        background: #9b59b6;
+    }
+
+    form {
+        .prof-details {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
 
-            p {
-                color: var(--text-100);
-                font-weight: bold;
+            .input-box {
+                width: calc(100%/2 - 20px);
+                margin: 12px 0 12px 0;
+
+                mat-form-field {
+                    width: 100%;
+                }
+
+                .details {
+                    font-weight: 500;
+                    display: block;
+                }
+
+                input {
+                    margin-top: 6px;
+                    height: 45px;
+                    width: 100%;
+                    outline: none;
+                    border-radius: 5px;
+                    border: 1px solid #dddd;
+                    color: var(--bg-200);
+                    padding-left: 12px;
+                    border-bottom-width: 2px;
+                    transition: all 0.3s ease;
+                }
+
+                input:focus {
+                    border-color: #9b59b6;
+                }
+
+                input::placeholder {
+                    color: var(--text- 200);
+                    font-size: 14px;
+                    font-style: italic;
+                }
             }
         }
 
-        .contents {
-            .box {
-                form {
-                    label {
-                        color: var(--bg-100);
-                        margin-bottom: 14px;
-                        font-weight: 550;
+        .gender-details {
+            .gender-title {
+                font-weight: 500;
+                display: block;
+            }
 
-                        span {
-                            color: var(--delete-100);
-                            font-weight: 550;
-                        }
-                    }
+            .upload-image {
+                input[type="file"] {
+                    display: none;
+                }
 
-                    .field-select {
-                        background: var(--bg-100);
-                        border: 1px solid var(--primary-200);
-                        border-radius: 8px;
-                        padding: 16px 24px;
-                        margin-bottom: 16px;
-                        color: var(--primary-100);
+                label {
+                    font-size: 14px;
+                    display: inline-block;
+                    color: var(--text-100);
+                    background: var(--bg-200);
+                    padding: 6px 80px;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    fa-icon {
+                        margin-right: 12px;
                         font-size: 16px;
-                        font-weight: 550;
-
-                        option {
-                            background: var(--bg-100);
-                            color: var(--text-100);
-                            font-size: 16px;
-                        }
                     }
 
-                    .field {
-                        display: flex;
-                        align-items: center;
-                        background: var(--bg-100);
-                        border: 1px solid var(--primary-200);
-                        border-radius: 8px;
-                        padding: 4px 14px;
-                        margin-bottom: 16px;
-
-                        fa-icon {
-                            color: var(--primary-200);
-                            font-size: 12px;
-                        }
-
-                        input {
-                            padding: 8px 16px;
-                            background: transparent;
-                            color: var(--text-200);
-                            font-size: 14px;
-                            border: 0;
-                            outline: none;
-                            width: 98%;
-                        }
-
-                        ::-webkit-input-placeholder {
-                            font-style: italic;
-                        }
-                    }
-
-                    .field:focus-within {
-                        border: 1px solid var(--primary-200);
-                    }
-
-                    .class-by-id {
-                        color: var(--text-100);
+                    span {
+                        font-size: 14px;
                         font-weight: 500;
-                    }
-
-                    .image-upload {
-                        margin-bottom: 16px;
-
-                        .upload {
-                            border-radius: 8px;
-                            border: 1px solid var(--bg-200);
-                            color: var(--text-200);    
-                            width: 100%;
-                        }
-
-                        ::-webkit-file-upload-button {
-                            background: var(--primary-200);
-                            color: var(--bg-100);
-                            font-weight: 550;
-                            border: 0;
-                            padding: 8px 14px;
-                            margin-right: 14px;
-                        }
-                    }
-
-
-
-                    .save {
-                        display: flex;
-                        justify-content: end;
-
-                        button.submit {
-                            border: 0;
-                            padding: 8px 16px;
-                            background: var(--text-100);
-                            color: var(--bg-100);
-                            border-radius: 8px;
-                            font-weight: 550;
-
-                            i {
-                                margin-right: 6px;
-                            }
-                        }
-
-                        button.submit:hover {
-                            opacity: .6;
-                        }
                     }
                 }
             }
         }
+        .register {
+            margin-top: 14px;
+            
+            button {
+                width: 100%;
+                background: linear-gradient(135deg, #71b7e6, #9b59b6);
+                color: var(--text-100);
+                padding: 6px;
+                border-radius: 5px;
+                border: 0;
+            }
+        }
     }
 }
 
-.footer {
-    display: flex;
-    justify-content: space-between;
-
-    i {
-        color: var(--text-100);
-    }
-}
