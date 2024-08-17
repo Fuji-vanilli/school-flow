@@ -11,6 +11,7 @@ export interface Professor {
     email?: string,
     phone?: string,
     degree?: string,
+    address?: string,
     imageUrl?: string,
     hoursRate?: number,
     classIDs?: string[],

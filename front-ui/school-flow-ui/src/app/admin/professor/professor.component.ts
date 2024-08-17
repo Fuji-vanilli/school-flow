@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Professor } from '../../models/professor.model';
 import { ProfessorService } from '../../services/professor.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Course } from '../../models/course.model';
 import { Class } from '../../models/class.model';
@@ -22,10 +22,14 @@ export class ProfessorComponent implements OnInit {
 
   formGroup!: FormGroup;
 
+  classesSelected = new FormControl<string[]>([]);
+  coursesSelected = new FormControl<string[]>([]);
+
   courses: Course[]= [];
   classes: Class[]= [];
 
   profShowed!: Professor;
+  professorToUpdate!: Professor;
 
   ngOnInit(): void {
     this.initFormGroup();
@@ -78,16 +82,47 @@ export class ProfessorComponent implements OnInit {
 
   initFormGroup() {
     this.formGroup= this.formBuilder.group({
+      firstname: this.formBuilder.control('', Validators.required),
+      lastname: this.formBuilder.control(''),
+      dateOfBirth: this.formBuilder.control('', Validators.required),
+      birthPlace: this.formBuilder.control('', Validators.required),
+      email: this.formBuilder.control(''),
+      phone: this.formBuilder.control('', Validators.required),
+      genre: this.formBuilder.control('', Validators.required),
+      address: this.formBuilder.control('', Validators.required),
+      degree: this.formBuilder.control('', Validators.required),
+      hoursRate: this.formBuilder.control('', Validators.required)
+    })
+  }
 
+  getSelectedCourseTitles() {
+    return this.courses.filter(course => this.coursesSelected.value?.includes(course.id!))
+      .map(course => course.title);
+  }
+
+  getSelectedClassLevel() {
+    return this.classes.filter(aClass => this.classesSelected.value?.includes(aClass.id!))
+      .map(aClass => aClass.level);
+  }
+
+  toUpdate(professor: Professor) {
+    this.professorToUpdate= professor;
+    this.formGroup= this.formBuilder.group({
+      firstname: this.formBuilder.control(professor.firstname),
+      lastname: this.formBuilder.control(professor.lastname),
+      dateOfBirth: this.formBuilder.control(professor.dateOfBirth),
+      birthPlace: this.formBuilder.control(professor.dateOfBirth),
+      email: this.formBuilder.control(professor.email),
+      phone: this.formBuilder.control(professor.phone),
+      genre: this.formBuilder.control(professor.genre),
+      address: this.formBuilder.control(professor.address),
+      degree: this.formBuilder.control(professor.degree),
+      hoursRate: this.formBuilder.control(professor.hoursRate)
     })
   }
 
   updateProfessor() {
     
-  }
-
-  update(professor: Professor) {
-
   }
 
   delete(id: string) {
