@@ -158,14 +158,14 @@
         <table class="table">
           <thead>
             <th>Matière</th>
-            <th>Coefficient</th>
+            <th>Honoraire</th>
           </thead>
           <tbody>
             <tr *ngFor="let course of profShowed?.courses"> 
               <td>
                 <a [routerLink]="'/admin/profile-student/'+profShowed.id">{{capitalize(course.title!)}}</a>
               </td>
-              <td>{{course.credit}}</td>
+              <td>{{course.pricePerHour}}</td>
             </tr>
           </tbody>
         </table>
