@@ -7,6 +7,7 @@ import { Course } from '../../models/course.model';
 import { Class } from '../../models/class.model';
 import { ClassService } from '../../services/class.service';
 import { CourseService } from '../../services/course.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-professor',
@@ -19,6 +20,7 @@ export class ProfessorComponent implements OnInit {
   classService= inject(ClassService);
   courseService= inject(CourseService);
   formBuilder= inject(FormBuilder);
+  route= inject(Router)
 
   formGroup!: FormGroup;
 
@@ -123,6 +125,7 @@ export class ProfessorComponent implements OnInit {
 
   updateProfessor() {
     const professor= {
+      id: this.professorToUpdate.id,
       firstname: this.formGroup.value.firstname,
       lastname: this.formGroup.value.lastname,
       dateOfBirth: this.formGroup.value.dateOfBirth,
@@ -133,15 +136,16 @@ export class ProfessorComponent implements OnInit {
       degree: this.formGroup.value.degree,
       genre: this.formGroup.value.genre,
       hoursRate: this.formGroup.value.hoursRate,
-      courseIDs: this.coursesSelected.value || [],
-      classIDs: this.classesSelected.value || []
+      courseIDs: this.professorToUpdate.courseIDs,
+      classIDs: this.professorToUpdate.classIDs 
     };
 
     this.professorService.update(professor).subscribe({
       next: response=> {
         console.log('response: ', response);
         Swal.fire('Succès', 'Prof mis à jour avec succès', 'success');
-        
+        //this.route.navigateByUrl('/admin/professor')
+        window.location.reload();
       },
       error: err=> {
         console.log('error: ',err);

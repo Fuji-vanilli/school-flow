@@ -84,6 +84,9 @@ public class ProfessorServiceImpl implements ProfessorService{
         if (!request.address().isBlank()) {
             student.setAddress(request.address());
         }
+        if (!request.degree().isBlank()) {
+            student.setDegree(request.degree());
+        }
     }
 
     @Override
