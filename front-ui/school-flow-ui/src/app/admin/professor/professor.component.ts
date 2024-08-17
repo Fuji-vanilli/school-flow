@@ -122,7 +122,32 @@ export class ProfessorComponent implements OnInit {
   }
 
   updateProfessor() {
-    
+    const professor= {
+      firstname: this.formGroup.value.firstname,
+      lastname: this.formGroup.value.lastname,
+      dateOfBirth: this.formGroup.value.dateOfBirth,
+      birthPlace: this.formGroup.value.birthPlace,
+      email: this.formGroup.value.email,
+      phone: this.formGroup.value.phone,
+      address: this.formGroup.value.address,
+      degree: this.formGroup.value.degree,
+      genre: this.formGroup.value.genre,
+      hoursRate: this.formGroup.value.hoursRate,
+      courseIDs: this.coursesSelected.value || [],
+      classIDs: this.classesSelected.value || []
+    };
+
+    this.professorService.update(professor).subscribe({
+      next: response=> {
+        console.log('response: ', response);
+        Swal.fire('Succès', 'Prof mis à jour avec succès', 'success');
+        
+      },
+      error: err=> {
+        console.log('error: ',err);
+        
+      }
+    })
   }
 
   delete(id: string) {

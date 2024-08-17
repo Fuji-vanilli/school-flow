@@ -453,3 +453,132 @@ section {
         }
     }
 }
+
+.update-professor {
+    .modal-dialog {
+        padding: 0;
+        .modal-content {
+            .main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .containers {
+                max-width: 1000px;
+                width: 100%;
+                background-color: var(--text-100);
+                padding: 25px 30px;
+                border-radius: 5px;
+            
+                .title {
+                    font-size: 18px;
+                    font-weight: 500;
+                    position: relative;
+                }
+            
+                .title::before {
+                    content: '';
+                    position: absolute;
+                    height: 3px;
+                    width: 30px;
+                    left: 0;
+                    bottom: 0;
+                    background: #9b59b6;
+                }
+            
+                form {
+                    .prof-details {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+            
+                        .input-box {
+                            width: calc(100%/2 - 20px);
+                            margin: 12px 0 12px 0;
+            
+                            mat-form-field {
+                                width: 100%;
+                            }
+            
+                            .details {
+                                font-weight: 500;
+                                display: block;
+                            }
+            
+                            input {
+                                margin-top: 6px;
+                                height: 45px;
+                                width: 100%;
+                                color: var(--bg-200);
+                                outline: none;
+                                border-radius: 5px;
+                                border: 1px solid #dddd;
+                                padding-left: 12px;
+                                border-bottom-width: 2px;
+                                transition: all 0.3s ease;
+                            }
+            
+                            input:focus {
+                                border-color: #9b59b6;
+                            }
+            
+                            input::placeholder {
+                                color: var(--text- 200);
+                                font-size: 14px;
+                                font-style: italic;
+                            }
+                        }
+                    }
+            
+                    .gender-details {
+                        .gender-title {
+                            font-weight: 500;
+                            display: block;
+                        }
+            
+                        .upload-image {
+                            input[type="file"] {
+                                display: none;
+                            }
+            
+                            label {
+                                font-size: 14px;
+                                display: inline-block;
+                                color: var(--text-100);
+                                background: var(--bg-200);
+                                padding: 6px 80px;
+                                border-radius: 5px;
+                                cursor: pointer;
+            
+                                fa-icon {
+                                    margin-right: 12px;
+                                    font-size: 16px;
+                                }
+            
+                                span {
+                                    font-size: 14px;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+                    .register {
+                        margin-top: 14px;
+                        
+                        button {
+                            width: 100%;
+                            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+                            color: var(--text-100);
+                            padding: 6px;
+                            border-radius: 5px;
+                            border: 0;
+                        }
+                    }
+                }
+            }
+            
+            
+        }
+    }
+}
