@@ -36,7 +36,7 @@
                       <img [src]="professor.imageUrl">
                     </td>
                     <td>{{professor.matricule}}</td>
-                    <td>{{professor.genre}}</td>
+                    <td>{{professor.genre?.charAt(0)}}</td>
                     <td>
                       <a [routerLink]="'/admin/profile-student/'+professor.id" class="name-student">{{professor.firstname?.toUpperCase()}}</a>
                     </td>
@@ -106,7 +106,7 @@
       <div class="modal-body">
         <table class="table">
           <thead>
-            <th>Titre</th>
+            <th>Matière</th>
             <th>Coefficient</th>
           </thead>
           <tbody>
