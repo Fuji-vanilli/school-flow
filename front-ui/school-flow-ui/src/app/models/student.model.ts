@@ -13,6 +13,8 @@ export interface Student {
     email?: string,
     phone?: string,
     address?: string,
+    fathersName?: string,
+    mothersName?: string,
     imageUrl?: string,
     classID?: string,
     aClass?: Class,

@@ -19,7 +19,7 @@ export class AddStudentComponent implements OnInit{
   activatedRoute= inject(ActivatedRoute);
   classService= inject(ClassService);
 
-  classesSelected = new FormControl<string[]>([]);
+  classeSelected = new FormControl('');
 
   classes: Class[]= [];
   classByID: Class | undefined;
@@ -61,6 +61,8 @@ export class AddStudentComponent implements OnInit{
       email: this.formBuilder.control('', Validators.required),
       phone: this.formBuilder.control('', Validators.required),
       address: this.formBuilder.control('', Validators.required),
+      fathersName: this.formBuilder.control(''),
+      mothersName: this.formBuilder.control(''),
       classID: this.formBuilder.control('Choisi une classe', Validators.required), 
       originSchool: this.formBuilder.control('', Validators.required),
     })
@@ -88,6 +90,8 @@ export class AddStudentComponent implements OnInit{
       email: this.formGroup.value.email,
       phone: this.formGroup.value.phone,
       address: this.formGroup.value.address,
+      fathersName: this.formGroup.value.fathersName,
+      mothersName: this.formGroup.value.mothersName,
       classID: this.classID!== null? this.classID: classIDForm,
       originSchool: this.formGroup.value.originSchool
     };
@@ -153,7 +157,7 @@ export class AddStudentComponent implements OnInit{
   }
 
   getSelectedClassLevel() {
-    return this.classes.filter(aClass => this.classesSelected.value?.includes(aClass.id!))
+    return this.classes.filter(aClass => this.classeSelected.value=== aClass.id)
       .map(aClass => aClass.level);
   }
 
