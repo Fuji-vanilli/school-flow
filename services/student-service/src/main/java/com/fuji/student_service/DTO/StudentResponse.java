@@ -17,6 +17,8 @@ public record StudentResponse(
         String lastname,
         Date dateOfBirth,
         String birthPlace,
+        String fathersName,
+        String mothersName,
         String email,
         String phone,
         String address,

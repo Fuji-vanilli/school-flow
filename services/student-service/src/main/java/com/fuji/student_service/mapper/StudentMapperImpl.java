@@ -19,6 +19,8 @@ public class StudentMapperImpl implements StudentMapper{
                 .classID(request.classID())
                 .dateOfBirth(request.dateOfBirth())
                 .birthPlace(request.birthPlace())
+                .fathersName(request.fathersName())
+                .mothersName(request.mothersName())
                 .originSchool(request.originSchool())
                 .build();
     }
@@ -32,6 +34,8 @@ public class StudentMapperImpl implements StudentMapper{
                 student.getLastname(),
                 student.getDateOfBirth(),
                 student.getBirthPlace(),
+                student.getFathersName(),
+                student.getMothersName(),
                 student.getEmail(),
                 student.getPhone(),
                 student.getAddress(),

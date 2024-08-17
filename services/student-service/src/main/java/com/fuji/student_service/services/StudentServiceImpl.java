@@ -105,6 +105,12 @@ public class StudentServiceImpl implements StudentService{
         if (!request.birthPlace().isBlank()) {
             student.setBirthPlace(request.birthPlace());
         }
+        if (!request.fathersName().isBlank()) {
+            student.setFathersName(request.fathersName());
+        }
+        if (!request.mothersName().isBlank()) {
+            student.setMothersName(request.mothersName());
+        }
         if (!request.originSchool().isBlank()) {
             student.setOriginSchool(request.originSchool());
         }

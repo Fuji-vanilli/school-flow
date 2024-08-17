@@ -20,6 +20,8 @@ public record StudentRequest (
         Date dateOfBirth,
         @NotNull(message = "birth place required!")
         String birthPlace,
+        String fathersName,
+        String mothersName,
         String email,
         @NotNull(message = "phone number required!")
         String phone,
