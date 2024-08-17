@@ -1,11 +1,10 @@
-package com.fuji.professor_service.service;
+package com.fuji.student_service.services;
 
-import com.fuji.professor_service.DTO.ProfessorResponse;
-import com.fuji.professor_service.entities.Professor;
-import com.fuji.professor_service.mapper.ProfessorMapper;
-import com.fuji.professor_service.repository.ProfessorRepository;
+import com.fuji.student_service.DTO.StudentResponse;
+import com.fuji.student_service.entities.Student;
+import com.fuji.student_service.mapper.StudentMapper;
+import com.fuji.student_service.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -20,17 +19,17 @@ import java.util.UUID;
 @Configuration
 @RequiredArgsConstructor
 @Slf4j
-public class FileServiceImpl implements FileService{
-    private final ProfessorRepository professorRepository;
-    private final ProfessorMapper professorMapper;
+public class FileServiceImpl implements FileService {
+    private final StudentRepository studentRepository;
+    private final StudentMapper studentMapper;
 
     @Value("${image.storage.local.directory}")
     private String localDirectory;
 
     @Override
-    public ProfessorResponse uploadProfileImage(MultipartFile file, String id) {
-        Professor professor = professorRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("professor with the id: " + id + " doesn't exist!")
+    public StudentResponse uploadProfileImage(MultipartFile file, String id) {
+        Student student = studentRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("student with the id: " + id + " doesn't exist!")
         );
 
         String originalFilename = file.getOriginalFilename();
@@ -41,7 +40,7 @@ public class FileServiceImpl implements FileService{
         Path pathFile= Paths.get(localDirectory, newFileName);
 
         String pathLocation= localDirectory+"\\"+newFileName;
-        professor.setImageUrl("../../../../../assets/"+newFileName);
+        student.setImageUrl("../../../../../assets/"+newFileName);
 
         try {
             file.transferTo(pathFile.toFile());
@@ -49,8 +48,8 @@ public class FileServiceImpl implements FileService{
             throw new RuntimeException(e);
         }
 
-        professorRepository.save(professor);
+        studentRepository.save(student);
         log.info("image uploaded successfully!");
-        return professorMapper.mapToProfessorResponse(professor);
+        return studentMapper.mapToStudentResponse(student);
     }
 }

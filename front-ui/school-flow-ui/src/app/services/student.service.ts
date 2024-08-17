@@ -29,7 +29,7 @@ export class StudentService {
     formData.append('file', file);
     formData.append('id', id);
 
-    return this.httpClient.patch(this.url, formData);
+    return this.httpClient.patch(this.url+'/add-image-profile', formData);
   }
 
   get(id: string): Observable<any> {

@@ -63,7 +63,7 @@ export class AddStudentComponent implements OnInit{
       address: this.formBuilder.control('', Validators.required),
       fathersName: this.formBuilder.control(''),
       mothersName: this.formBuilder.control(''),
-      classID: this.formBuilder.control('Choisi une classe', Validators.required), 
+      genre: this.formBuilder.control('', Validators.required),
       originSchool: this.formBuilder.control('', Validators.required),
     })
   }
@@ -81,18 +81,18 @@ export class AddStudentComponent implements OnInit{
   }
 
   createStudent() {
-    const classIDForm= this.formGroup.value.classID;
     const student= {
       firstname: this.formGroup.value.firstname,
       lastname: this.formGroup.value.lastname,
       dateOfBirth: this.formGroup.value.dateOfBirth,
       birthPlace: this.formGroup.value.birthPlace,
+      genre: this.formGroup.value.genre,
       email: this.formGroup.value.email,
       phone: this.formGroup.value.phone,
       address: this.formGroup.value.address,
       fathersName: this.formGroup.value.fathersName,
       mothersName: this.formGroup.value.mothersName,
-      classID: this.classID!== null? this.classID: classIDForm,
+      classID: this.classeSelected.value || '',
       originSchool: this.formGroup.value.originSchool
     };
 
@@ -100,6 +100,7 @@ export class AddStudentComponent implements OnInit{
       next: response=> {
         console.log('new class created successfully');
         Swal.fire('Succes', 'Nouvel élève ajouté avec succès', 'success');
+        this.uploadImage(response.id);
         if (this.classID) {
           this.classService.addStudent(response.id, this.classID).subscribe({
             next: () => {

@@ -22,6 +22,8 @@ public record StudentRequest (
         String birthPlace,
         String fathersName,
         String mothersName,
+        @NotNull(message = "genre is required!")
+        String genre,
         String email,
         @NotNull(message = "phone number required!")
         String phone,

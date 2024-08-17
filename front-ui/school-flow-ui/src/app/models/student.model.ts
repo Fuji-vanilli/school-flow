@@ -10,6 +10,7 @@ export interface Student {
     lastname?: string,
     dateOfBirth?: Date,
     birthPlace?: string,
+    genre?: string,
     email?: string,
     phone?: string,
     address?: string,

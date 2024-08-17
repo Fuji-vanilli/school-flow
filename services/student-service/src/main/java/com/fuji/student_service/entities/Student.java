@@ -27,6 +27,7 @@ public class Student {
     private String birthPlace;
     private String fathersName;
     private String mothersName;
+    private String genre;
     private String email;
     private String phone;
     private String address;

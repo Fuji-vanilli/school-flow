@@ -13,6 +13,7 @@ public class StudentMapperImpl implements StudentMapper{
                 .id(request.id())
                 .firstname(request.firstname())
                 .lastname(request.lastname())
+                .genre(request.genre())
                 .phone(request.phone())
                 .email(request.email())
                 .address(request.address())
@@ -34,6 +35,7 @@ public class StudentMapperImpl implements StudentMapper{
                 student.getLastname(),
                 student.getDateOfBirth(),
                 student.getBirthPlace(),
+                student.getGenre(),
                 student.getFathersName(),
                 student.getMothersName(),
                 student.getEmail(),
