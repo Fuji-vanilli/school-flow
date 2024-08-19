@@ -197,7 +197,7 @@ public class StudentServiceImpl implements StudentService{
 
         Student student = studentByMatricule.get();
 
-        Map<String, String> params = Map.of("classID", student.getAClass().id(), "studentID", student.getId());
+        Map<String, String> params = Map.of("classID", student.getClassID(), "studentID", student.getId());
         webClientClass.deleteStudentFromClass(params);
 
         studentRepository.deleteByMatricule(matricule);

@@ -46,8 +46,8 @@ public class ClassApi implements ClassController {
     }
 
     @Override
-    public ResponseEntity<ClassResponse> addProfessor(Professor professor) {
-        return ResponseEntity.ok(classService.addProfessor(professor));
+    public ResponseEntity<ClassResponse> addProfessor(Map<String, String> params) {
+        return ResponseEntity.ok(classService.addProfessor(params));
     }
 
     @Override

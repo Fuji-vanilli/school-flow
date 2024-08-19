@@ -12,7 +12,7 @@ public interface ClassService {
     ClassResponse update(ClassRequest request);
     ClassResponse addStudent(Map<String, String> params);
     ClassResponse addCourse(Map<String, String> params);
-    ClassResponse addProfessor(Professor professor);
+    ClassResponse addProfessor(Map<String, String> params);
     ClassResponse getByLevel(String level);
     ClassResponse getById(String id);
     ClassResponse deleteStudentFromClass(Map<String, String> query);

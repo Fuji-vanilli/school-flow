@@ -24,7 +24,7 @@
         <tbody>
           <tr *ngFor="let aClass of classes">
             <td>
-              <fa-icon [icon]="['far', 'circle-check']"></fa-icon>
+              <fa-icon [icon]="['fas', 'circle-check']"></fa-icon>
             </td>
             <td>{{aClass.level.charAt(0).toUpperCase()+aClass.level.slice(1)}}</td>
             <td>{{aClass.section}}</td>
@@ -65,7 +65,7 @@
                     <fa-icon [icon]="['fas', 'folder-open']"></fa-icon>
                     Explorer
                   </button>
-                  <button class="add-prof">
+                  <button class="add-prof" [routerLink]="'/admin/add-professor/'+aClass.id">
                     <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
                     Ajouter
                   </button>
@@ -151,7 +151,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="title">Liste des Matières: </span>
-        <span style="color: var(--special-200); margin-left: 14px; font-weight: 600;">{{capitalize(classShowed?.level!)}}</span>
+        <span style="color: var(--special-200); margin-left: 14px; font-weight: 600;">{{classShowed?.level}}</span>
         
       </div>
       <div class="modal-body">
@@ -198,7 +198,7 @@
               <td>
                 <a [routerLink]="'/admin/profile-student/'+student.id">{{student.firstname?.toUpperCase()}}</a>
               </td>
-              <td>{{capitalize(student.lastname!)}}</td>
+              <td>{{student.lastname}}</td>
             </tr>
           </tbody>
         </table>

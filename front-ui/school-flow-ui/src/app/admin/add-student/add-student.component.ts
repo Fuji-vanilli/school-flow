@@ -101,6 +101,8 @@ export class AddStudentComponent implements OnInit{
         console.log('new class created successfully');
         Swal.fire('Succes', 'Nouvel élève ajouté avec succès', 'success');
         this.uploadImage(response.id);
+        const selectedClassID= this.classeSelected.value;
+
         if (this.classID) {
           this.classService.addStudent(response.id, this.classID).subscribe({
             next: () => {
@@ -112,8 +114,19 @@ export class AddStudentComponent implements OnInit{
               Swal.fire('Error', 'Failed to add student to class', 'error');
             }
           });
+        } else if (selectedClassID){
+          this.classService.addStudent(response.id, selectedClassID).subscribe({
+            next: () => {
+              console.log('Student added to class successfully');
+              this.router.navigateByUrl('/admin/student');
+            },
+            error: err => {
+              console.log('Error adding student to class: ', err);
+              Swal.fire('Error', 'Failed to add student to class', 'error');
+            }
+          });
         } else {
-          this.router.navigateByUrl('/admin/student');
+          this.router.navigateByUrl('/admin/student'); 
         }
       },
       error: err=> {

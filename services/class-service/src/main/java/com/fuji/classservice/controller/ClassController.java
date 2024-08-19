@@ -19,7 +19,7 @@ public interface ClassController {
     @PatchMapping("add-course")
     ResponseEntity<ClassResponse> addCourse(@RequestBody Map<String, String> params);
     @PatchMapping("add-professor")
-    ResponseEntity<ClassResponse> addProfessor(@RequestBody Professor professor);
+    ResponseEntity<ClassResponse> addProfessor(@RequestBody Map<String, String> params);
     @GetMapping("get-by-id/{id}")
     ResponseEntity<ClassResponse> getByID(@PathVariable String id);
     @GetMapping("get-by-level/{level}")

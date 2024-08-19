@@ -38,6 +38,15 @@ export class ClassService {
     return this.httpClient.patch(this.url+'/add-student', params);
   }
 
+  addProfessor(professorID: string, classID: string): Observable<any> {
+    const params= {
+      studentID: professorID,
+      classID: classID
+    }
+
+    return this.httpClient.patch(this.url+'/add-professor', params);
+  }
+
   delete(id: string): Observable<any> {
     return this.httpClient.delete(this.url+'/delete/'+id);
   }
