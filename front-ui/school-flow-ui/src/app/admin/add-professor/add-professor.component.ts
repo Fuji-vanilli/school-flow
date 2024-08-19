@@ -6,7 +6,7 @@ import { Course } from '../../models/course.model';
 import { Class } from '../../models/class.model';
 import { ClassService } from '../../services/class.service';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { access } from 'node:fs';
 import { response } from 'express';
 
@@ -21,6 +21,7 @@ export class AddProfessorComponent implements OnInit{
   courseService= inject(CourseService);
   classService= inject(ClassService);
   route= inject(Router);
+  activatedRoute= inject(ActivatedRoute);
 
   formGroup!: FormGroup;
   classesSelected = new FormControl<string[]>([]);
@@ -32,11 +33,33 @@ export class AddProfessorComponent implements OnInit{
   selectedFile!: File;
   filename: string= '';
   selectImage: any;
+  classID!: string;
+  classLevel!: String;
 
   ngOnInit(): void {
     this.initFormGroup();
     this.loadClasses();
     this.loadCourses();
+    this.activatedRoute.paramMap.subscribe(
+      params=> {
+        this.classID= params.get('classID')!;
+        console.log('class id: ', this.classID);
+        
+        if (this.classID) {
+          this.classService.getByID(this.classID).subscribe({
+            next: response=> {
+              this.classLevel= response.level;
+              console.log('class by id for add student: ', this.classLevel);
+              
+            },
+            error: err=> {
+              console.log('error: ', err);
+              
+            }
+          })
+        }
+      }
+    )
   }
 
   initFormGroup() {
@@ -93,6 +116,11 @@ export class AddProfessorComponent implements OnInit{
   }
 
   createProfessor() {
+    let courseIDs= this.coursesSelected.value;
+    if (this.classID) {
+      courseIDs= [this.classID];
+    }
+
     const professor= {
       firstname: this.formGroup.value.firstname,
       lastname: this.formGroup.value.lastname,
@@ -104,9 +132,11 @@ export class AddProfessorComponent implements OnInit{
       degree: this.formGroup.value.degree,
       genre: this.formGroup.value.genre,
       hoursRate: this.formGroup.value.hoursRate,
-      courseIDs: this.coursesSelected.value || [],
+      courseIDs: courseIDs || [],
       classIDs: this.classesSelected.value || []
     }
+
+    
 
     this.professorService.create(professor).subscribe({
       next: response=> {
