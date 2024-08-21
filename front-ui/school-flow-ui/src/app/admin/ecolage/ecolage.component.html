@@ -1,8 +1,31 @@
 <div class="container-main">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" *ngFor="let aClass of classes">
             <div class="container">
-                <h5>Paiement d'Ecolage</h5>
+                <h6>Paiement d'Ecolage</h6>
+                <span>{{'Classe de: '+aClass.level}}</span>
+                <table class="table">
+                    <thead>
+                        <th>N°</th>
+                        <th>Photo</th>
+                        <th>Nom et Prénoms</th>
+                        <th>Status</th>
+                        <th>Date de paiement</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of aClass.students; let index= index">
+                            <td>{{index+1}}</td>
+                            <td><img [src]="student.imageUrl" alt=""></td>
+                            <td>{{student.firstname+' '+student.lastname}}</td>
+                            <td>
+                                <button [style.background]="colors[1]" *ngIf="student.genre?.toLowerCase()=== 'homme'">Payé</button>
+                                <button [style.background]="colors[0]" *ngIf="student.genre?.toLowerCase()=== 'femme'">Non Payé</button>
+                            </td>
+                            <td>{{student.createdDate?.toString()?.slice(0, 10)}}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

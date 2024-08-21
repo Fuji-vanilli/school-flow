@@ -117,6 +117,7 @@ export class AddProfessorComponent implements OnInit{
 
   createProfessor() {
     let courseIDs= this.coursesSelected.value;
+    
     if (this.classID) {
       courseIDs= [this.classID];
     }
