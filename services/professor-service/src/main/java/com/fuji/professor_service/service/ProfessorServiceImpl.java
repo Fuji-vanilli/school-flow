@@ -87,6 +87,9 @@ public class ProfessorServiceImpl implements ProfessorService{
         if (!request.degree().isBlank()) {
             student.setDegree(request.degree());
         }
+        if (!Objects.isNull(request.hoursRate())) {
+            student.setHoursRate(request.hoursRate());
+        }
     }
 
     @Override
