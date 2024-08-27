@@ -11,12 +11,12 @@
                             Proceder à un paiement</button>
                     </div>
                 </div>
-                <table class="table" matSort>
+                <table class="table" matSort (matSortChange)="sortData($event)">
                     <thead>
-                        <th>N°</th>
-                        <th>Photo</th>
+                        <th mat-sort-header="number">N°</th>
+                        <th mat-sort-header="photo">Photo</th>
                         <th mat-sort-header="fullname">Nom et Prénoms</th>
-                        <th>Status</th>
+                        <th mat-sort-header="status">Status</th>
                         <th mat-sort-header="date">Date de paiement</th>
                     </thead>
                     <tbody>

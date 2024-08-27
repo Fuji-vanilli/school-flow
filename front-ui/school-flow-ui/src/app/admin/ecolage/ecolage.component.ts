@@ -103,4 +103,8 @@ export class EcolageComponent implements OnInit{
       this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
     }
   }
+
+  sortData(event: any) {
+    
+  }
 }
