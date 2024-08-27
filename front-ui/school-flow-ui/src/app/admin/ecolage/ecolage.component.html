@@ -27,9 +27,8 @@
                 </table>
                 <div class="paginator d-flex justify-content-center">
                     <mat-paginator #paginator
-                        class="demo-paginator"
                         (page)="handlePageEvent($event)"
-                        [length]="length"
+                        [length]="aClass.students?.length"
                         [pageSize]="pageSize"
                         [disabled]="disabled"
                         [showFirstLastButtons]="showFirstLastButtons"

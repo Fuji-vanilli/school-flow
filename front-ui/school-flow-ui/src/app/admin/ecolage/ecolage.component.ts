@@ -19,7 +19,7 @@ export class EcolageComponent implements OnInit{
   students: Student[]= [];
   classes: Class[]= [];
 
-  length = 50;
+  length = 10;
   pageSize = 5;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 15];
