@@ -3,14 +3,21 @@
         <div class="col-md-6 contain" *ngFor="let aClass of classes; let i= index">
             <div class="container">
                 <h6>Paiement d'Ecolage</h6>
-                <span>{{'Classe de: '+aClass.level}}</span>
-                <table class="table">
+                <div class="d-flex justify-content-between">
+                    <span>{{'Classe de: '+aClass.level}}</span>
+                    <div class="paiment">
+                        <button class="btn-paiment">
+                            <fa-icon [icon]="['fas', 'coins']" style="margin-right: 8px"></fa-icon>
+                            Proceder à un paiement</button>
+                    </div>
+                </div>
+                <table class="table" matSort>
                     <thead>
                         <th>N°</th>
                         <th>Photo</th>
-                        <th>Nom et Prénoms</th>
+                        <th mat-sort-header="fullname">Nom et Prénoms</th>
                         <th>Status</th>
-                        <th>Date de paiement</th>
+                        <th mat-sort-header="date">Date de paiement</th>
                     </thead>
                     <tbody>
                         <tr *ngFor="let student of getPaginatedStudents(aClass); let index= index">
