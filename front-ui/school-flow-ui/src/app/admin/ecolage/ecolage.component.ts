@@ -3,6 +3,7 @@ import { Student } from '../../models/student.model';
 import { StudentService } from '../../services/student.service';
 import { Class } from '../../models/class.model';
 import { ClassService } from '../../services/class.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-ecolage',
@@ -17,6 +18,18 @@ export class EcolageComponent implements OnInit{
 
   students: Student[]= [];
   classes: Class[]= [];
+
+  length = 50;
+  pageSize = 5;
+  pageIndex = 0;
+  pageSizeOptions = [5, 10, 15];
+
+  hidePageSize = false;
+  showPageSizeOptions = true;
+  showFirstLastButtons = true;
+  disabled = false;
+
+  pageEvent!: PageEvent;
 
   ngOnInit(): void {
     this.loadStudents();
@@ -52,5 +65,21 @@ export class EcolageComponent implements OnInit{
     })
   }
 
+  handlePageEvent(e: PageEvent) {
+    this.pageEvent = e;
+    this.length = e.length;
+    this.pageSize = e.pageSize;
+    this.pageIndex = e.pageIndex;
 
+    const startIndex= this.pageIndex*this.pageSize;
+    const endIndex= startIndex+ this.pageSize;
+
+    this.students= this.students?.slice(startIndex, endIndex);
+  }
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
+  }
 }

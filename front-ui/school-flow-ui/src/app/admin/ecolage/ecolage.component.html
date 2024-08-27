@@ -23,9 +23,22 @@
                             </td>
                             <td>{{student.createdDate?.toString()?.slice(0, 10)}}</td>
                         </tr>
-                        
                     </tbody>
                 </table>
+                <div class="paginator d-flex justify-content-center">
+                    <mat-paginator #paginator
+                        class="demo-paginator"
+                        (page)="handlePageEvent($event)"
+                        [length]="length"
+                        [pageSize]="pageSize"
+                        [disabled]="disabled"
+                        [showFirstLastButtons]="showFirstLastButtons"
+                        [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+                        [hidePageSize]="hidePageSize"
+                        [pageIndex]="pageIndex"
+                        aria-label="Select page">
+                    </mat-paginator>
+                </div>
             </div>
         </div>
     </div>
