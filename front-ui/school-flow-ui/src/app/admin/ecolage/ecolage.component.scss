@@ -1,10 +1,11 @@
-.container {
-    background: var(--text-100);
-    margin-left: 12px;
-    border-radius: 5px;
-    padding: 16px 8px;
-    margin-bottom: 14px;
-    width: 97%;
+.contain {
+    padding: 0 8px 8px 8px;
+
+    .container {
+        background: var(--text-100);
+        border-radius: 5px;
+        padding: 14px 12px;
+    }
 
     h6 {
         color: var(--special-100);
