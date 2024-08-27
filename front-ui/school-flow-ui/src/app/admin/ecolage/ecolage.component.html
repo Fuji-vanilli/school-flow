@@ -29,12 +29,12 @@
                     <mat-paginator #paginator
                         (page)="handlePageEvent($event, aClass)"
                         [length]="aClass.students?.length"
-                        [pageSize]="pageSize"
+                        [pageSize]="aClass.pageSize"
                         [disabled]="disabled"
                         [showFirstLastButtons]="showFirstLastButtons"
                         [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
                         [hidePageSize]="hidePageSize"
-                        [pageIndex]="pageIndex"
+                        [pageIndex]="aClass.pageIndex"
                         aria-label="Select page">
                     </mat-paginator>
                 </div>

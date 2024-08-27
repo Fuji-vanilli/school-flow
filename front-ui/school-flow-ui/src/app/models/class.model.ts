@@ -14,7 +14,9 @@ export interface Class {
     courses?: Array<Course>,
     professors?: Array<Professor>,
     cretedDate?: Date,
-    lastModifiedDate?: Date
+    lastModifiedDate?: Date,
+    pageSize?: number,
+    pageIndex?: number
 }
 
 export enum Section {

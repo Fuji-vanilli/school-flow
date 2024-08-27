@@ -34,6 +34,7 @@ export class EcolageComponent implements OnInit{
   ngOnInit(): void {
     this.loadStudents();
     this.loadClasses();
+
   }
 
   loadStudents() {
@@ -56,12 +57,20 @@ export class EcolageComponent implements OnInit{
       next: response=> {
         this.classes= response
         console.log('secondary:', this.classes); 
+        this.initPageIndexClass();
         
       },
       error: err=> {
         console.log('error: ', err);
         
       }
+    })
+  }
+
+  initPageIndexClass() {
+    this.classes.forEach(aClass=> {
+      aClass.pageSize= 5,
+      aClass.pageIndex= 0
     })
   }
 
