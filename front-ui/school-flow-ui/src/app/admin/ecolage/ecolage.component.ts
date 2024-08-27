@@ -4,6 +4,7 @@ import { StudentService } from '../../services/student.service';
 import { Class } from '../../models/class.model';
 import { ClassService } from '../../services/class.service';
 import { PageEvent } from '@angular/material/paginator';
+import { access } from 'fs';
 
 @Component({
   selector: 'app-ecolage',
@@ -74,16 +75,27 @@ export class EcolageComponent implements OnInit{
     })
   }
 
-  handlePageEvent(e: PageEvent, aClass: Class) {
-    this.pageEvent = e;
-    this.length = aClass.students?.length!;
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
+  handlePageEvent(e: PageEvent, index: number) {
+    const aClass= this.classes[index];
+    
+    aClass.pageSize= e.pageSize;
+    aClass.pageIndex= e.pageIndex;
 
-    const startIndex= this.pageIndex*this.pageSize;
-    const endIndex= startIndex+ this.pageSize;
+    const startIndex= aClass.pageIndex*aClass.pageSize;
+    const endIndex= startIndex+ aClass.pageSize;
 
-    this.students= this.students?.slice(startIndex, endIndex);
+    aClass.paginatedStudents= aClass.students?.slice(startIndex, endIndex);
+  }
+
+  getPaginatedStudents(aClass: Class) {
+    if (!aClass.paginatedStudents) {
+      const startIndex= aClass.pageIndex!*aClass.pageSize!;
+      const endIndex= startIndex+ aClass.pageSize!;
+
+      aClass.paginatedStudents= aClass.students?.slice(startIndex, endIndex);
+    }
+
+    return aClass.paginatedStudents; 
   }
 
   setPageSizeOptions(setPageSizeOptionsInput: string) {

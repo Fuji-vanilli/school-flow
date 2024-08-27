@@ -16,7 +16,8 @@ export interface Class {
     cretedDate?: Date,
     lastModifiedDate?: Date,
     pageSize?: number,
-    pageIndex?: number
+    pageIndex?: number,
+    paginatedStudents?: Array<Student>
 }
 
 export enum Section {

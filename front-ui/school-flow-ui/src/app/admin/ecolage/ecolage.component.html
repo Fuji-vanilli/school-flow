@@ -1,6 +1,6 @@
 <div class="container-main">
     <div class="row" style="padding: 0 14px;">
-        <div class="col-md-6 contain" *ngFor="let aClass of classes">
+        <div class="col-md-6 contain" *ngFor="let aClass of classes; let i= index">
             <div class="container">
                 <h6>Paiement d'Ecolage</h6>
                 <span>{{'Classe de: '+aClass.level}}</span>
@@ -13,7 +13,7 @@
                         <th>Date de paiement</th>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let student of aClass.students; let index= index">
+                        <tr *ngFor="let student of getPaginatedStudents(aClass); let index= index">
                             <td>{{index+1}}</td>
                             <td><img [src]="student.imageUrl" alt=""></td>
                             <td>{{student.firstname+' '+student.lastname}}</td>
@@ -27,7 +27,7 @@
                 </table>
                 <div class="paginator d-flex justify-content-center">
                     <mat-paginator #paginator
-                        (page)="handlePageEvent($event, aClass)"
+                        (page)="handlePageEvent($event, i)"
                         [length]="aClass.students?.length"
                         [pageSize]="aClass.pageSize"
                         [disabled]="disabled"
