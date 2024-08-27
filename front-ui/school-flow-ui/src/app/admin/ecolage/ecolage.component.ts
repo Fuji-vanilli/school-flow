@@ -19,7 +19,7 @@ export class EcolageComponent implements OnInit{
   students: Student[]= [];
   classes: Class[]= [];
 
-  length = 10;
+  length = 50;
   pageSize = 5;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 15];
@@ -65,9 +65,9 @@ export class EcolageComponent implements OnInit{
     })
   }
 
-  handlePageEvent(e: PageEvent) {
+  handlePageEvent(e: PageEvent, aClass: Class) {
     this.pageEvent = e;
-    this.length = e.length;
+    this.length = aClass.students?.length!;
     this.pageSize = e.pageSize;
     this.pageIndex = e.pageIndex;
 
