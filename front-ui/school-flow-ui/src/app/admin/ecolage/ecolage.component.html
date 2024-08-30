@@ -11,7 +11,7 @@
                             Proceder à un paiement</button>
                     </div>
                 </div>
-                <table class="table" matSort (matSortChange)="sortData($event)">
+                <table class="table" matSort (matSortChange)="sortData($event, i)">
                     <thead>
                         <th mat-sort-header="number">N°</th>
                         <th mat-sort-header="photo">Photo</th>

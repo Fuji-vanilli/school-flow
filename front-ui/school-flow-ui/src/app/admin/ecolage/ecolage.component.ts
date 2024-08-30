@@ -5,6 +5,7 @@ import { Class } from '../../models/class.model';
 import { ClassService } from '../../services/class.service';
 import { PageEvent } from '@angular/material/paginator';
 import { access } from 'fs';
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-ecolage',
@@ -30,12 +31,14 @@ export class EcolageComponent implements OnInit{
   showFirstLastButtons = true;
   disabled = false;
 
+  sortedData: Student[] = [];
+
   pageEvent!: PageEvent;
 
   ngOnInit(): void {
     this.loadStudents();
     this.loadClasses();
-
+    this.sortedData= this.students.slice();
   }
 
   loadStudents() {
@@ -104,7 +107,31 @@ export class EcolageComponent implements OnInit{
     }
   }
 
-  sortData(event: any) {
-    
+
+  sortData(sort: Sort, i: number) {
+    const data = this.classes[i].students?.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedData = data!;
+      return;
+    }
+
+    this.sortedData = data?.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'fullname':
+          return compare(a.firstname!, b.firstname!, isAsc);
+        case 'status':
+          return compare(a.genre!, b.genre!, isAsc);
+        case 'date':
+          return compare(a.createdDate?.toString()!, b.createdDate?.toString()!, isAsc);
+        default:
+          return 0;
+      }
+    })!;
   }
 }
+
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
+
