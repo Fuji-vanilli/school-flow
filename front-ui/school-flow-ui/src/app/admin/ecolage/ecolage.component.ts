@@ -31,14 +31,11 @@ export class EcolageComponent implements OnInit{
   showFirstLastButtons = true;
   disabled = false;
 
-  sortedData: Student[] = [];
-
   pageEvent!: PageEvent;
 
   ngOnInit(): void {
     this.loadStudents();
     this.loadClasses();
-    this.sortedData= this.students.slice();
   }
 
   loadStudents() {
@@ -109,13 +106,14 @@ export class EcolageComponent implements OnInit{
 
 
   sortData(sort: Sort, i: number) {
-    const data = this.classes[i].students?.slice();
+    const aClass = this.classes[i];
+    const data = aClass.students?.slice();
     if (!sort.active || sort.direction === '') {
-      this.sortedData = data!;
+      aClass.paginatedStudents = data!;
       return;
     }
-
-    this.sortedData = data?.sort((a, b) => {
+  
+    const sortedData = data?.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'fullname':
@@ -128,6 +126,8 @@ export class EcolageComponent implements OnInit{
           return 0;
       }
     })!;
+  
+    aClass.paginatedStudents = sortedData.slice(aClass.pageIndex! * aClass.pageSize!, (aClass.pageIndex! + 1) * aClass.pageSize!);
   }
 }
 
