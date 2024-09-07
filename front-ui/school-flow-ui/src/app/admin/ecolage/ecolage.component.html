@@ -1,10 +1,30 @@
 <div class="container-main">
     <div class="row" style="padding: 0 14px;">
+        <div class="col-md-12 contain">
+            <div class="container">
+                <div class="month">
+                    <mat-form-field >
+                        <mat-label>Choisir un Mois et une année</mat-label>
+                        <input matInput [matDatepicker]="dp" [formControl]="date">
+                        <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+                        <mat-datepicker #dp
+                                        startView="multi-year"
+                                        (monthSelected)="setMonthAndYear($event, dp)"
+                                        panelClass="example-month-picker">
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding: 0 14px;">
         <div class="col-md-6 contain" *ngFor="let aClass of classes; let i= index">
             <div class="container">
-                <h6>Paiement d'Ecolage</h6>
                 <div class="d-flex justify-content-between">
-                    <span>{{'Classe de: '+aClass.level}}</span>
+                    <div>
+                        <h6>Paiement d'Ecolage</h6>
+                        <span>{{'Classe de: '+aClass.level.toUpperCase()}}</span>
+                    </div>
                     <div class="paiment">
                         <button class="btn-paiment">
                             <fa-icon [icon]="['fas', 'coins']" style="margin-right: 8px"></fa-icon>
@@ -13,7 +33,7 @@
                 </div>
                 <table class="table" matSort (matSortChange)="sortData($event, i)">
                     <thead>
-                        <th mat-sort-header="number">N°</th>
+                        <th mat-sort-header="number">Mle</th>
                         <th mat-sort-header="photo">Photo</th>
                         <th mat-sort-header="fullname">Nom et Prénoms</th>
                         <th mat-sort-header="status">Status</th>
@@ -21,7 +41,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let student of getPaginatedStudents(aClass); let index= index">
-                            <td>{{index+1}}</td>
+                            <td>{{student.matricule}}</td>
                             <td><img [src]="student.imageUrl" alt=""></td>
                             <td>{{student.firstname+' '+student.lastname}}</td>
                             <td>

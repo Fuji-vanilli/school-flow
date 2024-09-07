@@ -6,6 +6,12 @@ import { ClassService } from '../../services/class.service';
 import { PageEvent } from '@angular/material/paginator';
 import { access } from 'fs';
 import { Sort } from '@angular/material/sort';
+import * as _moment from 'moment';
+import {default as _rollupMoment, Moment} from 'moment';
+import { MatDatepicker } from '@angular/material/datepicker';
+import { FormControl } from '@angular/forms';
+
+const moment = _rollupMoment || _moment;
 
 @Component({
   selector: 'app-ecolage',
@@ -15,6 +21,8 @@ import { Sort } from '@angular/material/sort';
 export class EcolageComponent implements OnInit{
   studentService= inject(StudentService);
   classService= inject(ClassService);
+
+  date = new FormControl(moment());
 
   colors: string[]= ['#FF6B6B', '#00DC82'];
 
@@ -116,6 +124,8 @@ export class EcolageComponent implements OnInit{
     const sortedData = data?.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
+        case 'number':
+          return compare(a.matricule!, b.matricule!, isAsc);
         case 'fullname':
           return compare(a.firstname!, b.firstname!, isAsc);
         case 'status':
@@ -128,6 +138,14 @@ export class EcolageComponent implements OnInit{
     })!;
   
     aClass.paginatedStudents = sortedData.slice(aClass.pageIndex! * aClass.pageSize!, (aClass.pageIndex! + 1) * aClass.pageSize!);
+  }
+
+  setMonthAndYear(normalizedMonthAndYear: Moment, datepicker: MatDatepicker<Moment>) {
+    const ctrlValue = this.date.value!;
+    ctrlValue.month(normalizedMonthAndYear.month());
+    ctrlValue.year(normalizedMonthAndYear.year());
+    this.date.setValue(ctrlValue);
+    datepicker.close();
   }
 }
 
